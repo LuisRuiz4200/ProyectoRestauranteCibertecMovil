@@ -1,5 +1,3 @@
-#GIT IGNORE DEL PROYECTO DEFAULT
-
 *.iml
 .gradle
 /local.properties
