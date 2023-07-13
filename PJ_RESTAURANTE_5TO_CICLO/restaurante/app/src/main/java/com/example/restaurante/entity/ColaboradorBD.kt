@@ -2,6 +2,7 @@ package com.example.restaurante.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.util.Date
 
 @Entity
 data class ColaboradorBD (
@@ -11,7 +12,6 @@ data class ColaboradorBD (
     var nom_colaborador : String = "",
     var ape_colaborador : String = "",
     var dni_colaborador : String = "",
-    var imagen_colabordar : Byte = 0
-
-
+    var imagen_colaborador : Byte = 0,
+    var fechaReg_colaborador : Date? = null
 )
