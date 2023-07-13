@@ -1,4 +1,4 @@
-package com.example.restaurante.entity
+package com.example.restaurante.room.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -13,5 +13,7 @@ data class ColaboradorBD (
     var ape_colaborador : String = "",
     var dni_colaborador : String = "",
     var imagen_colaborador : Byte = 0,
-    var fechaReg_colaborador : Date? = null
+    var fechaReg_colaborador : Date? = null,
+    var fechcaAct_colaborador : Date? = null,
+    var estado_colaborador : String = "",
 )

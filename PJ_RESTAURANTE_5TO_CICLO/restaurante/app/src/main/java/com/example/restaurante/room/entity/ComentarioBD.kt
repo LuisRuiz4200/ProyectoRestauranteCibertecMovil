@@ -1,4 +1,4 @@
-package com.example.restaurante.entity
+package com.example.restaurante.room.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

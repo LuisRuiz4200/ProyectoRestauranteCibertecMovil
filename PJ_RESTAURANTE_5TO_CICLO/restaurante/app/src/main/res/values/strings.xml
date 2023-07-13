@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">restaurante</string>
+    <string name="database_name">RESTAURANTE BD</string>
 </resources>

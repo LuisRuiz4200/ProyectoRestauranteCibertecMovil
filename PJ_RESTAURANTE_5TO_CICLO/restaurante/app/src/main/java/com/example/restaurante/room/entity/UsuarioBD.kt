@@ -1,4 +1,4 @@
-package com.example.restaurante.entity
+package com.example.restaurante.room.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -18,5 +18,7 @@ data class UsuarioBD(
     var dni_usuario: String = "",
     var email_usuario: String = "",
     var imagen_usuario : String = "",
-    var fechaReg_usuario: Date? = null
+    var fechaReg_usuario: Date? = null,
+    var fechaAct_usuario: Date? = null,
+    var estado_usuario: String = ""
 )

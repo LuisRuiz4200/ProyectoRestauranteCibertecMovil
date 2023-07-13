@@ -1,4 +1,4 @@
-package com.example.restaurante.vista
+package com.example.restaurante.room.vista
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
