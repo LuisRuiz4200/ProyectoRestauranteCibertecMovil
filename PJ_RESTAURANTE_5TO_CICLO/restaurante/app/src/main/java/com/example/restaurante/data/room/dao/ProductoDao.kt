@@ -1,11 +1,11 @@
-package com.example.restaurante.room.dao
+package com.example.restaurante.data.room.dao
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.restaurante.room.entity.ProductoBD
+import com.example.restaurante.data.room.entity.ProductoBD
 
 @Dao
 interface ProductoDao {
