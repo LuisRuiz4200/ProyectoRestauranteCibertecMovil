@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">restaurante</string>
     <string name="database_name">RESTAURANTE BD</string>
+    <string name="mi_perfil">Mi Perfil</string>
+    <string name="nombre_test">Nombre de Usuario</string>
+    <string name="email_test">Email@Email.com</string>
+    <string name="telefono_test">987654321</string>
+    <string name="editar_perfil">Editar Perfil</string>
+    <string name="mis_pedidos">Mis Pedidos</string>
+    <string name="mis_direcciones">Mis Direcciones</string>
+    <string name="mis_favoritos">Mis Favoritos</string>
+    <string name="mis_tarjetas">Mis Tarjetas</string>
 </resources>
