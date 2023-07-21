@@ -5,13 +5,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.restaurante.data.preference.SharedPreferences
+import com.example.restaurante.data.room.BDPolleria
+import com.example.restaurante.data.room.entity.Usuario
 import com.example.restaurante.databinding.ActivityLoginBinding
-import com.example.restaurante.domain.entity.Usuario
 import com.example.restaurante.presentation.catalogo.ListProductosActivity
 import com.example.restaurante.presentation.registro.RegistroActivity
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
+    private lateinit var database : BDPolleria
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
