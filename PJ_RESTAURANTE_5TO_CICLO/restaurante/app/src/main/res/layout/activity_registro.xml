@@ -111,6 +111,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:passwordToggleEnabled="true"
                 android:hint="@string/contrasena">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -118,6 +119,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
+                    android:inputType="textPassword"
                     android:lines="1" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -139,6 +141,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:boxCornerRadiusTopEnd="10dp"
+                app:passwordToggleEnabled="true"
                 android:hint="@string/confirmar_contrasena">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -146,6 +149,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
+                    android:inputType="textPassword"
                     android:lines="1" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -180,7 +184,7 @@
         android:elevation="10dp"
         app:layout_constraintTop_toBottomOf="@id/lycInputs">
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnIngresar"
+            android:id="@+id/btnRegistrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/registrate"

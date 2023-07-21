@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 import java.util.Date
 
 @Entity
-data class UsuarioBD(
+data class Usuario(
     @PrimaryKey(autoGenerate = true)
     var id_usuario:Int = 0,
     var id_tipoUsuario:Int = 0,
@@ -17,8 +17,12 @@ data class UsuarioBD(
     var dir_usuario: String = "",
     var dni_usuario: String = "",
     var email_usuario: String = "",
+    var password_usuario : String = "",
     var imagen_usuario : String = "",
-    var fechaReg_usuario: Date? = null,
-    var fechaAct_usuario: Date? = null,
+
     var estado_usuario: String = ""
 )
+
+
+//var fechaReg_usuario: Date? = null,
+//var fechaAct_usuario: Date? = null,
