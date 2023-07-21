@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:text="@string/eslogan"
             android:fontFamily="@font/marckscript"
-            android:textColor="@color/red"
+            android:textColor="@color/main_rojo"
             android:textSize="14sp"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -133,7 +133,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="9dp"
-            app:cardBackgroundColor="@color/red"
+            app:cardBackgroundColor="@color/main_rojo"
 
             android:layout_marginBottom="6dp">
 
@@ -162,7 +162,9 @@
             <CheckBox
                 android:id="@+id/chkTerminos"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/main_rojo"
+                />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -190,9 +192,10 @@
             android:text="@string/registrate"
             android:textAllCaps="false"
             android:letterSpacing="0.08"
-            android:backgroundTint="@color/red"
+            android:backgroundTint="@color/main_rojo"
             android:layout_marginBottom="10dp"
-            android:padding="10dp"/>
+            android:padding="10dp"
+            app:cornerRadius="10dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

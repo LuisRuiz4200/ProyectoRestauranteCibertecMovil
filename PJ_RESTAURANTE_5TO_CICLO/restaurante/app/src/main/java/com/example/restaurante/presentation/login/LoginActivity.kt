@@ -5,22 +5,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.restaurante.data.preference.SharedPreferences
-import com.example.restaurante.data.room.BDPolleria
-import com.example.restaurante.data.room.entity.Usuario
 import com.example.restaurante.databinding.ActivityLoginBinding
+import com.example.restaurante.domain.entity.Usuario
 import com.example.restaurante.presentation.catalogo.ListProductosActivity
 import com.example.restaurante.presentation.registro.RegistroActivity
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
-    private lateinit var database : BDPolleria
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if(SharedPreferences.getPrefUsuario(applicationContext) != null){
-            startActivity(Intent(this,ListProductosActivity::class.java))
-            finish()
-        }
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initValues()
@@ -47,7 +41,7 @@ class LoginActivity : AppCompatActivity() {
                 finish()
             }
             else{
-                Toast.makeText(this,"Credenciales incorrectas",Toast.LENGTH_LONG).show()
+                Toast.makeText(this,"Sucedio un error",Toast.LENGTH_LONG).show()
             }
         }
 

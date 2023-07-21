@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_login"
+    android:background="@drawable/background_login_2"
     tools:context=".presentation.login.LoginActivity">
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:text="@string/eslogan"
             android:fontFamily="@font/marckscript"
-            android:textColor="@color/red"
+            android:textColor="@color/main_rojo"
             android:textSize="20sp"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -114,7 +114,7 @@
             android:layout_height="wrap_content"
             android:text="@string/olvide_contrasena"
             android:textAlignment="textEnd"
-            android:textColor="@color/red"/>
+            android:textColor="@color/main_rojo"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -134,9 +134,10 @@
             android:text="@string/iniciar_sesion"
             android:textAllCaps="false"
             android:letterSpacing="0.1"
-            android:backgroundTint="@color/red"
+            android:backgroundTint="@color/main_rojo"
             android:layout_marginBottom="10dp"
-            android:padding="12dp"/>
+            android:padding="12dp"
+            app:cornerRadius="10dp"/>
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnRegistrar"
             android:layout_width="match_parent"
@@ -145,8 +146,12 @@
             android:textAllCaps="false"
             android:letterSpacing="0.1"
             android:backgroundTint="@color/white"
-            android:textColor="@color/red"
-            android:padding="12dp"/>
+            android:textColor="@color/main_rojo"
+            android:padding="12dp"
+            app:strokeColor="@color/main_rojo"
+            app:strokeWidth="1dp"
+            app:cornerRadius="10dp"
+            />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

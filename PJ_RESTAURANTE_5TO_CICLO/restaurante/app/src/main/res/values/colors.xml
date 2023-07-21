@@ -8,7 +8,9 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="color_fondo_login">#92cbf7</color>
     <color name="teal_700">#FF018786</color>
-    <color name="red">#E10A0A</color>
+    <color name="main_rojo">#B02625</color>
+    <color name="main_amarillo">#FBC902</color>
+    <color name="link">#B02625</color>
     <color name="rojo_maribel">#DE1F2B</color>
     <color name="red_oscuro">#930404</color>
     <color name="card">#E8E3E3</color>
