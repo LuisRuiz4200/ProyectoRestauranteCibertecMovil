@@ -19,7 +19,7 @@
             android:name=".presentation.catalogo.ListProductosActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.perfilUsuario.LoginActivity"
+            android:name=".presentation.login.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

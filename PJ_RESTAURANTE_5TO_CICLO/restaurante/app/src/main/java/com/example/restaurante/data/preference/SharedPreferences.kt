@@ -15,9 +15,8 @@ object SharedPreferences {
         val usuarioJson=gson.toJson(usuario)
         editor.putString(CLASS_NAME,usuarioJson)
         editor.apply()
-        //si devuelve 1 es q se guardo y nos lleva al ListClientesActivity
         return 1
-    } //Fin de setPrefUsuario
+    }
 
     fun getPrefUsuario(context : Context) :Usuario?{
         var usuario : Usuario? = null
@@ -26,7 +25,7 @@ object SharedPreferences {
             val usuarioJsonDese=prefe.getString(CLASS_NAME,"")
             val gson= Gson()
             usuario=gson.fromJson(usuarioJsonDese,Usuario::class.java)
-        }//Fin del if
+        }
         return usuario
-    }//Fin de getPrefUsuario
+    }
 }

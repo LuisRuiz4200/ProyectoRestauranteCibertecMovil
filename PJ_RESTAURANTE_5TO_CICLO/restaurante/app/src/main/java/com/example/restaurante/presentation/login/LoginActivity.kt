@@ -1,14 +1,14 @@
-package com.example.restaurante.presentation.perfilUsuario
+package com.example.restaurante.presentation.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.restaurante.R
 import com.example.restaurante.data.preference.SharedPreferences
 import com.example.restaurante.databinding.ActivityLoginBinding
 import com.example.restaurante.domain.entity.Usuario
 import com.example.restaurante.presentation.catalogo.ListProductosActivity
+import com.example.restaurante.presentation.registro.RegistroActivity
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -38,6 +38,10 @@ class LoginActivity : AppCompatActivity() {
             else{
                 Toast.makeText(this,"Sucedio un error",Toast.LENGTH_LONG).show()
             }
+        }
+
+        binding.btnRegistrar.setOnClickListener {
+            startActivity(Intent(this,RegistroActivity::class.java))
         }
     }
 
