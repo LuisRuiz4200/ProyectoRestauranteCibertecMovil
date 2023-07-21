@@ -58,7 +58,7 @@ dependencies {
     implementation "android.arch.persistence.room:runtime:1.1.1"
     annotationProcessor 'androidx.room:room-compiler:2.4.3'
     implementation "androidx.room:room-ktx:2.4.3"
-    // Libreria Retrofit - Consumir API
+    //Libreria Retrofit - Consumir API
     implementation 'com.squareup.retrofit2:retrofit:2.6.2'
     implementation 'com.squareup.retrofit2:converter-scalars:2.6.2'
     implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
