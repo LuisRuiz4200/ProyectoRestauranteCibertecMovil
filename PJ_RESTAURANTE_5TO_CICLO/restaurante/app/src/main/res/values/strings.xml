@@ -27,4 +27,7 @@
     <string name="terminos_condiciones">Estoy de acuerdo con las <font color='#B02625'><u>políticas de privacidad</u></font> y los <font color='#B02625'><u>términos &amp; condiciones</u></font>.</string>
     <string name="tienes_cuenta">¿Ya tienes una cuenta?  <font color='#B02625'><u>Inicia sesión</u></font></string>
     <string name="btn_start">Ingresar</string>
+    <string name="Hola">Hola user</string>
+    <string name="PreguntaBienvenida">¿Qué se te antoja hoy?</string>
+    <string name="search">Busca tu favorito</string>
 </resources>

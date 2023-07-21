@@ -1,21 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="300dp"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="12dp"
-    app:cardCornerRadius="8dp"
-    android:elevation="16dp"
-    app:cardBackgroundColor="@color/purple_200"
+    app:cardCornerRadius="10dp"
+    android:elevation="150dp"
+    app:cardBackgroundColor="@color/white"
+
+
     app:contentPadding="8dp" >
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/image_view"
+            android:layout_width="250dp"
+            android:layout_height="128dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_margin="20dp"
+            android:padding="2dp"
+            app:srcCompat="@drawable/img_ejemplo_producto"
+             />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

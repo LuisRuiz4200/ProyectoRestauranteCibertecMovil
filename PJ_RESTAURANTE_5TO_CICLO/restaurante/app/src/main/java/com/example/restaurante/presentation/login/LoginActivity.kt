@@ -8,6 +8,7 @@ import com.example.restaurante.data.preference.SharedPreferences
 import com.example.restaurante.databinding.ActivityLoginBinding
 import com.example.restaurante.domain.entity.Usuario
 import com.example.restaurante.presentation.catalogo.ListProductosActivity
+import com.example.restaurante.presentation.home.HomeActivity
 import com.example.restaurante.presentation.registro.RegistroActivity
 
 class LoginActivity : AppCompatActivity() {
@@ -31,7 +32,7 @@ class LoginActivity : AppCompatActivity() {
             usuario.edad = 23
             if(SharedPreferences.setPrefUsuario(applicationContext,usuario)==1){
                 startActivity(
-                    Intent(this,ListProductosActivity::class.java)
+                    Intent(this,HomeActivity::class.java)
                 )
                 finish()
             }
