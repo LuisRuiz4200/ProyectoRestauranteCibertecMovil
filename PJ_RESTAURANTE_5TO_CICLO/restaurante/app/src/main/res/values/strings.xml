@@ -30,4 +30,6 @@
     <string name="Hola">Hola user</string>
     <string name="PreguntaBienvenida">¿Qué se te antoja hoy?</string>
     <string name="search">Busca tu favorito</string>
+    <string name="cambiar_contrasena">Cambiar Contraseña</string>
+    <string name="guardar">Guardar</string>
 </resources>
