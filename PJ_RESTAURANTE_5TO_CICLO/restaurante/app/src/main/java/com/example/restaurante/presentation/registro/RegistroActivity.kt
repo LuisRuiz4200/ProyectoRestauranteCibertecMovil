@@ -11,5 +11,10 @@ class RegistroActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRegistroBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        initValues()
+    }
+
+    private fun initValues(){
+
     }
 }

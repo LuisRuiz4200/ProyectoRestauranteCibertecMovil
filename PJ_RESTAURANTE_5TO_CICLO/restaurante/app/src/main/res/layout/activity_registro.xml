@@ -122,16 +122,23 @@
             </com.google.android.material.textfield.TextInputLayout>
 
         </androidx.cardview.widget.CardView>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="9dp"
-            app:cardBackgroundColor="@color/white"
+            app:cardBackgroundColor="@color/red"
+
             android:layout_marginBottom="6dp">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:boxCornerRadiusTopEnd="10dp"
                 android:hint="@string/confirmar_contrasena">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -146,8 +153,10 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center">
             <CheckBox
+                android:id="@+id/chkTerminos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView

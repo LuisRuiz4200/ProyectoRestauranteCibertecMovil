@@ -25,5 +25,5 @@
     <string name="contrasena">Contraseña</string>
     <string name="confirmar_contrasena">Confirmar contraseña</string>
     <string name="terminos_condiciones">Estoy de acuerdo con las <font color='red'><u>políticas de privacidad</u></font> y los <font color='red'><u>términos &amp; condiciones</u></font>.</string>
-    <string name="tienes_cuenta">¿Ya tienes una cuenta?  <font color='red'><u>Registrate</u></font></string>
+    <string name="tienes_cuenta">¿Ya tienes una cuenta?  <font color='red'><u>Inicia sesión</u></font></string>
 </resources>

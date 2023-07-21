@@ -29,5 +29,7 @@ class ListProductosActivity : AppCompatActivity() {
         productoAdapter = ListProductosAdapter(database.productoDao().getAll())
         binding.rvProducto.layoutManager=LinearLayoutManager(applicationContext)
         binding.rvProducto.adapter=productoAdapter
+
     }
+
 }
