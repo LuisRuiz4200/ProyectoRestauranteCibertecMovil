@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_login"
+    android:background="@drawable/background_perfil"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -92,7 +92,7 @@
             android:layout_height="wrap_content"
             android:text="@string/editar_perfil"
             android:textAllCaps="false"
-            app:backgroundTint="@color/red"/>
+            app:backgroundTint="@color/rojo_maribel"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -117,7 +117,7 @@
             app:backgroundTint="@color/white"
             android:textColor="@color/gris_principal"
             android:elevation="50dp"
-            android:outlineSpotShadowColor="@color/red"/>
+            android:outlineSpotShadowColor="@color/gris_principal"/>
 
         <com.google.android.material.button.MaterialButton
             android:layout_width="324dp"
@@ -133,7 +133,7 @@
             app:backgroundTint="@color/white"
             android:textColor="@color/gris_principal"
             android:elevation="50dp"
-            android:outlineSpotShadowColor="@color/red"/>
+            android:outlineSpotShadowColor="@color/gris_principal"/>
 
         <com.google.android.material.button.MaterialButton
             android:layout_width="324dp"
@@ -149,7 +149,7 @@
             app:backgroundTint="@color/white"
             android:textColor="@color/gris_principal"
             android:elevation="50dp"
-            android:outlineSpotShadowColor="@color/red"/>
+            android:outlineSpotShadowColor="@color/gris_principal"/>
 
         <com.google.android.material.button.MaterialButton
             android:layout_width="324dp"
@@ -165,7 +165,7 @@
             app:backgroundTint="@color/white"
             android:textColor="@color/gris_principal"
             android:elevation="50dp"
-            android:outlineSpotShadowColor="@color/red"/>
+            android:outlineSpotShadowColor="@color/black"/>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

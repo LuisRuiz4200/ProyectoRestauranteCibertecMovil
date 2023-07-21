@@ -10,4 +10,13 @@
     <string name="mis_direcciones">Mis Direcciones</string>
     <string name="mis_favoritos">Mis Favoritos</string>
     <string name="mis_tarjetas">Mis Tarjetas</string>
+    <string name="lista_productos">Lista de Productos</string>
+    <string name="bienvenido">Bienvenido</string>
+    <string name="ingresa_cuenta">Ingresa con tu cuenta</string>
+    <string name="olvide_contrasena"><u>¿Olvidaste tu contraseña?</u></string>
+    <string name="ingresa_usuario">Ingresa tu usuario</string>
+    <string name="ingresa_contrasena">Ingresa tu contraseña</string>
+    <string name="registrate">Registrate</string>
+    <string name="iniciar_sesion">Iniciar Sesión</string>
+    <string name="eslogan">Pasión por el Sabor</string>
 </resources>
