@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:text="@string/eslogan"
             android:fontFamily="@font/marckscript"
-            android:textColor="@color/red"
+            android:textColor="@color/main_rojo"
             android:textSize="20sp"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -114,7 +114,7 @@
             android:layout_height="wrap_content"
             android:text="@string/olvide_contrasena"
             android:textAlignment="textEnd"
-            android:textColor="@color/red"/>
+            android:textColor="@color/main_rojo"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -134,7 +134,7 @@
             android:text="@string/iniciar_sesion"
             android:textAllCaps="false"
             android:letterSpacing="0.1"
-            android:backgroundTint="@color/red"
+            android:backgroundTint="@color/main_rojo"
             android:layout_marginBottom="10dp"
             android:padding="12dp"/>
         <com.google.android.material.button.MaterialButton
@@ -145,7 +145,7 @@
             android:textAllCaps="false"
             android:letterSpacing="0.1"
             android:backgroundTint="@color/white"
-            android:textColor="@color/red"
+            android:textColor="@color/main_rojo"
             android:padding="12dp"/>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
