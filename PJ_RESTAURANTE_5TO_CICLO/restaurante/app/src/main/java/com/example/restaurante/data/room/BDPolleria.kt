@@ -31,6 +31,6 @@ abstract class BDPolleria : RoomDatabase()  {
                     .build()
             }
             return instancia as BDPolleria
-        } //Fin de getInstancia
-    } //Fin de companion object
-} //Fin de BDPOLLERIA
+        }
+    }
+}

@@ -4,9 +4,10 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
-    <!--    <style name="buttonShadow">-->
-<!--        android:startColor="#FF4081"-->
-<!--        android:endColor="#FFC107"-->
-<!--        android:angle="45"-->
-<!--    </style>-->
+    <style name="buttonShadow">
+        android:startColor="#FF4081"
+        android:endColor="#FFC107"
+        android:angle="45"
+        <item name="android:orientation">vertical</item>
+    </style>
 </resources>

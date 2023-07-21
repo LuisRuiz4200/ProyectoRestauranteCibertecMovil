@@ -75,7 +75,6 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
                 android:hint="@string/ingresa_usuario">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -98,7 +97,6 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
                 android:hint="@string/ingresa_contrasena"
                 app:passwordToggleEnabled="true">
                 <com.google.android.material.textfield.TextInputEditText
