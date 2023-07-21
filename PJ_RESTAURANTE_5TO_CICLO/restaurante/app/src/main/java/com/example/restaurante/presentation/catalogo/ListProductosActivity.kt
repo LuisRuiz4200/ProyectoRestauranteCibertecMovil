@@ -27,7 +27,10 @@ class ListProductosActivity : AppCompatActivity() {
         database =BDPolleria.getInstancia(this)
         database.productoDao().insert(listadoProducto)
         productoAdapter = ListProductosAdapter(database.productoDao().getAll())
-        binding.rvProducto.layoutManager=LinearLayoutManager(applicationContext)
+////        binding.rvProducto.layoutManager=LinearLayoutManager(applicationContext)
+//        val layoutManager
+//                = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        binding.rvProducto.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.rvProducto.adapter=productoAdapter
 
     }
