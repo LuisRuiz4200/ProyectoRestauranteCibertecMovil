@@ -25,6 +25,8 @@ class RegistroActivity : AppCompatActivity() {
                 return@setOnClickListener
             if(invalidPass())
                 return@setOnClickListener
+            if(invalidCheckBox())
+                return@setOnClickListener
             database = BDPolleria.getInstancia(this)
             var usuario = Usuario()
             usuario.nom_usuario = binding.etNombreCompleto.text.toString()
@@ -60,6 +62,14 @@ class RegistroActivity : AppCompatActivity() {
         var conf = binding.etConfirmarContrasena.text.toString()
         if(pass != conf){
             Toast.makeText(this, "Las contraseñas son diferentes", Toast.LENGTH_LONG).show()
+            return true
+        }
+        return false
+    }
+
+    private fun invalidCheckBox() : Boolean{
+        if(!binding.chkTerminos.isChecked){
+            Toast.makeText(this, "Acepte los términos y condiciones", Toast.LENGTH_LONG).show()
             return true
         }
         return false

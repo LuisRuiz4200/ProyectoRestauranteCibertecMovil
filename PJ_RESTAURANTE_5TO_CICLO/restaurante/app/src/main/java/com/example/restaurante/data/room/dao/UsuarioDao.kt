@@ -14,6 +14,9 @@ interface UsuarioDao {
     @Query("SELECT * FROM Usuario where id_usuario= :id")
     fun getUsuarioById(id:Int): Usuario
 
+    @Query("SELECT * FROM Usuario where email_usuario= :email and password_usuario = :pass")
+    fun getUsuarioByEmailAndPass(email : String, pass : String): Usuario
+
     @Insert(onConflict =  OnConflictStrategy.REPLACE)
     fun insertUsuario(usuario: Usuario)
 

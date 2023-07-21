@@ -1,7 +1,8 @@
 package com.example.restaurante.data.preference
 
 import android.content.Context
-import com.example.restaurante.domain.entity.Usuario
+import com.example.restaurante.data.room.entity.Usuario
+//import com.example.restaurante.domain.entity.Usuario
 import com.google.gson.Gson
 
 object SharedPreferences {

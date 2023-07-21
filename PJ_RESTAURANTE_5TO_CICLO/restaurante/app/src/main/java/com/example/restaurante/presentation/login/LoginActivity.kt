@@ -5,16 +5,22 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.restaurante.data.preference.SharedPreferences
+import com.example.restaurante.data.room.BDPolleria
+import com.example.restaurante.data.room.entity.Usuario
 import com.example.restaurante.databinding.ActivityLoginBinding
-import com.example.restaurante.domain.entity.Usuario
 import com.example.restaurante.presentation.catalogo.ListProductosActivity
 import com.example.restaurante.presentation.registro.RegistroActivity
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
+    private lateinit var database : BDPolleria
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if(SharedPreferences.getPrefUsuario(applicationContext) != null){
+            startActivity(Intent(this,ListProductosActivity::class.java))
+            finish()
+        }
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initValues()
@@ -24,19 +30,24 @@ class LoginActivity : AppCompatActivity() {
         binding.btnIngresar.setOnClickListener{
             if (!validarFormulario())
                 return@setOnClickListener
-            var usuario = Usuario()
-            usuario.idUsuario = 1
-            usuario.nombreCompleto = binding.etUsuario.text.toString()
-            usuario.login = binding.etPassword.text.toString()
-            usuario.edad = 23
-            if(SharedPreferences.setPrefUsuario(applicationContext,usuario)==1){
-                startActivity(
-                    Intent(this,ListProductosActivity::class.java)
-                )
+            database = BDPolleria.getInstancia(this)
+            /* Crear usuario */
+            var obj = Usuario()
+            obj.id_usuario = 1
+            obj.email_usuario = "user"
+            obj.password_usuario = "123"
+            database.usuarioDao().insertUsuario(obj)
+
+            var email = binding.etUsuario.text.toString()
+            var pass = binding.etPassword.text.toString()
+            var usuario = database.usuarioDao().getUsuarioByEmailAndPass(email, pass)
+            if(usuario != null){
+                SharedPreferences.setPrefUsuario(applicationContext,usuario)
+                startActivity(Intent(this,ListProductosActivity::class.java))
                 finish()
             }
             else{
-                Toast.makeText(this,"Sucedio un error",Toast.LENGTH_LONG).show()
+                Toast.makeText(this,"Credenciales incorrectas",Toast.LENGTH_LONG).show()
             }
         }
 
