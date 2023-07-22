@@ -8,6 +8,7 @@ import com.example.restaurante.R
 import com.example.restaurante.data.room.BDPolleria
 import com.example.restaurante.data.room.entity.Usuario
 import com.example.restaurante.databinding.ActivityRegistroBinding
+import kotlinx.android.synthetic.main.activity_registro.view.etTelefono
 
 class RegistroActivity : AppCompatActivity() {
     private lateinit var binding : ActivityRegistroBinding
@@ -30,6 +31,7 @@ class RegistroActivity : AppCompatActivity() {
             database = BDPolleria.getInstancia(this)
             var usuario = Usuario()
             usuario.nom_usuario = binding.etNombreCompleto.text.toString()
+            usuario.tel_usuario = binding.etTelefono.text.toString()
             usuario.email_usuario =  binding.etEmail.text.toString()
             usuario.password_usuario = binding.etContrasena.text.toString()
             database.usuarioDao().insertUsuario(usuario)
@@ -40,6 +42,10 @@ class RegistroActivity : AppCompatActivity() {
     private fun invalidForm() : Boolean{
         if(binding.etNombreCompleto.text.toString().isNullOrEmpty()){
             Toast.makeText(this, "Ingrese su nombre completo.", Toast.LENGTH_LONG).show()
+            return true
+        }
+        if(binding.etEmail.etTelefono.toString().isNullOrEmpty()){
+            Toast.makeText(this, "Ingrese su telefono.", Toast.LENGTH_LONG).show()
             return true
         }
         if(binding.etEmail.text.toString().isNullOrEmpty()){

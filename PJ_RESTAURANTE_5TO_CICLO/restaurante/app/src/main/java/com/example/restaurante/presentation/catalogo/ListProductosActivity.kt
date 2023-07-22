@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.restaurante.R
+import com.example.restaurante.data.preference.SharedPreferences
 import com.example.restaurante.data.room.BDPolleria
 import com.example.restaurante.data.room.entity.Producto
 import com.example.restaurante.databinding.ActivityListProductosBinding
@@ -32,7 +33,11 @@ class ListProductosActivity : AppCompatActivity() {
 //                = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.rvProducto.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.rvProducto.adapter=productoAdapter
-
+        setNombreUsuario()
     }
 
+    private fun setNombreUsuario(){
+        var usuario = SharedPreferences.getPrefUsuario(this)
+        binding.tvUsuario.text = "Hola ${usuario?.nom_usuario}"
+    }
 }

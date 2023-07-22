@@ -11,7 +11,7 @@ data class Usuario(
     var id_tipoUsuario:Int = 0,
     var nom_usuario: String = "",
     var ape_usuario: String = "",
-    var tel_usuario: Int = 0,
+    var tel_usuario: String = "",
     var cel_usuario: Int = 0,
     var id_distrito:Int = 0,
     var dir_usuario: String = "",

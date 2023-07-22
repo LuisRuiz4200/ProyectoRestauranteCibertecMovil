@@ -17,6 +17,10 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if(SharedPreferences.getPrefUsuario(applicationContext) != null){
+            startActivity(Intent(this,ListProductosActivity::class.java))
+            finish()
+        }
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initValues()
@@ -30,13 +34,15 @@ class LoginActivity : AppCompatActivity() {
             /* Crear usuario */
             var obj = Usuario()
             obj.id_usuario = 1
+            obj.nom_usuario = "Pablito Backyardigans"
             obj.email_usuario = "user"
             obj.password_usuario = "123"
+            obj.tel_usuario = "123"
             database.usuarioDao().insertUsuario(obj)
 
             var email = binding.etUsuario.text.toString()
             var pass = binding.etPassword.text.toString()
-            var usuario = database.usuarioDao().getUsuarioByEmailAndPass(email, pass)
+            var usuario = database.usuarioDao().getUsuarioByUserAndPass(email, pass)
             if(usuario != null){
                 SharedPreferences.setPrefUsuario(applicationContext,usuario)
                 startActivity(Intent(this,ListProductosActivity::class.java))
