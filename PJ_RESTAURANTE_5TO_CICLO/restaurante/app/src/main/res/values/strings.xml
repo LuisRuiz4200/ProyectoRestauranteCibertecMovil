@@ -1,36 +1,5 @@
 <resources>
-    <string name="app_name">Leña y Carbon</string>
-    <string name="database_name">BD POLLERIA</string>
-    <string name="mi_perfil">Mi Perfil</string>
-    <string name="nombre_test">Nombre de Usuario</string>
-    <string name="email_test">Email@Email.com</string>
-    <string name="telefono_test">987654321</string>
-    <string name="editar_perfil">Editar Perfil</string>
-    <string name="mis_pedidos">Mis Pedidos</string>
-    <string name="mis_direcciones">Mis Direcciones</string>
-    <string name="mis_favoritos">Mis Favoritos</string>
-    <string name="mis_tarjetas">Mis Tarjetas</string>
-    <string name="lista_productos">Lista de Productos</string>
-    <string name="bienvenido">Bienvenido</string>
-    <string name="ingresa_cuenta">Ingresa con tu cuenta</string>
-    <string name="olvide_contrasena"><u>¿Olvidaste tu contraseña?</u></string>
-    <string name="ingresa_usuario">Ingresa tu usuario</string>
-    <string name="ingresa_contrasena">Ingresa tu contraseña</string>
-    <string name="registrate">Regístrate</string>
-    <string name="iniciar_sesion">Iniciar Sesión</string>
-    <string name="eslogan">Pasión por el Sabor</string>
-    <string name="crea_cuenta">Crea una nueva cuenta</string>
-    <string name="nombre_completo">Nombre completo</string>
-    <string name="email">Email</string>
-    <string name="contrasena">Contraseña</string>
-    <string name="confirmar_contrasena">Confirmar contraseña</string>
-    <string name="terminos_condiciones">Estoy de acuerdo con las <font color='#B02625'><u>políticas de privacidad</u></font> y los <font color='#B02625'><u>términos &amp; condiciones</u></font>.</string>
-    <string name="tienes_cuenta">¿Ya tienes una cuenta?  <font color='#B02625'><u>Inicia sesión</u></font></string>
-    <string name="btn_start">Ingresar</string>
-    <string name="Hola">Hola user</string>
-    <string name="PreguntaBienvenida">¿Qué se te antoja hoy?</string>
-    <string name="search">Busca tu favorito</string>
-    <string name="cambiar_contrasena">Cambiar Contraseña</string>
-    <string name="guardar">Guardar</string>
-    <string name="telefono">Telefono</string>
+    <string name="app_name">restaurante</string>
+    <string name="database_name">RESTAURANTE BD</string>
+    <string name="test">prueba BD</string>
 </resources>
