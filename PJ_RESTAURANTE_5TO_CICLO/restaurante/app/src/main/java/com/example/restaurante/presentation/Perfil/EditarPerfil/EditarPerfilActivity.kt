@@ -1,8 +1,7 @@
-package com.example.restaurante.presentation.perfilUsuario
+package com.example.restaurante.presentation.Perfil.EditarPerfil
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.restaurante.R
 import com.example.restaurante.databinding.ActivityEditarPerfilBinding
 
 class EditarPerfilActivity : AppCompatActivity() {
@@ -12,5 +11,10 @@ class EditarPerfilActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityEditarPerfilBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        initValues()
+    }
+
+    private fun initValues() {
+        TODO("Not yet implemented")
     }
 }

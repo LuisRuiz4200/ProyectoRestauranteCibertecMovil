@@ -7,8 +7,6 @@
     app:cardCornerRadius="10dp"
     android:elevation="150dp"
     app:cardBackgroundColor="@color/white"
-
-
     app:contentPadding="8dp" >
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -40,7 +38,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Producto"
+                android:text="@string/producto"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -49,7 +47,7 @@
                 android:id="@+id/tvProducto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="1/4 de Pollo Frito"
+                android:text="@string/producto_test"
                 android:layout_weight="1"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -59,7 +57,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Descripción"
+                android:text="@string/descripcion"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -68,7 +66,7 @@
                 android:id="@+id/tvDescripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Con Gaseosa Coca 1L"
+                android:text="@string/descripcion_test"
                 android:layout_weight="1"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -78,7 +76,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Precio S/."
+                android:text="@string/precio"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -87,7 +85,7 @@
                 android:id="@+id/tvPrecio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="10.50"
+                android:text="@string/precio_test"
                 android:layout_weight="1"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.appcompat.widget.LinearLayoutCompat>
