@@ -1,22 +1,23 @@
-package com.example.restaurante.presentation.Perfil.MisDirecciones
+package com.example.restaurante.presentation.Perfil.MisPedidos
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.restaurante.data.room.BDPolleria
 import com.example.restaurante.data.room.entity.Producto
-import com.example.restaurante.databinding.ActivityMisDireccionesBinding
-import com.example.restaurante.presentation.catalogo.ListProductosAdapter
+import com.example.restaurante.databinding.ActivityMisPedidosBinding
+import com.example.restaurante.presentation.Perfil.MisDirecciones.MisDireccionesAdapter
 
-class MisDireccionesActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityMisDireccionesBinding
+class MisPedidosActivity : AppCompatActivity() {
+    private lateinit var binding : ActivityMisPedidosBinding
     private var listadoProducto : MutableList<Producto> = ArrayList()
     private lateinit var database : BDPolleria
-    private  lateinit var productoAdapter :MisDireccionesAdapter
+    private  lateinit var productoAdapter :MisPedidosAdapter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMisDireccionesBinding.inflate(layoutInflater)
+        binding = ActivityMisPedidosBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initValues()
     }
@@ -30,11 +31,11 @@ class MisDireccionesActivity : AppCompatActivity() {
         listadoProducto.add(Producto(6,2,"1 de Pollo","Con Gaseosa Y Ensalada",65.50,100,null))
         database = BDPolleria.getInstancia(this)
         database.productoDao().insert(listadoProducto)
-        productoAdapter = MisDireccionesAdapter(database.productoDao().getAll())
+        productoAdapter = MisPedidosAdapter(database.productoDao().getAll())
 ////        binding.rvProducto.layoutManager=LinearLayoutManager(applicationContext)
 //        val layoutManager
 //                = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        binding.rvDirecciones.layoutManager = LinearLayoutManager(this)
-        binding.rvDirecciones.adapter=productoAdapter
+        binding.rvPedido.layoutManager = LinearLayoutManager(this)
+        binding.rvPedido.adapter=productoAdapter
     }
 }

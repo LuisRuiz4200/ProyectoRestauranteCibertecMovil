@@ -27,27 +27,27 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/tvNombre"
+                android:id="@+id/tvPedido"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:fontFamily="@font/font_poppins"
-                android:text="@string/direccion_test"
+                android:text="@string/pedido_test"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnAction"
+                android:id="@+id/btnEstado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/white"
-                android:text="@string/editar"
+                android:backgroundTint="@color/test"
+                android:text="@string/estado"
                 android:textAllCaps="false"
-                android:textColor="@color/link"
+                android:textColor="@color/gris_principal"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 app:cornerRadius="10dp"
-                app:strokeColor="@color/link"
+                app:strokeColor="@color/gris_principal"
                 app:strokeWidth="1.8dp" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -60,7 +60,7 @@
                 android:id="@+id/tvDescripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/direccion_test" />
+                android:text="@string/pedido_descripcion_test" />
         </androidx.appcompat.widget.LinearLayoutCompat>
         <!--Detalle 2-->
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -69,10 +69,10 @@
             android:layout_marginTop="6dp">
 
             <TextView
-                android:id="@+id/tvDetalle"
+                android:id="@+id/tvFecha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/direccion_test" />
+                android:text="@string/pedido_detalle_test" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.appcompat.widget.LinearLayoutCompat>
 

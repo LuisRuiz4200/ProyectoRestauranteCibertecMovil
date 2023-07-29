@@ -1,4 +1,4 @@
-package com.example.restaurante.presentation.Perfil.MisDirecciones
+package com.example.restaurante.presentation.Perfil.MisPedidos
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,15 +8,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.restaurante.R
 import com.example.restaurante.data.room.entity.Producto
 
-class MisDireccionesAdapter(var items: MutableList<Producto>) : RecyclerView.Adapter<MisDireccionesAdapter.ViewHolder>() {
+class MisPedidosAdapter (var items: MutableList<Producto>) : RecyclerView.Adapter<MisPedidosAdapter.ViewHolder>() {
+
     inner class ViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView){
-        val tvNombre: TextView = itemView.findViewById(R.id.tvNombre)
+        val tvNombre: TextView = itemView.findViewById(R.id.tvPedido)
         val tvDescripcion: TextView = itemView.findViewById(R.id.tvDescripcion)
-        val tvDetalle: TextView = itemView.findViewById(R.id.tvDetalle)
+        val tvFecha: TextView = itemView.findViewById(R.id.tvFecha)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view : View =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_direccion,parent,false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_pedido,parent,false)
         return ViewHolder(view)
     }
     override fun getItemCount(): Int {
@@ -26,6 +27,6 @@ class MisDireccionesAdapter(var items: MutableList<Producto>) : RecyclerView.Ada
         val item = items[position]
         holder.tvNombre.text=item.nom_producto
         holder.tvDescripcion.text=item.des_producto
-        holder.tvDetalle.text=item.preciouni_producto.toString()
+        holder.tvFecha.text=item.preciouni_producto.toString()
     }
 }

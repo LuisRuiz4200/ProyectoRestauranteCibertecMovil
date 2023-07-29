@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.restaurante.R
 import com.example.restaurante.data.preference.SharedPreferences
 import com.example.restaurante.data.room.BDPolleria
 import com.example.restaurante.data.room.entity.Producto
@@ -27,6 +26,8 @@ class ListProductosActivity : AppCompatActivity() {
         listadoProducto.add(Producto(2,2,"1/8 de Pollo","Con Ensalada",6.50,30,null))
         listadoProducto.add(Producto(3,2,"1/2 de Pollo","Con Helado",24.34,42,null))
         listadoProducto.add(Producto(4,2,"1 de Pollo","Con Gaseosa Y Ensalada",65.50,100,null))
+        listadoProducto.add(Producto(5,2,"1 de Pollo","Con Gaseosa Y Ensalada",65.50,100,null))
+        listadoProducto.add(Producto(6,2,"1 de Pollo","Con Gaseosa Y Ensalada",65.50,100,null))
         database =BDPolleria.getInstancia(this)
         database.productoDao().insert(listadoProducto)
         productoAdapter = ListProductosAdapter(database.productoDao().getAll())

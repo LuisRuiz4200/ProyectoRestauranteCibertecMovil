@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.Perfil.EditarPerfil.EditarPerfilActivity">
+    tools:context=".presentation.Perfil.MisDirecciones.AgregarDireccion.AgregarDireccionActivity">
 
     <!--Titulo-->
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -18,14 +18,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_arrow_left"
             android:layout_marginStart="30dp"
-            />
+            android:drawableStart="@drawable/ic_arrow_left"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="54dp"
-            android:text="@string/editar_perfil"
+            android:text="@string/agregar_nueva_direccion"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textAlignment="center"
@@ -40,18 +39,12 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginTop="40dp"
+        android:gravity="center"
         app:layout_constraintTop_toBottomOf="@id/lycTitulo">
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/image_view"
-            android:layout_width="128dp"
-            android:layout_height="128dp"
-            android:layout_gravity="center"
-            app:strokeColor="@color/black"
-            app:strokeWidth="4dp"
-            android:padding="4dp"
-            app:srcCompat="@drawable/pollo"
-            android:scaleType="centerCrop"
-            app:shapeAppearanceOverlay="@style/circularImageView" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/password_reset"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <!--Inputs-->
@@ -60,7 +53,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="35dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         app:layout_constraintTop_toBottomOf="@id/lycImagen">
@@ -74,11 +67,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etUsuario"
+                    android:id="@+id/etNombre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/input_gris"
-                    android:hint="@string/nombre_test"/>
+                    android:hint="@string/nombre_alias"/>
             </com.google.android.material.textfield.TextInputLayout>
         </androidx.cardview.widget.CardView>
 
@@ -92,11 +85,12 @@
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etEmail"
+                    android:id="@+id/etDescripcion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/input_gris"
-                    android:hint="@string/email_test" />
+                    android:hint="@string/descripcion_direccion"
+                    android:enabled="false"/>
             </com.google.android.material.textfield.TextInputLayout>
         </androidx.cardview.widget.CardView>
 
@@ -109,36 +103,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etTelefono"
+                    android:id="@+id/etDetalle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/input_gris"
-                    android:hint="@string/telefono_test" />
+                    android:hint="@string/detalle_direccion" />
             </com.google.android.material.textfield.TextInputLayout>
         </androidx.cardview.widget.CardView>
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnCambiarContrasena"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:text="@string/cambiar_contrasena"
-                android:textAllCaps="false"
-                android:textColor="@color/gris_principal"
-                android:textAlignment="textStart"
-                android:backgroundTint="@color/white"
-                app:strokeWidth="2dp"
-                app:strokeColor="@color/borde_gris"
-                app:cornerRadius="9dp"
-                android:drawableEnd="@drawable/ic_arrow_right"/>
-        </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <!--Boton Guardar-->
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/lycBotonEditar"
+        android:id="@+id/lycBtnCambiar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -156,5 +132,6 @@
             android:layout_marginBottom="10dp"
             android:padding="12dp"
             app:cornerRadius="10dp"/>
+
     </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.constraintlayout.widget.ConstraintLayout>

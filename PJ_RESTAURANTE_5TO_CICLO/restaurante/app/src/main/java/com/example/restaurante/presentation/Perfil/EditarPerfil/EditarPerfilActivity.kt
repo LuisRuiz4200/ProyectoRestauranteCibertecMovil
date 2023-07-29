@@ -1,8 +1,10 @@
 package com.example.restaurante.presentation.Perfil.EditarPerfil
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.restaurante.databinding.ActivityEditarPerfilBinding
+import com.example.restaurante.presentation.Perfil.CambiarContrasena.CambiarContrasenaActivity
 
 class EditarPerfilActivity : AppCompatActivity() {
     private lateinit var binding : ActivityEditarPerfilBinding
@@ -15,6 +17,8 @@ class EditarPerfilActivity : AppCompatActivity() {
     }
 
     private fun initValues() {
-        TODO("Not yet implemented")
+        binding.btnCambiarContrasena.setOnClickListener {
+            startActivity(Intent(this,CambiarContrasenaActivity::class.java))
+        }
     }
 }
