@@ -20,7 +20,7 @@
     <color name="colorPrimaryDark">#1B3F89</color>
     <color name="colorAccent">#802196F3</color>
     <color name="gris_principal">#4D4D4D</color>
-    <color name="transparente">#00000000</color>
+    <color name="test">#1D4D4D4D</color>
     <color name="input_gris">#F2F2F2</color>
     <color name="borde_gris">#E8E8E8</color>
 </resources>

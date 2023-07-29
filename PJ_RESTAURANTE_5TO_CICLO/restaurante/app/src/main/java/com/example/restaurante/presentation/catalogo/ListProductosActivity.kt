@@ -1,5 +1,6 @@
 package com.example.restaurante.presentation.catalogo
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -8,6 +9,7 @@ import com.example.restaurante.data.preference.SharedPreferences
 import com.example.restaurante.data.room.BDPolleria
 import com.example.restaurante.data.room.entity.Producto
 import com.example.restaurante.databinding.ActivityListProductosBinding
+import com.example.restaurante.presentation.Perfil.PerfilUsuarioActivity
 
 class ListProductosActivity : AppCompatActivity() {
     private lateinit var binding:ActivityListProductosBinding
@@ -34,6 +36,10 @@ class ListProductosActivity : AppCompatActivity() {
         binding.rvProducto.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.rvProducto.adapter=productoAdapter
         setNombreUsuario()
+
+        binding.btnOpcPromociones.setOnClickListener {
+            startActivity(Intent(this, PerfilUsuarioActivity::class.java))
+        }
     }
 
     private fun setNombreUsuario(){
