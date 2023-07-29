@@ -16,6 +16,7 @@
         android:layout_marginTop="29dp"
         app:layout_constraintTop_toTopOf="parent">
         <TextView
+            android:id="@+id/tvBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
@@ -122,10 +123,10 @@
         android:layout_marginTop="50dp"
         app:layout_constraintTop_toBottomOf="@id/lycInputs">
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnIngresar"
+            android:id="@+id/btnCambiar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/guardar"
+            android:text="@string/cambiar"
             android:textAllCaps="false"
             android:letterSpacing="0.1"
             android:backgroundTint="@color/main_rojo"

@@ -36,12 +36,23 @@
     <string name="contrasena_actual">Contraseña actual</string>
     <string name="new_password">Nueva contraseña</string>
     <string name="confirm_new_password">Confirmar nueva contraseña</string>
-    <string name="direccion_test">Direccion Test</string>
+    <string name="direccion_test">Casa de Tía Consuelo</string>
     <string name="editar">Editar</string>
     <string name="producto">Producto</string>
-    <string name="producto_test">Producto Test</string>
+    <string name="producto_test">Pollo Entero Tradicional</string>
     <string name="descripcion">Descripcion</string>
-    <string name="descripcion_test">Descripcion test</string>
+    <string name="descripcion_test">Pollo + Papas + Ensalada y Cremas</string>
     <string name="precio">Precio S/</string>
     <string name="precio_test">99.99</string>
+    <string name="agregar_nueva_direccion">Agregar nueva dirección</string>
+    <string name="nombre_alias">Nombre / Alias</string>
+    <string name="descripcion_direccion">Descripcion de dirección</string>
+    <string name="detalle_direccion">Detalle de la dirección</string>
+    <string name="cambiar">Cambiar</string>
+    <string name="direccion_descripcion_test">Jr. Montecarlo 250 int. 203 - San Miguel</string>
+    <string name="direccion_detalle_test">Ingresar por la Av. Antunez de Mayolo - Casa de fachada crema</string>
+    <string name="pedido_test">Pedido #555888</string>
+    <string name="pedido_descripcion_test">Promo 69.90, Porcion de tequeños - S/89.90</string>
+    <string name="pedido_detalle_test">Fecha 01/01/2023</string>
+    <string name="estado">Entregado</string>
 </resources>
