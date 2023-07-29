@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_perfil"
-    tools:context=".presentation.perfilUsuario.PerfilUsuarioActivity">
+    tools:context=".presentation.Perfil.PerfilUsuarioActivity">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/lycTitulo"
@@ -88,6 +88,7 @@
         android:layout_marginEnd="94dp"
         app:layout_constraintTop_toBottomOf="@id/lycDescription">
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEditar"
             android:layout_width="172dp"
             android:layout_height="wrap_content"
             android:text="@string/editar_perfil"
@@ -104,6 +105,7 @@
         android:gravity="center"
         app:layout_constraintTop_toBottomOf="@id/lycBotonEditar">
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPedidos"
             android:layout_width="324dp"
             android:layout_height="wrap_content"
             android:text="@string/mis_pedidos"
@@ -120,6 +122,7 @@
             android:outlineSpotShadowColor="@color/gris_principal"/>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDirecciones"
             android:layout_width="324dp"
             android:layout_height="wrap_content"
             android:text="@string/mis_direcciones"
@@ -136,6 +139,7 @@
             android:outlineSpotShadowColor="@color/gris_principal"/>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnFavoritos"
             android:layout_width="324dp"
             android:layout_height="wrap_content"
             android:text="@string/mis_favoritos"
@@ -152,6 +156,7 @@
             android:outlineSpotShadowColor="@color/gris_principal"/>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnTarjetas"
             android:layout_width="324dp"
             android:layout_height="wrap_content"
             android:text="@string/mis_tarjetas"

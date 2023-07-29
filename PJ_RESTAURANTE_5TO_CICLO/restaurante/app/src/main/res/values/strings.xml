@@ -33,4 +33,15 @@
     <string name="cambiar_contrasena">Cambiar Contraseña</string>
     <string name="guardar">Guardar</string>
     <string name="telefono">Telefono</string>
+    <string name="contrasena_actual">Contraseña actual</string>
+    <string name="new_password">Nueva contraseña</string>
+    <string name="confirm_new_password">Confirmar nueva contraseña</string>
+    <string name="direccion_test">Direccion Test</string>
+    <string name="editar">Editar</string>
+    <string name="producto">Producto</string>
+    <string name="producto_test">Producto Test</string>
+    <string name="descripcion">Descripcion</string>
+    <string name="descripcion_test">Descripcion test</string>
+    <string name="precio">Precio S/</string>
+    <string name="precio_test">99.99</string>
 </resources>
