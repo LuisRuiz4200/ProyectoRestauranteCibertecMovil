@@ -65,4 +65,5 @@
     <string name="categoria_promociones">Promociones</string>
     <string name="carrito">Carrito</string>
     <string name="continuar_compra">Continuar compra</string>
+    <string name="cantidad">Cant:</string>
 </resources>
