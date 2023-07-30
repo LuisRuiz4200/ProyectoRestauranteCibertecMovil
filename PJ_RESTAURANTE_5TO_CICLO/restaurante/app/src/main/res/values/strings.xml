@@ -63,4 +63,6 @@
     <string name="categoria_pollos">Pollos</string>
     <string name="categoria_parrillas">Parrillas</string>
     <string name="categoria_promociones">Promociones</string>
+    <string name="carrito">Carrito</string>
+    <string name="continuar_compra">Continuar compra</string>
 </resources>
