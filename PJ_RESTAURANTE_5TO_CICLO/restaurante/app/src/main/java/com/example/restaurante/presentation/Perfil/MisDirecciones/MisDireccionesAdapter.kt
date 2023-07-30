@@ -10,9 +10,9 @@ import com.example.restaurante.data.room.entity.Producto
 
 class MisDireccionesAdapter(var items: MutableList<Producto>) : RecyclerView.Adapter<MisDireccionesAdapter.ViewHolder>() {
     inner class ViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView){
-        val tvNombre: TextView = itemView.findViewById(R.id.tvNombre)
-        val tvDescripcion: TextView = itemView.findViewById(R.id.tvDescripcion)
-        val tvDetalle: TextView = itemView.findViewById(R.id.tvDetalle)
+        val tvNombre: TextView = itemView.findViewById(R.id.tvDireccionNombre)
+        val tvDescripcion: TextView = itemView.findViewById(R.id.tvDireccionDescripcion)
+        val tvDetalle: TextView = itemView.findViewById(R.id.tvDireccionDetalle)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view : View =

@@ -18,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"
         >
         <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/btnMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/vector_menu"/>
@@ -26,6 +27,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/logo"/>
         <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/btnPerfil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_user_profile"/>

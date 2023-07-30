@@ -9,6 +9,7 @@ import com.example.restaurante.data.room.BDPolleria
 import com.example.restaurante.data.room.entity.Producto
 import com.example.restaurante.databinding.ActivityListProductosBinding
 import com.example.restaurante.presentation.Perfil.PerfilUsuarioActivity
+import com.example.restaurante.presentation.catalogo.Details.DetalleProductoActivity
 
 class ListProductosActivity : AppCompatActivity() {
     private lateinit var binding:ActivityListProductosBinding
@@ -38,8 +39,13 @@ class ListProductosActivity : AppCompatActivity() {
         binding.rvProducto.adapter=productoAdapter
         setNombreUsuario()
 
-        binding.btnOpcPromociones.setOnClickListener {
+        binding.btnPerfil.setOnClickListener {
             startActivity(Intent(this, PerfilUsuarioActivity::class.java))
+        }
+
+        binding.btnMenu.setOnClickListener{
+            // Accion temporal para mostrar Detalle Producto
+            startActivity(Intent(this,DetalleProductoActivity::class.java))
         }
     }
 
