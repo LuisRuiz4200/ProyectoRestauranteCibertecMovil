@@ -43,12 +43,6 @@
             android:name=".presentation.perfil.EditarPerfil.EditarPerfilActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.home.HomeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.StartActivity"
-            android:exported="false" />
-        <activity
             android:name=".presentation.perfil.PerfilUsuarioActivity"
             android:exported="false" />
         <activity
