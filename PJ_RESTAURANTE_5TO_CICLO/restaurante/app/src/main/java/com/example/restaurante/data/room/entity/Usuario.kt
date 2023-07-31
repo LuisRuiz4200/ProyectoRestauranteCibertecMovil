@@ -19,7 +19,6 @@ data class Usuario(
     var email_usuario: String = "",
     var password_usuario : String = "",
     var imagen_usuario : String = "",
-
     var estado_usuario: String = ""
 )
 
