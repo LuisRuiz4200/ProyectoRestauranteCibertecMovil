@@ -1,10 +1,10 @@
-package com.example.restaurante.presentation.Perfil.CambiarContrasena
+package com.example.restaurante.presentation.perfil.CambiarContrasena
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.restaurante.databinding.ActivityCambiarContrasenaBinding
-import com.example.restaurante.presentation.Perfil.MisDirecciones.AgregarDireccion.AgregarDireccionActivity
+import com.example.restaurante.presentation.perfil.MisDirecciones.AgregarDireccion.AgregarDireccionActivity
 
 class CambiarContrasenaActivity : AppCompatActivity() {
     private lateinit var binding : ActivityCambiarContrasenaBinding

@@ -1,4 +1,4 @@
-package com.example.restaurante.presentation.Perfil.MisTarjetas.AgregarTarjeta
+package com.example.restaurante.presentation.perfil.MisTarjetas.AgregarTarjeta
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

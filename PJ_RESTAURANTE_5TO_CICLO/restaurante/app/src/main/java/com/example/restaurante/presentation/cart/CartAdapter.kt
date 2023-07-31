@@ -1,4 +1,4 @@
-package com.example.restaurante.presentation.Cart
+package com.example.restaurante.presentation.cart
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.restaurante.R
 import com.example.restaurante.data.room.entity.Producto
-import com.example.restaurante.presentation.catalogo.ListProductosAdapter
 
 class CartAdapter (var items : MutableList<Producto>) : RecyclerView.Adapter<CartAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

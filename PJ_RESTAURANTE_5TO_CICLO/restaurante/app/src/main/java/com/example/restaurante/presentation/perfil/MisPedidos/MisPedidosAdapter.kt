@@ -1,4 +1,4 @@
-package com.example.restaurante.presentation.Perfil.MisPedidos
+package com.example.restaurante.presentation.perfil.MisPedidos
 
 import android.view.LayoutInflater
 import android.view.View

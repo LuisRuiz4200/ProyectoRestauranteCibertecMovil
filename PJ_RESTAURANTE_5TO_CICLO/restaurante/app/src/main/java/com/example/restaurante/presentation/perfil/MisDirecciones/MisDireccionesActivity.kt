@@ -1,22 +1,21 @@
-package com.example.restaurante.presentation.Perfil.MisTarjetas
+package com.example.restaurante.presentation.perfil.MisDirecciones
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.restaurante.data.room.BDPolleria
 import com.example.restaurante.data.room.entity.Producto
-import com.example.restaurante.databinding.ActivityMisTarjetasBinding
+import com.example.restaurante.databinding.ActivityMisDireccionesBinding
 
-class MisTarjetasActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityMisTarjetasBinding
-
+class MisDireccionesActivity : AppCompatActivity() {
+    private lateinit var binding : ActivityMisDireccionesBinding
     private var listadoProducto : MutableList<Producto> = ArrayList()
     private lateinit var database : BDPolleria
-    private  lateinit var productoAdapter :MisTarjetasAdapter
+    private  lateinit var productoAdapter :MisDireccionesAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMisTarjetasBinding.inflate(layoutInflater)
+        binding = ActivityMisDireccionesBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initValues()
     }
@@ -30,11 +29,11 @@ class MisTarjetasActivity : AppCompatActivity() {
         listadoProducto.add(Producto(6,2,"1 de Pollo","Con Gaseosa Y Ensalada",65.50,100,null))
         database = BDPolleria.getInstancia(this)
         database.productoDao().insert(listadoProducto)
-        productoAdapter = MisTarjetasAdapter(database.productoDao().getAll())
+        productoAdapter = MisDireccionesAdapter(database.productoDao().getAll())
 ////        binding.rvProducto.layoutManager=LinearLayoutManager(applicationContext)
 //        val layoutManager
 //                = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        binding.rvTarjetas.layoutManager = LinearLayoutManager(this)
-        binding.rvTarjetas.adapter=productoAdapter
+        binding.rvDirecciones.layoutManager = LinearLayoutManager(this)
+        binding.rvDirecciones.adapter=productoAdapter
     }
 }

@@ -1,10 +1,10 @@
-package com.example.restaurante.presentation.Perfil.EditarPerfil
+package com.example.restaurante.presentation.perfil.EditarPerfil
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.restaurante.databinding.ActivityEditarPerfilBinding
-import com.example.restaurante.presentation.Perfil.CambiarContrasena.CambiarContrasenaActivity
+import com.example.restaurante.presentation.perfil.CambiarContrasena.CambiarContrasenaActivity
 
 class EditarPerfilActivity : AppCompatActivity() {
     private lateinit var binding : ActivityEditarPerfilBinding

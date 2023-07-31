@@ -1,4 +1,4 @@
-package com.example.restaurante.presentation.Perfil.MisDirecciones.AgregarDireccion
+package com.example.restaurante.presentation.perfil.MisDirecciones.AgregarDireccion
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

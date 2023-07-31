@@ -8,8 +8,8 @@ import com.example.restaurante.data.preference.SharedPreferences
 import com.example.restaurante.data.room.BDPolleria
 import com.example.restaurante.data.room.entity.Producto
 import com.example.restaurante.databinding.ActivityListProductosBinding
-import com.example.restaurante.presentation.Cart.CartActivity
-import com.example.restaurante.presentation.Perfil.PerfilUsuarioActivity
+import com.example.restaurante.presentation.cart.CartActivity
+import com.example.restaurante.presentation.perfil.PerfilUsuarioActivity
 import com.example.restaurante.presentation.catalogo.Details.DetalleProductoActivity
 
 class ListProductosActivity : AppCompatActivity() {

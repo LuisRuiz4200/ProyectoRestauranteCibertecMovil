@@ -1,4 +1,4 @@
-package com.example.restaurante.presentation.Perfil.MisDirecciones
+package com.example.restaurante.presentation.perfil.MisTarjetas
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.restaurante.R
 import com.example.restaurante.data.room.entity.Producto
 
-class MisDireccionesAdapter(var items: MutableList<Producto>) : RecyclerView.Adapter<MisDireccionesAdapter.ViewHolder>() {
+class MisTarjetasAdapter(var items: MutableList<Producto>) : RecyclerView.Adapter<MisTarjetasAdapter.ViewHolder>() {
     inner class ViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView){
         val tvNombre: TextView = itemView.findViewById(R.id.tvDireccionNombre)
         val tvDescripcion: TextView = itemView.findViewById(R.id.tvDireccionDescripcion)

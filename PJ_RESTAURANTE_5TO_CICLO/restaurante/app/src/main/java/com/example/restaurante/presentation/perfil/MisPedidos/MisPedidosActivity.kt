@@ -1,23 +1,22 @@
-package com.example.restaurante.presentation.Cart
+package com.example.restaurante.presentation.perfil.MisPedidos
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.restaurante.data.room.BDPolleria
 import com.example.restaurante.data.room.entity.Producto
-import com.example.restaurante.databinding.ActivityCartBinding
-import com.example.restaurante.presentation.catalogo.ListProductosAdapter
+import com.example.restaurante.databinding.ActivityMisPedidosBinding
 
-class CartActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityCartBinding
-
+class MisPedidosActivity : AppCompatActivity() {
+    private lateinit var binding : ActivityMisPedidosBinding
     private var listadoProducto : MutableList<Producto> = ArrayList()
     private lateinit var database : BDPolleria
-    private  lateinit var productoAdapter :CartAdapter
+    private  lateinit var productoAdapter :MisPedidosAdapter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCartBinding.inflate(layoutInflater)
+        binding = ActivityMisPedidosBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initValues()
     }
@@ -31,10 +30,11 @@ class CartActivity : AppCompatActivity() {
         listadoProducto.add(Producto(6,2,"1 de Pollo","Con Gaseosa Y Ensalada",65.50,100,null))
         database = BDPolleria.getInstancia(this)
         database.productoDao().insert(listadoProducto)
-        productoAdapter = CartAdapter(database.productoDao().getAll())
-////        = LinearLayoutManager(applicationContext)
-//          = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        binding.rvCart.layoutManager = LinearLayoutManager(applicationContext)
-        binding.rvCart.adapter=productoAdapter
+        productoAdapter = MisPedidosAdapter(database.productoDao().getAll())
+////        binding.rvProducto.layoutManager=LinearLayoutManager(applicationContext)
+//        val layoutManager
+//                = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        binding.rvPedido.layoutManager = LinearLayoutManager(this)
+        binding.rvPedido.adapter=productoAdapter
     }
 }
