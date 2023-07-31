@@ -11,6 +11,7 @@ import com.example.restaurante.databinding.ActivityListProductosBinding
 import com.example.restaurante.presentation.cart.CartActivity
 import com.example.restaurante.presentation.perfil.PerfilUsuarioActivity
 import com.example.restaurante.presentation.catalogo.Details.DetalleProductoActivity
+import com.example.restaurante.presentation.confirmacion.ConfirmacionActivity
 
 class ListProductosActivity : AppCompatActivity() {
     private lateinit var binding:ActivityListProductosBinding
@@ -52,6 +53,10 @@ class ListProductosActivity : AppCompatActivity() {
         binding.btnOpcPromociones.setOnClickListener {
             // Accion temporal para mostrar Detalle Producto
             startActivity(Intent(this, CartActivity::class.java))
+        }
+
+        binding.btnOpcParrillas.setOnClickListener {
+            startActivity(Intent(this, ConfirmacionActivity::class.java))
         }
     }
 

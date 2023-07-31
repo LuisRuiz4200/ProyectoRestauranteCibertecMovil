@@ -73,4 +73,6 @@
     <string name="mm_aa">MM/AA</string>
     <string name="nombre_propietario">Nombre del propietario</string>
     <string name="agregar">Agregar</string>
+    <string name="agradecimiento">¡ Muchas gracias por su compra !</string>
+    <string name="regresar">Regresar</string>
 </resources>
