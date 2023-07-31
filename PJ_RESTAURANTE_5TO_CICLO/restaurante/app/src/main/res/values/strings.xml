@@ -66,4 +66,11 @@
     <string name="carrito">Carrito</string>
     <string name="continuar_compra">Continuar compra</string>
     <string name="cantidad">Cant:</string>
+    <string name="cont_desc_floating_add">Agregar</string>
+    <string name="agregar_nueva_tarjeta">Agregar nueva tarjeta</string>
+    <string name="nro_tarjeta">Nro. de Tarjeta</string>
+    <string name="cvv">CVV</string>
+    <string name="mm_aa">MM/AA</string>
+    <string name="nombre_propietario">Nombre del propietario</string>
+    <string name="agregar">Agregar</string>
 </resources>
