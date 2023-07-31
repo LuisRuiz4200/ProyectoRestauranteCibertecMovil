@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.Perfil.MisDirecciones.AgregarDireccion.AgregarDireccionActivity">
+    tools:context=".presentation.perfil.MisDirecciones.AgregarDireccion.AgregarDireccionActivity">
 
     <!--Titulo-->
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -114,7 +114,7 @@
 
     <!--Boton Guardar-->
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/lycBtnCambiar"
+        android:id="@+id/lycBtnAgregar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -122,10 +122,10 @@
         android:layout_marginTop="50dp"
         app:layout_constraintTop_toBottomOf="@id/lycInputs">
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnIngresar"
+            android:id="@+id/btnAgregar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/guardar"
+            android:text="@string/agregar"
             android:textAllCaps="false"
             android:letterSpacing="0.1"
             android:backgroundTint="@color/main_rojo"

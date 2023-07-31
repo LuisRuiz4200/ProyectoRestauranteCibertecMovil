@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.Cart.CartActivity">
+    tools:context=".presentation.cart.CartActivity">
     <!--Menu-->
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/lycMenu"
@@ -32,12 +32,18 @@
             android:fontFamily="@font/font_poppins"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
     <!--List-->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvCart"
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/lycRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@id/lycMenu"
-        app:layout_constraintBottom_toTopOf="@id/lycCard"/>
+        app:layout_constraintBottom_toTopOf="@id/lycCard">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
     <!--Card-->
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/lycCard"

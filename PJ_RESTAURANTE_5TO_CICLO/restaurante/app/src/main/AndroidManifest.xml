@@ -13,25 +13,34 @@
         android:theme="@style/Theme.Restaurante"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.Cart.CartActivity"
+            android:name=".presentation.confirmacion.ConfirmacionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.perfil.MisTarjetas.AgregarTarjeta.AgregarTarjetaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.perfil.MisTarjetas.MisTarjetasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.cart.CartActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.catalogo.Details.DetalleProductoActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.Perfil.MisPedidos.MisPedidosActivity"
+            android:name=".presentation.perfil.MisPedidos.MisPedidosActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.Perfil.MisDirecciones.AgregarDireccion.AgregarDireccionActivity"
+            android:name=".presentation.perfil.MisDirecciones.AgregarDireccion.AgregarDireccionActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.Perfil.MisDirecciones.MisDireccionesActivity"
+            android:name=".presentation.perfil.MisDirecciones.MisDireccionesActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.Perfil.CambiarContrasena.CambiarContrasenaActivity"
+            android:name=".presentation.perfil.CambiarContrasena.CambiarContrasenaActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.Perfil.EditarPerfil.EditarPerfilActivity"
+            android:name=".presentation.perfil.EditarPerfil.EditarPerfilActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.home.HomeActivity"
@@ -40,7 +49,7 @@
             android:name=".presentation.StartActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.Perfil.PerfilUsuarioActivity"
+            android:name=".presentation.perfil.PerfilUsuarioActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.registro.RegistroActivity"
