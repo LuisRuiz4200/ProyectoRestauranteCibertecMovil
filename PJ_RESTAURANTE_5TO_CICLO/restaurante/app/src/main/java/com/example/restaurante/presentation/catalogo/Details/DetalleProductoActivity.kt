@@ -3,7 +3,6 @@ package com.example.restaurante.presentation.catalogo.Details
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import com.example.restaurante.data.room.BDPolleria
 import com.example.restaurante.data.room.entity.Cart
 import com.example.restaurante.data.room.entity.Producto
@@ -77,7 +76,7 @@ class DetalleProductoActivity : AppCompatActivity() {
             item.id_producto = producto.id_producto
             item.cantidad_producto = binding.tvCount.text.toString().toInt()
             database.cartDao().insertCart(item)
-            Toast.makeText(this, "Producto agregado", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Producto agregado.", Toast.LENGTH_LONG).show()
         }
     }
 

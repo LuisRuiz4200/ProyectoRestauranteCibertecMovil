@@ -11,7 +11,7 @@ interface CartDao {
     @Query ("SELECT * FROM Cart")
     fun getAll() : MutableList<Cart>
 
-    @Query("SELECT * FROM Cart where id_producto_pedido= :id")
+    @Query("SELECT * FROM Cart where id_cart= :id")
     fun getCartById(id:Int): Cart
 
     @Query("SELECT * FROM Cart where id_producto= :id")

@@ -77,4 +77,5 @@
     <string name="regresar">Regresar</string>
     <string name="nombres">Nombres</string>
     <string name="apellidos">Apellidos</string>
+    <string name="agregar_carrito">Agregar al carrito</string>
 </resources>
