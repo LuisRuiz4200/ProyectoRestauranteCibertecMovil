@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.Restaurante" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
 <!--    <style name="Base.Theme.Restaurante" parent="Theme.MaterialComponents.DayNight.DarkActionBar">-->
-        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/red_oscuro</item>
         <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->

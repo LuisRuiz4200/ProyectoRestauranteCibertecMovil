@@ -12,5 +12,5 @@ data class Producto(
     var des_producto : String ="",
     var preciouni_producto: Double = 0.0,
     var stock_producto: Int=0,
-    var imagen_producto: ByteArray? = null
+    var imagen_producto: String = ""
 )

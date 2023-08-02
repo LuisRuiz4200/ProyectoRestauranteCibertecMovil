@@ -39,4 +39,10 @@ class ListProductosAdapter(var items : MutableList<Producto>, var iCard: ICard) 
         holder.tvDescripcion.text = item.des_producto
         holder.tvPrecio.text = String.format("%.2f",item.preciouni_producto)
     }
+
+    fun update(newItems : List<Producto>){
+        this.items.clear()
+        this.items.addAll(newItems)
+        notifyDataSetChanged()
+    }
 }

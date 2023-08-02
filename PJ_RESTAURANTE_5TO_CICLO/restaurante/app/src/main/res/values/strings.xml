@@ -78,4 +78,5 @@
     <string name="nombres">Nombres</string>
     <string name="apellidos">Apellidos</string>
     <string name="agregar_carrito">Agregar al carrito</string>
+    <string name="tabs">Tabs</string>
 </resources>
