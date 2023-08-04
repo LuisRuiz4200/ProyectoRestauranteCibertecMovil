@@ -8,6 +8,7 @@ import com.example.restaurante.presentation.perfil.EditarPerfil.EditarPerfilActi
 import com.example.restaurante.presentation.perfil.MisDirecciones.MisDireccionesActivity
 import com.example.restaurante.presentation.perfil.MisPedidos.MisPedidosActivity
 import com.example.restaurante.presentation.perfil.MisTarjetas.MisTarjetasActivity
+import com.example.restaurante.presentation.registro.RegistroActivity
 
 class PerfilUsuarioActivity : AppCompatActivity() {
     private lateinit var binding : ActivityPerfilUsuarioBinding
@@ -24,14 +25,16 @@ class PerfilUsuarioActivity : AppCompatActivity() {
         binding.btnEditar.setOnClickListener {
             startActivity(Intent(this, EditarPerfilActivity::class.java))
         }
-        binding.btnDirecciones.setOnClickListener {
-            startActivity(Intent(this, MisDireccionesActivity::class.java))
-        }
-
         binding.btnPedidos.setOnClickListener {
             startActivity(Intent(this, MisPedidosActivity::class.java))
         }
-
+        binding.btnDirecciones.setOnClickListener {
+            startActivity(Intent(this, MisDireccionesActivity::class.java))
+        }
+        binding.btnFavoritos.setOnClickListener {
+            // Temporal
+            startActivity(Intent(this, RegistroActivity::class.java))
+        }
         binding.btnTarjetas.setOnClickListener {
             startActivity(Intent(this, MisTarjetasActivity::class.java))
         }

@@ -28,20 +28,30 @@ class RegistroActivity : AppCompatActivity() {
                 return@setOnClickListener
             if(invalidCheckBox())
                 return@setOnClickListener
+
             database = BDPolleria.getInstancia(this)
             var usuario = Usuario()
-            usuario.nom_usuario = binding.etNombreCompleto.text.toString()
+            usuario.nom_usuario = binding.etNombres.text.toString()
+            usuario.ape_usuario = binding.etApellidos.text.toString()
             usuario.tel_usuario = binding.etTelefono.text.toString()
             usuario.email_usuario =  binding.etEmail.text.toString()
             usuario.password_usuario = binding.etContrasena.text.toString()
             database.usuarioDao().insertUsuario(usuario)
             mensajeGuardar()
         }
+
+        binding.tvRegistroIniciarSesion.setOnClickListener {
+            finish()
+        }
     }
 
     private fun invalidForm() : Boolean{
-        if(binding.etNombreCompleto.text.toString().isNullOrEmpty()){
-            Toast.makeText(this, "Ingrese su nombre completo.", Toast.LENGTH_LONG).show()
+        if(binding.etNombres.text.toString().isNullOrEmpty()){
+            Toast.makeText(this, "Ingrese sus nombres.", Toast.LENGTH_LONG).show()
+            return true
+        }
+        if(binding.etApellidos.text.toString().isNullOrEmpty()){
+            Toast.makeText(this, "Ingrese sus apellidos.", Toast.LENGTH_LONG).show()
             return true
         }
         if(binding.etEmail.etTelefono.toString().isNullOrEmpty()){
