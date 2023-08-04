@@ -98,7 +98,6 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/search"
                     app:hintTextColor="@color/gris_principal">
-
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etBuscarProducto"
                         android:layout_width="match_parent"
@@ -107,8 +106,8 @@
                         android:lines="1" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-            </androidx.cardview.widget.CardView>
 
+            </androidx.cardview.widget.CardView>
             <ImageView
                 android:id="@+id/searchIcon"
                 android:layout_margin="12sp"
@@ -116,6 +115,7 @@
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 />
+
 
 
         </androidx.appcompat.widget.LinearLayoutCompat>

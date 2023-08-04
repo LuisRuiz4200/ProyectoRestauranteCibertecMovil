@@ -47,7 +47,7 @@ class ListProductosFragment : Fragment(), ListProductosAdapter.ICard {
         view.rvProducto.adapter=productoAdapter
 
         view.btnPerfil.setOnClickListener {
-            startActivity(Intent(requireContext(), PerfilUsuarioActivity::class.java))
+            startActivity(Intent(activity, PerfilUsuarioActivity::class.java))
         }
         view.btnMenu.setOnClickListener{
             // Accion temporal para mostrar Detalle Producto
@@ -78,7 +78,7 @@ class ListProductosFragment : Fragment(), ListProductosAdapter.ICard {
     }
 
     override fun onCardClick(item: Producto) {
-        startActivity(Intent(requireContext(), DetalleProductoActivity::class.java).apply {
+        startActivity(Intent(activity, DetalleProductoActivity::class.java).apply {
             putExtra("id_producto", item.id_producto)
         })
     }

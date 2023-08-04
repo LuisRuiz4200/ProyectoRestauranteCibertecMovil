@@ -11,5 +11,9 @@ data class Cart(
     var id_cart : Int  = 0,
     var id_pedido : Int = 0,
     var id_producto : Int = 0,
-    var cantidad_producto : Int = 0
+    var cantidad_producto : Int = 0,
+    var nom_producto : String="",
+    var des_producto : String ="",
+    var preciouni_producto: Double = 0.0,
+    var imagen_producto: String = ""
 )

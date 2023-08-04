@@ -48,7 +48,7 @@
         android:id="@+id/lycCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/lycMenuFragments">
+        app:layout_constraintBottom_toBottomOf="parent">
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -137,6 +137,7 @@
                         android:layout_weight="1"
                         android:gravity="center">
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnContinuar"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:hint="@string/continuar_compra"
@@ -146,50 +147,6 @@
                     </androidx.appcompat.widget.LinearLayoutCompat>
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
-        </androidx.cardview.widget.CardView>
-    </androidx.appcompat.widget.LinearLayoutCompat>
-    <!--Menu inferior-->
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/lycMenuFragments"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent">
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:layout_marginTop="7dp"
-            app:cardElevation="5dp"
-            app:cardCornerRadius="20dp">
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="horizontal">
-                <androidx.constraintlayout.utils.widget.ImageFilterView
-                    android:id="@+id/btnHome"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_home"
-                    android:layout_weight="1"/>
-                <androidx.constraintlayout.utils.widget.ImageFilterView
-                    android:id="@+id/btnFavorites"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_favorites"
-                    android:layout_weight="1"/>
-                <androidx.constraintlayout.utils.widget.ImageFilterView
-                    android:id="@+id/btnCart"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_cart"
-                    android:layout_weight="1"/>
-                <androidx.constraintlayout.utils.widget.ImageFilterView
-                    android:id="@+id/btnPerson"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_person"
-                    android:layout_weight="1"/>
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.cardview.widget.CardView>
     </androidx.appcompat.widget.LinearLayoutCompat>

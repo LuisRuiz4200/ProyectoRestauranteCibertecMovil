@@ -16,6 +16,9 @@ class ProductoViewModel (application: Application) : AndroidViewModel(applicatio
     private val _productos = MutableLiveData<List<Producto>>()
     val getProductos : LiveData<List<Producto>> = _productos
 
+    private val _producto = MutableLiveData<Producto>()
+    val getProducto : LiveData<Producto> = _producto
+
     fun obtenerProductos() = viewModelScope.launch {
         try {
             val result = repository.getProductos()
@@ -25,5 +28,16 @@ class ProductoViewModel (application: Application) : AndroidViewModel(applicatio
             Log.d("Error: ", e.message.toString())
         }
     }
+
+    fun obtenerProducto(idProducto: Int) = viewModelScope.launch {
+        try {
+            val result = repository.getProductosById(idProducto)
+            _producto.postValue(result)
+        }catch (e: Exception){
+            Log.d("Error: ", e.message.toString())
+        }
+    }
+
+
 
 }

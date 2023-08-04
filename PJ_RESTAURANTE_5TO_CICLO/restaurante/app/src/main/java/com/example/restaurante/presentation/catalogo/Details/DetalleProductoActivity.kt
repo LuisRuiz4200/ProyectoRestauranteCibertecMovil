@@ -3,15 +3,18 @@ package com.example.restaurante.presentation.catalogo.Details
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import com.example.restaurante.data.room.BDPolleria
 import com.example.restaurante.data.room.entity.Cart
 import com.example.restaurante.data.room.entity.Producto
 import com.example.restaurante.databinding.ActivityDetailsBinding
+import com.example.restaurante.domain.viewmodel.ProductoViewModel
 
 class DetalleProductoActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailsBinding
-
-    private var database = BDPolleria.getInstancia(this)
+    private lateinit var viewModel: ProductoViewModel
+    private lateinit var database: BDPolleria
+    private lateinit var producto : Producto
 
     var cantidad : Int = 1
 
@@ -20,14 +23,15 @@ class DetalleProductoActivity : AppCompatActivity() {
         binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initValues()
+        initObservers()
     }
 
     private fun initValues() {
         // Mostrar producto
         var id = intent.getIntExtra("id_producto", 0)
-        var producto = database.productoDao().getProductoById(id)
-        //Mostrar Producto
-        setDetails(producto)
+        producto = Producto(id_producto = id)
+        viewModel = ViewModelProvider(this).get(ProductoViewModel::class.java)
+        database = BDPolleria.getInstancia(this)
         // Controlar cantidad
         countControl()
         // Back Arrow
@@ -35,6 +39,21 @@ class DetalleProductoActivity : AppCompatActivity() {
         // Add to Cart
         addToCart(producto)
 
+    }
+
+    private fun initObservers(){
+        viewModel.getProducto.observe(this){productoObtenido ->
+            productoObtenido?.let {
+                // Actualizar el objeto producto con los datos obtenidos
+                producto.id_producto = it.id_producto
+                producto.nom_producto = it.nom_producto
+                producto.preciouni_producto = it.preciouni_producto
+                producto.des_producto = it.des_producto
+                // Después de obtener y actualizar los datos del producto, llama a setDetails(producto)
+                setDetails(producto)
+            }
+        }
+        viewModel.obtenerProducto(producto.id_producto)
     }
 
     private fun setDetails(producto: Producto) {
@@ -75,6 +94,10 @@ class DetalleProductoActivity : AppCompatActivity() {
             }
             item.id_producto = producto.id_producto
             item.cantidad_producto = binding.tvCount.text.toString().toInt()
+            item.nom_producto = producto.nom_producto
+            item.des_producto = producto.des_producto
+            item.preciouni_producto = producto.preciouni_producto
+            item.imagen_producto = producto.imagen_producto
             database.cartDao().insertCart(item)
             Toast.makeText(this, "Producto agregado.", Toast.LENGTH_LONG).show()
         }
