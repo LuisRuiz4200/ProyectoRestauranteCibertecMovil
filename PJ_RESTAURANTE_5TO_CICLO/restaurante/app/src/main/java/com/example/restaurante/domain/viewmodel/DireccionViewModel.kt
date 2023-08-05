@@ -22,9 +22,9 @@ class DireccionViewModel (application: Application) : AndroidViewModel(applicati
     private val _updateDireccion = MutableLiveData<String>()
     var updateDireccion: LiveData<String> = _updateDireccion
 
-    fun getDirecciones() = viewModelScope.launch {
+    fun getDirecciones(id: Int) = viewModelScope.launch {
         try {
-            val result = repository.getDirecciones()
+            val result = repository.getDirecciones(id)
             _direcciones.postValue(result)
 
         }catch (e: Exception){

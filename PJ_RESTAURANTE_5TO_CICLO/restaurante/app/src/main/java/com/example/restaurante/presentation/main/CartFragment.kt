@@ -1,5 +1,6 @@
 package com.example.restaurante.presentation.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import com.example.restaurante.R
 import com.example.restaurante.data.room.BDPolleria
 import com.example.restaurante.data.room.entity.Cart
 import com.example.restaurante.presentation.cart.CartAdapter
+import com.example.restaurante.presentation.perfil.MisDirecciones.MisDireccionesActivity
 import kotlinx.android.synthetic.main.activity_cart.view.btnContinuar
 import kotlinx.android.synthetic.main.activity_cart.view.rvCart
 import kotlinx.android.synthetic.main.activity_cart.view.tvPrecio
@@ -45,7 +47,9 @@ class CartFragment : Fragment() {
         view.tvPrecio.text = String.format("%.2f",totalPrecio)
 
         view.btnContinuar.setOnClickListener {
-            /* Llamar a direccion TODO */
+            startActivity(Intent(requireContext(), MisDireccionesActivity::class.java).apply {
+                putExtra("buyingMode",1)
+            })
 
         }
     }

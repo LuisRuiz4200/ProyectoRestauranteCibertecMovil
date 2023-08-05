@@ -20,5 +20,7 @@ class EditarPerfilActivity : AppCompatActivity() {
         binding.btnCambiarContrasena.setOnClickListener {
             startActivity(Intent(this,CambiarContrasenaActivity::class.java))
         }
+        var id = intent.getIntExtra("id", 0)
+        println("id $id")
     }
 }

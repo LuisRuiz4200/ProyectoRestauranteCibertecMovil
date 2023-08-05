@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.restaurante.R
 import com.example.restaurante.data.room.entity.Producto
 
-class ListProductosAdapter(var items : MutableList<Producto>, var iCard: ICard) : RecyclerView.Adapter<ListProductosAdapter.ViewHolder>(){
+class ListProductosAdapter
+    (var items : MutableList<Producto>, var iCard: ICard)
+    : RecyclerView.Adapter<ListProductosAdapter.ViewHolder>(){
 
     interface ICard{
         fun onCardClick(item : Producto)

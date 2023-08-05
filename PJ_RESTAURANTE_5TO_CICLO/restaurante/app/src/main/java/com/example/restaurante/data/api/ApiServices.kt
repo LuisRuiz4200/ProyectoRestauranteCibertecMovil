@@ -19,7 +19,7 @@ interface ApiServices {
 
     // Direccion
     @GET("polleria/APIPolleria/getDirecciones")
-    suspend fun getDirecciones(): List<Direccion>
+    suspend fun getDirecciones(@Query("id") id: Int): List<Direccion>
     @POST("polleria/APIPolleria/saveDireccion")
     suspend fun saveDireccion(@Body direccion: Direccion) : String
     @PUT("polleria/APIPolleria/updateDireccion")

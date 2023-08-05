@@ -9,7 +9,9 @@ data class Direccion(
     var id_direntrega: Int = 0,
     var id_usuario: Int = 0,
     var id_distrito: Int = 0,
+    var nombre_direntrega: String ="",
     var des_direntrega: String = "",
+    var detalle_direntrega: String = "",
     var fechaReg_direntrega: String = "",
     var estado_direntrega: String = ""
 )
