@@ -30,9 +30,8 @@ class MisDireccionesActivity : AppCompatActivity() {
         database = BDPolleria.getInstancia(this)
         database.productoDao().insert(listadoProducto)
         productoAdapter = MisDireccionesAdapter(database.productoDao().getAll())
-////        binding.rvProducto.layoutManager=LinearLayoutManager(applicationContext)
-//        val layoutManager
-//                = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+//        LinearLayoutManager(applicationContext)
+//        LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.rvDirecciones.layoutManager = LinearLayoutManager(this)
         binding.rvDirecciones.adapter=productoAdapter
     }

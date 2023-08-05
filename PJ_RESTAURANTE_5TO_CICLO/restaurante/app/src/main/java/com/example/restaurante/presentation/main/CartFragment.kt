@@ -10,6 +10,7 @@ import com.example.restaurante.R
 import com.example.restaurante.data.room.BDPolleria
 import com.example.restaurante.data.room.entity.Cart
 import com.example.restaurante.presentation.cart.CartAdapter
+import kotlinx.android.synthetic.main.activity_cart.view.btnContinuar
 import kotlinx.android.synthetic.main.activity_cart.view.rvCart
 import kotlinx.android.synthetic.main.activity_cart.view.tvPrecio
 
@@ -42,6 +43,11 @@ class CartFragment : Fragment() {
             totalPrecio += totalPorProducto
         }
         view.tvPrecio.text = String.format("%.2f",totalPrecio)
+
+        view.btnContinuar.setOnClickListener {
+            /* Llamar a direccion TODO */
+
+        }
     }
 
     private fun initObservers() {
