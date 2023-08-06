@@ -1,7 +1,9 @@
 package com.example.restaurante.presentation.perfil.MisDirecciones
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.restaurante.data.preference.SharedPreferences
@@ -10,6 +12,7 @@ import com.example.restaurante.data.room.entity.Direccion
 import com.example.restaurante.databinding.ActivityMisDireccionesBinding
 import com.example.restaurante.data.room.entity.Usuario
 import com.example.restaurante.domain.viewmodel.DireccionViewModel
+import com.example.restaurante.presentation.metodos.MetodosPagoActivity
 
 class MisDireccionesActivity : AppCompatActivity(), MisDireccionesAdapter.ICard {
     private lateinit var binding : ActivityMisDireccionesBinding
@@ -32,6 +35,7 @@ class MisDireccionesActivity : AppCompatActivity(), MisDireccionesAdapter.ICard 
         database = BDPolleria.getInstancia(this)
         usuario = SharedPreferences.getPrefUsuario(this)!!
         var buyingMode = intent.getIntExtra("buyingMode", 0)
+        setTitleView(buyingMode)
         direccionAdapter = MisDireccionesAdapter(listDirecciones, this, buyingMode)
         binding.rvDirecciones.layoutManager = LinearLayoutManager(this)
         binding.rvDirecciones.adapter = direccionAdapter
@@ -45,8 +49,23 @@ class MisDireccionesActivity : AppCompatActivity(), MisDireccionesAdapter.ICard 
         viewModel.getDirecciones(usuario.id_usuario)
     }
 
+    private fun setTitleView(buyinModel: Int){
+        if(buyinModel == 1)
+            binding.tvTitulo.text = "Seleccione una dirección"
+    }
+
     override fun onCardClick(item: Direccion) {
-        println("HOLIIIIIIIIII :V ${item.nombre_direntrega}")
+        AlertDialog.Builder(this)
+            .setTitle("Confirmar direccion")
+            .setMessage("¿Seleccionar ${item.nombre_direntrega} como dirección de entrega?")
+            .setPositiveButton("Sí"){ _, _ ->
+                startActivity(Intent(this, MetodosPagoActivity::class.java))
+            }
+            .setNegativeButton("No"){ _, _ ->
+
+            }
+            .setCancelable(true)
+            .show()
 
     }
 }

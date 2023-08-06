@@ -79,4 +79,8 @@
     <string name="apellidos">Apellidos</string>
     <string name="agregar_carrito">Agregar al carrito</string>
     <string name="tabs">Tabs</string>
+    <string name="pago">Pago</string>
+    <string name="pago_tarjeta">Pago con tarjeta</string>
+    <string name="pago_efectivo">Pago en efectivo</string>
+    <string name="editar_direccion">Editar dirección</string>
 </resources>

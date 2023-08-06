@@ -27,16 +27,15 @@ class MisDireccionesAdapter
         val tvDireccionDetalle: TextView = itemView.findViewById(R.id.tvDireccionDetalle)
         init{
             if(buyingMode == 1){
-                itemView.btnDireccionAction.visibility = View.GONE
                 itemView.setOnClickListener(this)
-            }else{
-                itemView.btnDireccionAction.setOnClickListener {
-                    val item = items[adapterPosition]
-                    itemView.context.startActivity(
-                        Intent(itemView.context, EditarPerfilActivity::class.java).apply {
-                            putExtra("id", item.id_direntrega)
-                        })
-                }
+            }
+            itemView.btnDireccionAction.setOnClickListener {
+                val item = items[adapterPosition]
+                itemView.context.startActivity(
+//                     Editar Direccion TODO
+                    Intent(itemView.context, EditarPerfilActivity::class.java).apply {
+                        putExtra("id", item.id_direntrega)
+                    })
             }
         }
 
