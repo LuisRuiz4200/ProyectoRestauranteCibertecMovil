@@ -98,11 +98,13 @@
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:id="@+id/btnEditar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/vector_edit"
                     android:layout_weight="2"/>
                 <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:id="@+id/btnEliminar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/vector_trash"

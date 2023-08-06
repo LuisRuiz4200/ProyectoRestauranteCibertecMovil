@@ -6,9 +6,11 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.restaurante.R
 import com.example.restaurante.data.room.dao.CartDao
+import com.example.restaurante.data.room.dao.PedidoDao
 import com.example.restaurante.data.room.dao.ProductoDao
 import com.example.restaurante.data.room.dao.UsuarioDao
 import com.example.restaurante.data.room.entity.Cart
+import com.example.restaurante.data.room.entity.Pedido
 import com.example.restaurante.data.room.entity.Producto
 import com.example.restaurante.data.room.entity.Usuario
 
@@ -17,14 +19,16 @@ import com.example.restaurante.data.room.entity.Usuario
         Producto::class,
         Usuario::class,
         Cart::class,
+        Pedido::class,
     ],
-    version = 8,
+    version = 9,
     exportSchema = false
 )
 abstract class BDPolleria : RoomDatabase()  {
     abstract fun productoDao() : ProductoDao
     abstract fun usuarioDao() : UsuarioDao
     abstract fun cartDao() : CartDao
+    abstract fun pedidoDao(): PedidoDao
     companion object{
         private var instancia : BDPolleria? =null
         @Synchronized

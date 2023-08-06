@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.restaurante.R
 import com.example.restaurante.data.room.entity.Direccion
 import com.example.restaurante.presentation.perfil.EditarPerfil.EditarPerfilActivity
+import com.example.restaurante.presentation.perfil.MisDirecciones.EditarDireccion.EditarDireccionActivity
 import com.google.android.material.button.MaterialButton
 import kotlinx.android.synthetic.main.item_direccion.view.btnDireccionAction
 
@@ -32,8 +33,7 @@ class MisDireccionesAdapter
             itemView.btnDireccionAction.setOnClickListener {
                 val item = items[adapterPosition]
                 itemView.context.startActivity(
-//                     Editar Direccion TODO
-                    Intent(itemView.context, EditarPerfilActivity::class.java).apply {
+                    Intent(itemView.context, EditarDireccionActivity::class.java).apply {
                         putExtra("id", item.id_direntrega)
                     })
             }

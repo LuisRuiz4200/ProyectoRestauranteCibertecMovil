@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.restaurante.data.preference.SharedPreferences
 import com.example.restaurante.data.room.BDPolleria
 import com.example.restaurante.data.room.entity.Direccion
+import com.example.restaurante.data.room.entity.Pedido
 import com.example.restaurante.databinding.ActivityMisDireccionesBinding
 import com.example.restaurante.data.room.entity.Usuario
 import com.example.restaurante.domain.viewmodel.DireccionViewModel
@@ -59,6 +60,12 @@ class MisDireccionesActivity : AppCompatActivity(), MisDireccionesAdapter.ICard 
             .setTitle("Confirmar direccion")
             .setMessage("¿Seleccionar ${item.nombre_direntrega} como dirección de entrega?")
             .setPositiveButton("Sí"){ _, _ ->
+                var pedido = Pedido()
+                var lastPedido = database.pedidoDao().getAll().last()
+                if(lastPedido.id_usuario_cliente == 0)
+                    pedido = lastPedido
+                pedido.id_dirEntrega = item.id_direntrega
+                database.pedidoDao().insert(pedido)
                 startActivity(Intent(this, MetodosPagoActivity::class.java))
             }
             .setNegativeButton("No"){ _, _ ->

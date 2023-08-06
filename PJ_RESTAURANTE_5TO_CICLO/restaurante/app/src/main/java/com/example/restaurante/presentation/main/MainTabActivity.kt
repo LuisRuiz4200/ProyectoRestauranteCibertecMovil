@@ -2,19 +2,23 @@ package com.example.restaurante.presentation.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.lifecycle.ViewModelProvider
 import com.example.restaurante.R
 import com.example.restaurante.databinding.ActivityMainTabBinding
+import com.example.restaurante.domain.viewmodel.CartViewModel
 import com.google.android.material.tabs.TabLayoutMediator
 
 class MainTabActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainTabBinding
+    private lateinit var cartViewModel: CartViewModel
     private val adapter by lazy {MainPagerAdapter(this)}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainTabBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        cartViewModel = ViewModelProvider(this).get(CartViewModel::class.java)
         initValues()
     }
 

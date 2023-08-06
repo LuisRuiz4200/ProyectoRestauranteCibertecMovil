@@ -12,5 +12,10 @@ class EditarDireccionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityEditarDireccionBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        initValues()
+    }
+
+    private fun initValues() {
+        TODO("Not yet implemented")
     }
 }

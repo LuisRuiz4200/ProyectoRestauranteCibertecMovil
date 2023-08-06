@@ -8,13 +8,16 @@ import com.example.restaurante.data.room.BDPolleria
 import com.example.restaurante.data.room.entity.Cart
 import com.example.restaurante.data.room.entity.Producto
 import com.example.restaurante.databinding.ActivityDetailsBinding
+import com.example.restaurante.domain.viewmodel.CartViewModel
 import com.example.restaurante.domain.viewmodel.ProductoViewModel
+import okhttp3.internal.notifyAll
 
 class DetalleProductoActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailsBinding
     private lateinit var viewModel: ProductoViewModel
     private lateinit var database: BDPolleria
     private lateinit var producto : Producto
+    private lateinit var cartViewModel: CartViewModel
 
     var cantidad : Int = 1
 
@@ -100,6 +103,8 @@ class DetalleProductoActivity : AppCompatActivity() {
             item.imagen_producto = producto.imagen_producto
             database.cartDao().insertCart(item)
             Toast.makeText(this, "Producto agregado.", Toast.LENGTH_LONG).show()
+            cartViewModel = ViewModelProvider(this).get(CartViewModel::class.java)
+            cartViewModel.getCart()
         }
     }
 
