@@ -13,6 +13,8 @@ data class Pedido(
     var id_dirEntrega: Int = 0,
     var id_colaborador_repartidor: Int = 0,
     var tiempoEntrega_pedido : String = "",
+    var id_medio_pago: Int = 0,
+    var monto_compra: Double = 0.0,
     var fechaReg_pedido : String = "",
     var fechaAct_pedido : String = "",
     var estado_pedido: String = ""

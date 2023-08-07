@@ -60,13 +60,17 @@ class MisDireccionesActivity : AppCompatActivity(), MisDireccionesAdapter.ICard 
             .setTitle("Confirmar direccion")
             .setMessage("¿Seleccionar ${item.nombre_direntrega} como dirección de entrega?")
             .setPositiveButton("Sí"){ _, _ ->
+
                 var pedido = Pedido()
-                var lastPedido = database.pedidoDao().getAll().last()
-                if(lastPedido.id_usuario_cliente == 0)
-                    pedido = lastPedido
+                if(database.pedidoDao().getAll().isNotEmpty()){
+                    var lastPedido = database.pedidoDao().getAll().last()
+                    if(lastPedido.id_usuario_cliente == 0)
+                        pedido = lastPedido
+                }
                 pedido.id_dirEntrega = item.id_direntrega
                 database.pedidoDao().insert(pedido)
                 startActivity(Intent(this, MetodosPagoActivity::class.java))
+                finish()
             }
             .setNegativeButton("No"){ _, _ ->
 

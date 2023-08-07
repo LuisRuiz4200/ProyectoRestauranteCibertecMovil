@@ -4,11 +4,15 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.restaurante.R
+import com.example.restaurante.data.preference.SharedPreferences
+import com.example.restaurante.data.room.BDPolleria
 import com.example.restaurante.databinding.ActivityConfirmacionBinding
 import com.example.restaurante.presentation.catalogo.ListProductosActivity
+import com.example.restaurante.presentation.main.MainTabActivity
 
 class ConfirmacionActivity : AppCompatActivity() {
     private lateinit var binding : ActivityConfirmacionBinding
+    private lateinit var database: BDPolleria
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,8 +23,20 @@ class ConfirmacionActivity : AppCompatActivity() {
     }
 
     private fun initValues() {
+        database = BDPolleria.getInstancia(this)
+        var items = database.cartDao().getAll()
+        var pedido = database.pedidoDao().getAll().last()
+        var usuario = SharedPreferences.getPrefUsuario(this)!!
+        pedido.id_usuario_cliente = usuario.id_usuario
+        // Enviar a API TODO
+        // Enviar lista de Cart + Datos de Pedido
+        database.cartDao().deleteAll()
+        database.pedidoDao().deleteAll()
+
         binding.btnRegresar.setOnClickListener {
-            startActivity(Intent(this, ListProductosActivity::class.java))
+
+            Thread.sleep(1000)
+            startActivity(Intent(this, MainTabActivity::class.java))
             finish()
         }
     }

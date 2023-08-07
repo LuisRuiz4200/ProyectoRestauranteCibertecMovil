@@ -37,12 +37,13 @@ class CartFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initValues(view)
         initObservers(view)
     }
     override fun onResume() {
         super.onResume()
+        initValues(requireView())
         initObservers(requireView())
-//        calcPrecio(requireView()) // Recalcular el precio total cuando el fragmento vuelve a estar visible
     }
 
     private fun initValues(view: View) {
