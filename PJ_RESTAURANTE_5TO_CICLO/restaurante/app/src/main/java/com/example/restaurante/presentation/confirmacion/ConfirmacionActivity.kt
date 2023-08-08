@@ -47,8 +47,6 @@ class ConfirmacionActivity : AppCompatActivity() {
 //        database.pedidoDao().deleteAll()
 
         binding.btnRegresar.setOnClickListener {
-
-            Thread.sleep(1000)
             startActivity(Intent(this, MainTabActivity::class.java))
             finish()
         }

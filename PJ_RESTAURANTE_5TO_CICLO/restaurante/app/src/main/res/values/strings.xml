@@ -86,4 +86,5 @@
     <string name="tarjeta_test">Carla BBVA</string>
     <string name="tarjeta_desc_test">#### - #### - #### - 4875</string>
     <string name="tarjeta_fecha_test">05/2029</string>
+    <string name="puntuacion">5.0</string>
 </resources>

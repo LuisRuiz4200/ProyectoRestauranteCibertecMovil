@@ -17,9 +17,9 @@ class ListProductosAdapter
     }
 
     inner class ViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener{
-        val tvProducto: TextView = itemView.findViewById(R.id.tvProducto)
-        val tvDescripcion: TextView = itemView.findViewById(R.id.tvDescripcion)
-        val tvPrecio: TextView = itemView.findViewById(R.id.tvPrecio)
+        val tvProductoNombre: TextView = itemView.findViewById(R.id.tvProductoNombre)
+        val tvProductoDescripcion: TextView = itemView.findViewById(R.id.tvProductoDescripcion)
+        val tvProductoPrecio: TextView = itemView.findViewById(R.id.tvProductoPrecio)
 
         init{
             itemView.setOnClickListener(this)
@@ -37,9 +37,9 @@ class ListProductosAdapter
     }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
-        holder.tvProducto.text = item.nom_producto
-        holder.tvDescripcion.text = item.des_producto
-        holder.tvPrecio.text = String.format("%.2f",item.preciouni_producto)
+        holder.tvProductoNombre.text = item.nom_producto
+        holder.tvProductoDescripcion.text = item.des_producto
+        holder.tvProductoPrecio.text = String.format("%.2f",item.preciouni_producto)
     }
 
     fun update(newItems : List<Producto>){
