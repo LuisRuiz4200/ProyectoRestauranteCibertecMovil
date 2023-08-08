@@ -27,9 +27,9 @@ class MisDireccionesAdapter
         val tvDireccionDescripcion: TextView = itemView.findViewById(R.id.tvDireccionDescripcion)
         val tvDireccionDetalle: TextView = itemView.findViewById(R.id.tvDireccionDetalle)
         init{
-            if(buyingMode == 1){
+            if(buyingMode == 1)
                 itemView.setOnClickListener(this)
-            }
+
             itemView.btnDireccionAction.setOnClickListener {
                 val item = items[adapterPosition]
                 itemView.context.startActivity(

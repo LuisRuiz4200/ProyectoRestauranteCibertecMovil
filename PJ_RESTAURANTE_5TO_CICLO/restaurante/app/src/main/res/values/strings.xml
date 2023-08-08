@@ -83,4 +83,7 @@
     <string name="pago_tarjeta">Pago con tarjeta</string>
     <string name="pago_efectivo">Pago en efectivo</string>
     <string name="editar_direccion">Editar dirección</string>
+    <string name="tarjeta_test">Carla BBVA</string>
+    <string name="tarjeta_desc_test">#### - #### - #### - 4875</string>
+    <string name="tarjeta_fecha_test">05/2029</string>
 </resources>

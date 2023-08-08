@@ -8,10 +8,12 @@ import com.example.restaurante.R
 import com.example.restaurante.data.room.dao.CartDao
 import com.example.restaurante.data.room.dao.PedidoDao
 import com.example.restaurante.data.room.dao.ProductoDao
+import com.example.restaurante.data.room.dao.TarjetaDao
 import com.example.restaurante.data.room.dao.UsuarioDao
 import com.example.restaurante.data.room.entity.Cart
 import com.example.restaurante.data.room.entity.Pedido
 import com.example.restaurante.data.room.entity.Producto
+import com.example.restaurante.data.room.entity.Tarjeta
 import com.example.restaurante.data.room.entity.Usuario
 
 @Database(
@@ -20,8 +22,9 @@ import com.example.restaurante.data.room.entity.Usuario
         Usuario::class,
         Cart::class,
         Pedido::class,
+        Tarjeta::class,
     ],
-    version = 10,
+    version = 14,
     exportSchema = false
 )
 abstract class BDPolleria : RoomDatabase()  {
@@ -29,6 +32,7 @@ abstract class BDPolleria : RoomDatabase()  {
     abstract fun usuarioDao() : UsuarioDao
     abstract fun cartDao() : CartDao
     abstract fun pedidoDao(): PedidoDao
+    abstract fun tarjetaDao(): TarjetaDao
     companion object{
         private var instancia : BDPolleria? =null
         @Synchronized

@@ -3,6 +3,7 @@ package com.example.restaurante.presentation.confirmacion
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.example.restaurante.R
 import com.example.restaurante.data.preference.SharedPreferences
 import com.example.restaurante.data.room.BDPolleria
@@ -28,10 +29,16 @@ class ConfirmacionActivity : AppCompatActivity() {
         var pedido = database.pedidoDao().getAll().last()
         var usuario = SharedPreferences.getPrefUsuario(this)!!
         pedido.id_usuario_cliente = usuario.id_usuario
+        pedido.listaCarts = items
         // Enviar a API TODO
         // Enviar lista de Cart + Datos de Pedido
-        database.cartDao().deleteAll()
-        database.pedidoDao().deleteAll()
+
+        items.forEach {
+            Log.d("MainActivity", "idProducto: ${it.id_producto}, cantidad: ${it.cantidad_producto}")
+        }
+
+//        database.cartDao().deleteAll()
+//        database.pedidoDao().deleteAll()
 
         binding.btnRegresar.setOnClickListener {
 

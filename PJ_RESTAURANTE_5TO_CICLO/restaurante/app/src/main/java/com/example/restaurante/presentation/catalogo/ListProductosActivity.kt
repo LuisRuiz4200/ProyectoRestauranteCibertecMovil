@@ -74,15 +74,15 @@ class ListProductosActivity : AppCompatActivity(), ListProductosAdapter.ICard {
     }
 
     private fun productosTemporales(){
-        var listadoProducto : MutableList<Producto> = ArrayList()
-        listadoProducto.add(Producto(1,2,"1/4 de Pollo","Con Gaseosa",10.50,50))
-        listadoProducto.add(Producto(2,2,"1/8 de Pollo","Con Ensalada",6.50,30))
-        listadoProducto.add(Producto(3,2,"1/2 de Pollo","Con Helado",24.34,42))
-        listadoProducto.add(Producto(4,2,"1 de Pollo","Con Gaseosa Y Ensalada",65.50,100))
-        listadoProducto.add(Producto(5,2,"1 de Pollo","Con Gaseosa Y Ensalada",65.50,100))
-        listadoProducto.add(Producto(6,2,"1 de Pollo","Con Gaseosa Y Ensalada",65.50,100))
-        database =BDPolleria.getInstancia(this)
-        database.productoDao().insert(listadoProducto)
+//        var listadoProducto : MutableList<Producto> = ArrayList()
+//        listadoProducto.add(Producto(1,2,"1/4 de Pollo","Con Gaseosa",10.50,50))
+//        listadoProducto.add(Producto(2,2,"1/8 de Pollo","Con Ensalada",6.50,30))
+//        listadoProducto.add(Producto(3,2,"1/2 de Pollo","Con Helado",24.34,42))
+//        listadoProducto.add(Producto(4,2,"1 de Pollo","Con Gaseosa Y Ensalada",65.50,100))
+//        listadoProducto.add(Producto(5,2,"1 de Pollo","Con Gaseosa Y Ensalada",65.50,100))
+//        listadoProducto.add(Producto(6,2,"1 de Pollo","Con Gaseosa Y Ensalada",65.50,100))
+//        database =BDPolleria.getInstancia(this)
+//        database.productoDao().insert(listadoProducto)
     }
 
     override fun onCardClick(item: Producto) {

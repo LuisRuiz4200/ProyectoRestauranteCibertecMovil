@@ -27,7 +27,7 @@ interface ApiServices {
 
     // Tarjeta
     @GET("polleria/APIPolleria/getTarjetas")
-    suspend fun getTarjetas(): List<Tarjeta>
+    suspend fun getTarjetas(@Query("id")id: Int): List<Tarjeta>
     @POST("polleria/APIPolleria/saveTarjeta")
     suspend fun saveTarjeta(@Body tarjeta: Tarjeta) : String
     @PUT("polleria/APIPolleria/updateTarjeta")

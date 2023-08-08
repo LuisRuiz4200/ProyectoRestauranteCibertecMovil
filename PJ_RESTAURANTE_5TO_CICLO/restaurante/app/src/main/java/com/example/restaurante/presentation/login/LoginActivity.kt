@@ -9,6 +9,7 @@ import com.example.restaurante.data.room.BDPolleria
 import com.example.restaurante.data.room.entity.Usuario
 import com.example.restaurante.databinding.ActivityLoginBinding
 import com.example.restaurante.presentation.catalogo.ListProductosActivity
+import com.example.restaurante.presentation.main.MainTabActivity
 import com.example.restaurante.presentation.registro.RegistroActivity
 
 class LoginActivity : AppCompatActivity() {
@@ -18,7 +19,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if(SharedPreferences.getPrefUsuario(applicationContext) != null){
-            startActivity(Intent(this,ListProductosActivity::class.java))
+            startActivity(Intent(this,MainTabActivity::class.java))
             finish()
         }
         binding = ActivityLoginBinding.inflate(layoutInflater)
@@ -38,7 +39,7 @@ class LoginActivity : AppCompatActivity() {
 
             if(usuario != null){
                 SharedPreferences.setPrefUsuario(applicationContext,usuario)
-                startActivity(Intent(this,ListProductosActivity::class.java))
+                startActivity(Intent(this,MainTabActivity::class.java))
                 finish()
             }
             else{

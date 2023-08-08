@@ -22,9 +22,9 @@ class TarjetaViewModel (application: Application) : AndroidViewModel(application
     private val _updateTarjeta = MutableLiveData<String>()
     val updateTarjeta : LiveData<String> = _updateTarjeta
 
-    fun getTarjetas() = viewModelScope.launch {
+    fun getTarjetas(id: Int) = viewModelScope.launch {
         try {
-            val result = repository.getTarjetas()
+            val result = repository.getTarjetas(id)
             _tarjetas.postValue(result)
         }catch (e: Exception){
             Log.d("Error: ", e.message.toString())

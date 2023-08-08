@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.restaurante.data.room.entity.Producto
+import com.example.restaurante.data.room.entity.Tarjeta
 
 @Dao
 interface ProductoDao {

@@ -28,13 +28,13 @@ class MisPedidosActivity : AppCompatActivity() {
 //        listadoProducto.add(Producto(4,2,"1 de Pollo","Con Gaseosa Y Ensalada",65.50,100,null))
 //        listadoProducto.add(Producto(5,2,"1 de Pollo","Con Gaseosa Y Ensalada",65.50,100,null))
 //        listadoProducto.add(Producto(6,2,"1 de Pollo","Con Gaseosa Y Ensalada",65.50,100,null))
-        database = BDPolleria.getInstancia(this)
-        database.productoDao().insert(listadoProducto)
-        productoAdapter = MisPedidosAdapter(database.productoDao().getAll())
-////        binding.rvProducto.layoutManager=LinearLayoutManager(applicationContext)
-//        val layoutManager
-//                = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        binding.rvPedido.layoutManager = LinearLayoutManager(this)
-        binding.rvPedido.adapter=productoAdapter
+//        database = BDPolleria.getInstancia(this)
+//        database.productoDao().insert(listadoProducto)
+//        productoAdapter = MisPedidosAdapter(database.productoDao().getAll())
+//////        binding.rvProducto.layoutManager=LinearLayoutManager(applicationContext)
+////        val layoutManager
+////                = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+//        binding.rvPedido.layoutManager = LinearLayoutManager(this)
+//        binding.rvPedido.adapter=productoAdapter
     }
 }

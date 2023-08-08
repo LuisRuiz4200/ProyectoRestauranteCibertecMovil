@@ -1,40 +1,75 @@
 package com.example.restaurante.presentation.perfil.MisTarjetas
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.restaurante.data.preference.SharedPreferences
 import com.example.restaurante.data.room.BDPolleria
-import com.example.restaurante.data.room.entity.Producto
+import com.example.restaurante.data.room.entity.Pedido
+import com.example.restaurante.data.room.entity.Tarjeta
+import com.example.restaurante.data.room.entity.Usuario
 import com.example.restaurante.databinding.ActivityMisTarjetasBinding
+import com.example.restaurante.domain.viewmodel.TarjetaViewModel
+import com.example.restaurante.presentation.metodos.MetodosPagoActivity
 
-class MisTarjetasActivity : AppCompatActivity() {
+class MisTarjetasActivity : AppCompatActivity(), MisTarjetasAdapter.ICard {
     private lateinit var binding : ActivityMisTarjetasBinding
-
-    private var listadoProducto : MutableList<Producto> = ArrayList()
     private lateinit var database : BDPolleria
-    private  lateinit var productoAdapter :MisTarjetasAdapter
+    private lateinit var tarjetaViewModel: TarjetaViewModel
+    private var listadoTarjetas : MutableList<Tarjeta> = ArrayList()
+    private lateinit var tarjetaAdapter :MisTarjetasAdapter
+    private var buyingMode = 0
+    private lateinit var usuario: Usuario
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMisTarjetasBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initValues()
+        initObservers()
     }
 
     private fun initValues() {
-//        listadoProducto.add(Producto(1,2,"1/4 de Pollo","Con Gaseosa",10.50,50,null))
-//        listadoProducto.add(Producto(2,2,"1/8 de Pollo","Con Ensalada",6.50,30,null))
-//        listadoProducto.add(Producto(3,2,"1/2 de Pollo","Con Helado",24.34,42,null))
-//        listadoProducto.add(Producto(4,2,"1 de Pollo","Con Gaseosa Y Ensalada",65.50,100,null))
-//        listadoProducto.add(Producto(5,2,"1 de Pollo","Con Gaseosa Y Ensalada",65.50,100,null))
-//        listadoProducto.add(Producto(6,2,"1 de Pollo","Con Gaseosa Y Ensalada",65.50,100,null))
+        tarjetaViewModel = ViewModelProvider(this)[TarjetaViewModel::class.java]
         database = BDPolleria.getInstancia(this)
-        database.productoDao().insert(listadoProducto)
-        productoAdapter = MisTarjetasAdapter(database.productoDao().getAll())
-////        binding.rvProducto.layoutManager=LinearLayoutManager(applicationContext)
-//        val layoutManager
-//                = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        usuario = SharedPreferences.getPrefUsuario(this)!!
+        buyingMode = intent.getIntExtra("buyingMode", 0)
+
+        tarjetaAdapter = MisTarjetasAdapter(listadoTarjetas, buyingMode, this)
         binding.rvTarjetas.layoutManager = LinearLayoutManager(this)
-        binding.rvTarjetas.adapter=productoAdapter
+        binding.rvTarjetas.adapter = tarjetaAdapter
+    }
+
+    private fun initObservers() {
+        tarjetaViewModel.getTarjetas.observe(this){
+            tarjetaAdapter.update(it)
+        }
+        tarjetaViewModel.getTarjetas(usuario.id_usuario)
+    }
+
+    override fun onCardClick(item: Tarjeta) {
+        AlertDialog.Builder(this)
+            .setTitle("Confirmar direccion")
+            .setMessage("¿Seleccionar ${item.nombre_tarjeta} como dirección de entrega?")
+            .setPositiveButton("Sí"){ _, _ ->
+                var pedido = Pedido()
+                if(database.pedidoDao().getAll().isNotEmpty()){
+                    var lastPedido = database.pedidoDao().getAll().last()
+                    if(lastPedido.id_usuario_cliente == 0)
+                        pedido = lastPedido
+                }
+                pedido.id_tarjeta = item.id_tarjeta
+                database.pedidoDao().insert(pedido)
+                startActivity(Intent(this, MetodosPagoActivity::class.java))
+                finish()
+            }
+            .setNegativeButton("No"){ _, _ ->
+
+            }
+            .setCancelable(true)
+            .show()
     }
 }

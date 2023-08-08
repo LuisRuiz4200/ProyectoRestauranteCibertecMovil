@@ -44,7 +44,9 @@ class MetodosPagoActivity : AppCompatActivity() {
         }
 
         binding.btnPagoTarjeta.setOnClickListener {
-            startActivity(Intent(this, MisTarjetasActivity::class.java))
+            startActivity(Intent(this, MisTarjetasActivity::class.java).apply {
+                putExtra("buyingMode", 1)
+            })
         }
     }
 }

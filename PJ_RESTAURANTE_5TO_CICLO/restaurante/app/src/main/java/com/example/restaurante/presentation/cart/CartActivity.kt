@@ -28,12 +28,12 @@ class CartActivity : AppCompatActivity() {
 //        listadoProducto.add(Producto(4,2,"1 de Pollo","Con Gaseosa Y Ensalada",65.50,100,null))
 //        listadoProducto.add(Producto(5,2,"1 de Pollo","Con Gaseosa Y Ensalada",65.50,100,null))
 //        listadoProducto.add(Producto(6,2,"1 de Pollo","Con Gaseosa Y Ensalada",65.50,100,null))
-        database = BDPolleria.getInstancia(this)
-        database.productoDao().insert(listadoProducto)
-//        productoAdapter = CartAdapter(database.productoDao().getAll())
-////        = LinearLayoutManager(applicationContext)
-//          = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        binding.rvCart.layoutManager = LinearLayoutManager(applicationContext)
-        binding.rvCart.adapter=productoAdapter
+//        database = BDPolleria.getInstancia(this)
+//        database.productoDao().insert(listadoProducto)
+////        productoAdapter = CartAdapter(database.productoDao().getAll())
+//////        = LinearLayoutManager(applicationContext)
+////          = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+//        binding.rvCart.layoutManager = LinearLayoutManager(applicationContext)
+//        binding.rvCart.adapter=productoAdapter
     }
 }
