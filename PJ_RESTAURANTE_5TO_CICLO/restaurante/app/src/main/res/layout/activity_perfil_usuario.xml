@@ -6,173 +6,179 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_perfil"
     tools:context=".presentation.perfil.PerfilUsuarioActivity">
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/lycTitulo"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_marginTop="29dp"
-        app:layout_constraintTop_toTopOf="parent">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/mi_perfil"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:fontFamily="@font/font_poppins"/>
-    </androidx.appcompat.widget.LinearLayoutCompat>
+        android:layout_height="match_parent">
+        <!-- Container -->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!-- Titulo -->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/lycTitulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginTop="29dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mi_perfil"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/font_poppins"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <!-- Imagen -->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/lycImagen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/image_view"
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
+                    android:layout_gravity="center"
+                    app:strokeColor="@color/black"
+                    android:layout_marginTop="16dp"
+                    app:strokeWidth="4dp"
+                    android:padding="4dp"
+                    app:srcCompat="@drawable/pollo"
+                    android:scaleType="centerCrop"
+                    app:shapeAppearanceOverlay="@style/circularImageView" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <!-- Descripcion -->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/lycDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_marginTop="11dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nombre_test"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/font_poppins"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/email_test"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/font_poppins"
+                    android:layout_marginTop="8dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/telefono_test"
+                    android:textSize="18sp"
+                    android:layout_marginTop="3dp"
+                    android:fontFamily="@font/font_poppins"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <!-- Btn Editar -->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/lycBotonEditar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginTop="17dp"
+                android:layout_marginStart="94dp"
+                android:layout_marginEnd="94dp">
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnEditar"
+                    android:layout_width="172dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/editar_perfil"
+                    android:textAllCaps="false"
+                    app:backgroundTint="@color/rojo_maribel"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <!-- Lista de Btns -->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/lycListBotones"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="33dp"
+                android:gravity="center">
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnPedidos"
+                    android:layout_width="324dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mis_pedidos"
+                    app:cornerRadius="10dp"
+                    android:fontFamily="@font/font_poppins"
+                    android:textAllCaps="false"
+                    android:textAlignment="textStart"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="0dp"
+                    android:padding="10dp"
+                    app:backgroundTint="@color/white"
+                    android:textColor="@color/gris_principal"
+                    android:elevation="50dp"
+                    android:outlineSpotShadowColor="@color/gris_principal"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDirecciones"
+                    android:layout_width="324dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mis_direcciones"
+                    app:cornerRadius="10dp"
+                    android:fontFamily="@font/font_poppins"
+                    android:textAllCaps="false"
+                    android:textAlignment="textStart"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="0dp"
+                    android:padding="10dp"
+                    app:backgroundTint="@color/white"
+                    android:textColor="@color/gris_principal"
+                    android:elevation="50dp"
+                    android:outlineSpotShadowColor="@color/gris_principal"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnFavoritos"
+                    android:layout_width="324dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mis_favoritos"
+                    app:cornerRadius="10dp"
+                    android:fontFamily="@font/font_poppins"
+                    android:textAllCaps="false"
+                    android:textAlignment="textStart"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="0dp"
+                    android:padding="10dp"
+                    app:backgroundTint="@color/white"
+                    android:textColor="@color/gris_principal"
+                    android:elevation="50dp"
+                    android:outlineSpotShadowColor="@color/gris_principal"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTarjetas"
+                    android:layout_width="324dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mis_tarjetas"
+                    app:cornerRadius="10dp"
+                    android:fontFamily="@font/font_poppins"
+                    android:textAllCaps="false"
+                    android:textAlignment="textStart"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="0dp"
+                    android:padding="10dp"
+                    app:backgroundTint="@color/white"
+                    android:textColor="@color/gris_principal"
+                    android:elevation="50dp"
+                    android:outlineSpotShadowColor="@color/black"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </ScrollView>
 
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/lycImagen"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/lycTitulo">
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/image_view"
-            android:layout_width="128dp"
-            android:layout_height="128dp"
-            android:layout_gravity="center"
-            app:strokeColor="@color/black"
-            android:layout_marginTop="16dp"
-            app:strokeWidth="4dp"
-            android:padding="4dp"
-            app:srcCompat="@drawable/pollo"
-            android:scaleType="centerCrop"
-            app:shapeAppearanceOverlay="@style/circularImageView" />
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/lycDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:layout_marginTop="11dp"
-        app:layout_constraintTop_toBottomOf="@+id/lycImagen">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/nombre_test"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:fontFamily="@font/font_poppins"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/email_test"
-            android:textSize="18sp"
-            android:fontFamily="@font/font_poppins"
-            android:layout_marginTop="8dp" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/telefono_test"
-            android:textSize="18sp"
-            android:layout_marginTop="3dp"
-            android:fontFamily="@font/font_poppins"/>
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/lycBotonEditar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_marginTop="17dp"
-        android:layout_marginStart="94dp"
-        android:layout_marginEnd="94dp"
-        app:layout_constraintTop_toBottomOf="@id/lycDescription">
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnEditar"
-            android:layout_width="172dp"
-            android:layout_height="wrap_content"
-            android:text="@string/editar_perfil"
-            android:textAllCaps="false"
-            app:backgroundTint="@color/rojo_maribel"/>
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/lycListBotones"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="33dp"
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/lycBotonEditar">
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnPedidos"
-            android:layout_width="324dp"
-            android:layout_height="wrap_content"
-            android:text="@string/mis_pedidos"
-            app:cornerRadius="10dp"
-            android:fontFamily="@font/font_poppins"
-            android:textAllCaps="false"
-            android:textAlignment="textStart"
-            android:paddingStart="25dp"
-            android:paddingEnd="0dp"
-            android:padding="10dp"
-            app:backgroundTint="@color/white"
-            android:textColor="@color/gris_principal"
-            android:elevation="50dp"
-            android:outlineSpotShadowColor="@color/gris_principal"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnDirecciones"
-            android:layout_width="324dp"
-            android:layout_height="wrap_content"
-            android:text="@string/mis_direcciones"
-            app:cornerRadius="10dp"
-            android:fontFamily="@font/font_poppins"
-            android:textAllCaps="false"
-            android:textAlignment="textStart"
-            android:paddingStart="25dp"
-            android:paddingEnd="0dp"
-            android:padding="10dp"
-            app:backgroundTint="@color/white"
-            android:textColor="@color/gris_principal"
-            android:elevation="50dp"
-            android:outlineSpotShadowColor="@color/gris_principal"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnFavoritos"
-            android:layout_width="324dp"
-            android:layout_height="wrap_content"
-            android:text="@string/mis_favoritos"
-            app:cornerRadius="10dp"
-            android:fontFamily="@font/font_poppins"
-            android:textAllCaps="false"
-            android:textAlignment="textStart"
-            android:paddingStart="25dp"
-            android:paddingEnd="0dp"
-            android:padding="10dp"
-            app:backgroundTint="@color/white"
-            android:textColor="@color/gris_principal"
-            android:elevation="50dp"
-            android:outlineSpotShadowColor="@color/gris_principal"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnTarjetas"
-            android:layout_width="324dp"
-            android:layout_height="wrap_content"
-            android:text="@string/mis_tarjetas"
-            app:cornerRadius="10dp"
-            android:fontFamily="@font/font_poppins"
-            android:textAllCaps="false"
-            android:textAlignment="textStart"
-            android:paddingStart="25dp"
-            android:paddingEnd="0dp"
-            android:padding="10dp"
-            app:backgroundTint="@color/white"
-            android:textColor="@color/gris_principal"
-            android:elevation="50dp"
-            android:outlineSpotShadowColor="@color/black"/>
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
 
 
 

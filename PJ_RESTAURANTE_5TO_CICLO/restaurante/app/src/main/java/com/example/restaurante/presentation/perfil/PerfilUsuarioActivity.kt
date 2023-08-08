@@ -21,7 +21,6 @@ class PerfilUsuarioActivity : AppCompatActivity() {
     }
 
     private fun initValues() {
-
         binding.btnEditar.setOnClickListener {
             startActivity(Intent(this, EditarPerfilActivity::class.java))
         }
