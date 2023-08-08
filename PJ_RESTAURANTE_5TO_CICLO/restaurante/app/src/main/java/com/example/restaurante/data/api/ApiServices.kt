@@ -1,6 +1,7 @@
 package com.example.restaurante.data.api
 
 import com.example.restaurante.data.room.entity.Direccion
+import com.example.restaurante.data.room.entity.Pedido
 import com.example.restaurante.data.room.entity.Producto
 import com.example.restaurante.data.room.entity.Tarjeta
 import com.example.restaurante.data.room.entity.Usuario
@@ -34,7 +35,8 @@ interface ApiServices {
     suspend fun updateTarjeta(@Body tarjeta: Tarjeta) : String
 
     // Pedido
-
+    @POST("polleria/APIPolleria/insertPedido")
+    suspend fun savePedido(@Body pedido: Pedido) : String
 
 
 }

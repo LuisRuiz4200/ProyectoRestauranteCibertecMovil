@@ -35,214 +35,172 @@
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <!--    Container-->
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/lycContainer"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/lycBotonesNavBar"
-        android:background="@drawable/background_perfil">
-        <!--Saludo-->
+        app:layout_constraintTop_toBottomOf="@id/lycBotonesNavBar">
+        <!--    Container-->
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/MsjBienvenida"
+            android:id="@+id/lycContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="20dp"
-            >
-
-            <TextView
-                android:id="@+id/tvUsuario"
+            android:background="@drawable/background_perfil"
+            android:orientation="vertical">
+            <!--Saludo-->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/MsjBienvenida"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:fontFamily="@font/poppinsregular"
-                android:text="@string/Hola"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="28dp"
-                android:fontFamily="@font/poppinsregular"
-                android:text="@string/PreguntaBienvenida"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="24sp" />
-
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-        <!--Search Bar-->
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/search_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/MsjBienvenida"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"
-            >
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="320dp"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="20dp"
-                app:cardBackgroundColor="@color/white">
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <com.google.android.material.textfield.TextInputLayout
+                <TextView
+                    android:id="@+id/tvUsuario"
                     android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:fontFamily="@font/poppinsregular"
+                    android:text="@string/Hola"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:fontFamily="@font/poppinsregular"
+                    android:text="@string/PreguntaBienvenida"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <!--Search Bar-->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/search_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/MsjBienvenida">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="320dp"
                     android:layout_height="wrap_content"
-                    android:hint="@string/search"
-                    app:hintTextColor="@color/gris_principal">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etBuscarProducto"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="20dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/input_gris"
-                        android:lines="1" />
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:hint="@string/search"
+                        app:hintTextColor="@color/gris_principal">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etBuscarProducto"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/input_gris"
+                            android:lines="1" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
 
-            </androidx.cardview.widget.CardView>
-            <ImageView
-                android:id="@+id/searchIcon"
-                android:layout_margin="12sp"
-                app:srcCompat="@drawable/charm_search"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                />
+                </androidx.cardview.widget.CardView>
+
+                <ImageView
+                    android:id="@+id/searchIcon"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_margin="12sp"
+                    app:srcCompat="@drawable/charm_search" />
 
 
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <!--botones opciones-->
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/botones_opciones"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/search_bar"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            >
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_opc_pollos"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:text="@string/categoria_pollos"
-                android:layout_margin="2dp"
-                android:textSize="11sp"
-                android:textAllCaps="false"
-                android:letterSpacing="0.1"
-                android:backgroundTint="@color/main_rojo"
-                android:layout_marginBottom="10dp"
-                android:padding="12dp"
-                app:cornerRadius="10dp"
-                android:drawableStart="@drawable/vector_menu"/>
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_opc_parrillas"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:text="@string/categoria_parrillas"
-                android:layout_margin="2dp"
-                android:textSize="11sp"
-                android:textAllCaps="false"
-                android:letterSpacing="0.1"
-                android:backgroundTint="@color/white"
-                android:textColor="@color/main_rojo"
-                android:padding="12dp"
-                app:strokeColor="@color/main_rojo"
-                app:strokeWidth="1dp"
-                app:cornerRadius="10dp"
-                />
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_opc_promociones"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:text="@string/categoria_promociones"
-                android:textSize="11sp"
-                android:layout_margin="2dp"
-                android:textAllCaps="false"
-                android:letterSpacing="0.1"
-                android:backgroundTint="@color/white"
-                android:textColor="@color/main_rojo"
-                android:padding="12dp"
-                app:strokeColor="@color/main_rojo"
-                app:strokeWidth="1dp"
-                app:cornerRadius="10dp"
-                />
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <!-- Card View -->
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/card_producto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/botones_opciones"
-            android:layout_marginVertical="20dp"
-            >
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvProducto"
+            <!--botones opciones-->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/botones_opciones"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:listitem="@layout/item_producto"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                />
-        </androidx.appcompat.widget.LinearLayoutCompat>
+                app:layout_constraintTop_toBottomOf="@id/search_bar">
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
-    <!--Menu inferior-->
-<!--    <androidx.appcompat.widget.LinearLayoutCompat-->
-<!--        android:id="@+id/lycMenuFragments"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent">-->
-<!--        <androidx.cardview.widget.CardView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="72dp"-->
-<!--            android:layout_marginTop="7dp"-->
-<!--            app:cardElevation="5dp"-->
-<!--            app:cardCornerRadius="20dp">-->
-<!--            <androidx.appcompat.widget.LinearLayoutCompat-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:orientation="horizontal">-->
-<!--                <androidx.constraintlayout.utils.widget.ImageFilterView-->
-<!--                    android:id="@+id/btnHome"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:src="@drawable/ic_home"-->
-<!--                    android:layout_weight="1"/>-->
-<!--                <androidx.constraintlayout.utils.widget.ImageFilterView-->
-<!--                    android:id="@+id/btnFavorites"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:src="@drawable/ic_favorites"-->
-<!--                    android:layout_weight="1"/>-->
-<!--                <androidx.constraintlayout.utils.widget.ImageFilterView-->
-<!--                    android:id="@+id/btnCart"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:src="@drawable/ic_cart"-->
-<!--                    android:layout_weight="1"/>-->
-<!--                <androidx.constraintlayout.utils.widget.ImageFilterView-->
-<!--                    android:id="@+id/btnPerson"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:src="@drawable/ic_person"-->
-<!--                    android:layout_weight="1"/>-->
-<!--            </androidx.appcompat.widget.LinearLayoutCompat>-->
-<!--        </androidx.cardview.widget.CardView>-->
-<!--    </androidx.appcompat.widget.LinearLayoutCompat>-->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_opc_pollos"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:layout_marginBottom="10dp"
+                    android:backgroundTint="@color/main_rojo"
+                    android:drawableStart="@drawable/vector_menu"
+                    android:letterSpacing="0.1"
+                    android:padding="12dp"
+                    android:text="@string/categoria_pollos"
+                    android:textAllCaps="false"
+                    android:textSize="11sp"
+                    app:cornerRadius="10dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_opc_parrillas"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:backgroundTint="@color/white"
+                    android:letterSpacing="0.1"
+                    android:padding="12dp"
+                    android:text="@string/categoria_parrillas"
+                    android:textAllCaps="false"
+                    android:textColor="@color/main_rojo"
+                    android:textSize="11sp"
+                    app:cornerRadius="10dp"
+                    app:strokeColor="@color/main_rojo"
+                    app:strokeWidth="1dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_opc_promociones"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:backgroundTint="@color/white"
+                    android:letterSpacing="0.1"
+                    android:padding="12dp"
+                    android:text="@string/categoria_promociones"
+                    android:textAllCaps="false"
+                    android:textColor="@color/main_rojo"
+                    android:textSize="11sp"
+                    app:cornerRadius="10dp"
+                    app:strokeColor="@color/main_rojo"
+                    app:strokeWidth="1dp" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <!-- Card View -->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/card_producto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="20dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/botones_opciones">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvProducto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_producto" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </ScrollView>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
