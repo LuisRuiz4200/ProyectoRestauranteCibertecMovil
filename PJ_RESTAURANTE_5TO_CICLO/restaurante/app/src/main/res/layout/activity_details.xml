@@ -216,17 +216,18 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             app:cardCornerRadius="10dp"
-                            android:backgroundTint="@color/red_oscuro">
+                            android:backgroundTint="@color/link">
                             <androidx.appcompat.widget.LinearLayoutCompat
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:padding="4dp"
                                 android:gravity="center">
                                 <androidx.constraintlayout.utils.widget.ImageFilterView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:padding="8dp"
                                     android:src="@drawable/ic_cart_white"
-                                    android:backgroundTint="@color/red_oscuro"/>
+                                    android:backgroundTint="@color/link"/>
                                 <TextView
                                     android:layout_width="80dp"
                                     android:layout_height="wrap_content"
