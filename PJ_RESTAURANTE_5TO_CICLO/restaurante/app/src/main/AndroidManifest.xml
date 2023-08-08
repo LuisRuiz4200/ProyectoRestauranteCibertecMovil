@@ -22,7 +22,7 @@
             android:name=".presentation.metodos.MetodosPagoActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.perfil.MIsFavoritos.MisFavoritosActivity"
+            android:name=".presentation.perfil.MisFavoritos.MisFavoritosActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.main.MainTabActivity"

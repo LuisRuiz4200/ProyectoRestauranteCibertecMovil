@@ -31,7 +31,7 @@ class MainTabActivity : AppCompatActivity() {
                 0 -> { tab.setIcon(R.drawable.ic_home_gray)}
                 1 -> { tab.setIcon(R.drawable.ic_favorites_gray)}
                 2 -> { tab.setIcon(R.drawable.ic_cart_gray)}
-                3 -> { tab.setIcon(R.drawable.ic_home_gray)}
+                3 -> { tab.setIcon(R.drawable.ic_user_profile)}
             }
         }
         tabLayoutMediator.attach()
