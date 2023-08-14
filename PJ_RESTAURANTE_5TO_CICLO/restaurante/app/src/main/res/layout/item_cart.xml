@@ -30,8 +30,8 @@
             android:layout_weight="1">
             <androidx.constraintlayout.utils.widget.ImageFilterView
                 android:id="@+id/rvCartImg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="70dp"
                 android:src="@drawable/img_producto_rect"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
         <!--Descripcion-->

@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.constraintlayout.utils.widget.ImageFilterView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.restaurante.R
 import com.example.restaurante.data.room.BDPolleria
 import com.example.restaurante.data.room.entity.Cart
@@ -23,6 +25,7 @@ class CartAdapter (var items : MutableList<Cart>, private val viewModel: CartVie
         val tvCantidad: TextView = itemView.findViewById(R.id.rvCartCantidad)
         val tvDescripcion: TextView = itemView.findViewById(R.id.rvCartPrecio)
         val tvPrecio: TextView = itemView.findViewById(R.id.rvCartPrecio)
+        val rvCartImg: ImageFilterView = itemView.findViewById(R.id.rvCartImg)
 
         init {
             database = BDPolleria.getInstancia(itemView.context)
@@ -46,7 +49,7 @@ class CartAdapter (var items : MutableList<Cart>, private val viewModel: CartVie
         holder.tvCantidad.text = item.cantidad_producto.toString()
         holder.tvDescripcion.text = item.preciouni_producto.toString()
         holder.tvPrecio.text = String.format("%.2f",item.preciouni_producto)
-
+        Glide.with(holder.itemView.context).load(item.imagen_producto).into(holder.rvCartImg)
 
         holder.itemView.btnEditar.setOnClickListener {
             val item = items[holder.adapterPosition]
