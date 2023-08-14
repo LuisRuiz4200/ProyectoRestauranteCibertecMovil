@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
 import com.example.restaurante.data.room.BDPolleria
 import com.example.restaurante.data.room.entity.Cart
 import com.example.restaurante.data.room.entity.Producto
@@ -52,6 +53,7 @@ class DetalleProductoActivity : AppCompatActivity() {
                 producto.nom_producto = it.nom_producto
                 producto.preciouni_producto = it.preciouni_producto
                 producto.des_producto = it.des_producto
+                producto.imagen_producto = it.imagen_producto
                 // Después de obtener y actualizar los datos del producto, llama a setDetails(producto)
                 setDetails(producto)
             }
@@ -63,6 +65,8 @@ class DetalleProductoActivity : AppCompatActivity() {
         binding.tvNombre.text = producto.nom_producto
         binding.tvDescripcion.text = producto.des_producto
         binding.tvPrecio.text = String.format("%.2f",producto.preciouni_producto)
+//        Glide.with(holder.itemView.context).load(item.imagen_producto).into(holder.ivProductoImg)
+        Glide.with(this).load(producto.imagen_producto).into(binding.ivImg)
         var cart = database.cartDao().getCartByIdProducto(producto.id_producto)
         if(cart != null)
             binding.tvCount.text = cart.cantidad_producto.toString()
