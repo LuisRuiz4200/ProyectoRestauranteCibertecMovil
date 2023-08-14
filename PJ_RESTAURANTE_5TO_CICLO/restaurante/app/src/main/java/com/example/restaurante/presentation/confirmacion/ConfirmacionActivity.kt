@@ -25,8 +25,11 @@ class ConfirmacionActivity : AppCompatActivity() {
     }
 
     private fun initValues() {
+        //Instancias
         database = BDPolleria.getInstancia(this)
         pedidoViewModel = ViewModelProvider(this)[PedidoViewModel::class.java]
+
+        // Obtener información necesaria y almacenar en un objeto Pedido
         var items = database.cartDao().getAll()
         var pedido = database.pedidoDao().getAll().last()
         var usuario = SharedPreferences.getPrefUsuario(this)!!
@@ -36,15 +39,13 @@ class ConfirmacionActivity : AppCompatActivity() {
         for(item in pedido.carts)
             cant += (item.cantidad_producto * item.preciouni_producto)
         pedido.monto_compra = cant
-        // Enviar a API TODO
-        // Enviar lista de Cart + Datos de Pedido
-        pedidoViewModel.savePedido(pedido)
-//        items.forEach {
-//            Log.d("MainActivity", "idProducto: ${it.id_producto}, cantidad: ${it.cantidad_producto}")
-//        }
 
-//        database.cartDao().deleteAll()
-//        database.pedidoDao().deleteAll()
+        // Enviar objeto a API
+        pedidoViewModel.savePedido(pedido)
+
+        // Limpiar infomación temporal, Carrito y Pedido
+        database.cartDao().deleteAll()
+        database.pedidoDao().deleteAll()
 
         binding.btnRegresar.setOnClickListener {
             startActivity(Intent(this, MainTabActivity::class.java))

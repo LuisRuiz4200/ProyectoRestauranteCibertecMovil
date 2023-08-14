@@ -13,6 +13,7 @@ import com.example.restaurante.data.room.entity.Tarjeta
 import com.example.restaurante.data.room.entity.Usuario
 import com.example.restaurante.databinding.ActivityMisTarjetasBinding
 import com.example.restaurante.domain.viewmodel.TarjetaViewModel
+import com.example.restaurante.presentation.confirmacion.ConfirmacionActivity
 import com.example.restaurante.presentation.metodos.MetodosPagoActivity
 
 class MisTarjetasActivity : AppCompatActivity(), MisTarjetasAdapter.ICard {
@@ -52,8 +53,8 @@ class MisTarjetasActivity : AppCompatActivity(), MisTarjetasAdapter.ICard {
 
     override fun onCardClick(item: Tarjeta) {
         AlertDialog.Builder(this)
-            .setTitle("Confirmar direccion")
-            .setMessage("¿Seleccionar ${item.nombre_tarjeta} como dirección de entrega?")
+            .setTitle("Confirmar tarjeta")
+            .setMessage("¿Seleccionar ${item.nombre_tarjeta} como tarjeta de pago?")
             .setPositiveButton("Sí"){ _, _ ->
                 var pedido = Pedido()
                 if(database.pedidoDao().getAll().isNotEmpty()){
@@ -62,8 +63,9 @@ class MisTarjetasActivity : AppCompatActivity(), MisTarjetasAdapter.ICard {
                         pedido = lastPedido
                 }
                 pedido.id_tarjeta = item.id_tarjeta
+                pedido.id_medio_pago = 2
                 database.pedidoDao().insert(pedido)
-                startActivity(Intent(this, MetodosPagoActivity::class.java))
+                startActivity(Intent(this, ConfirmacionActivity::class.java))
                 finish()
             }
             .setNegativeButton("No"){ _, _ ->

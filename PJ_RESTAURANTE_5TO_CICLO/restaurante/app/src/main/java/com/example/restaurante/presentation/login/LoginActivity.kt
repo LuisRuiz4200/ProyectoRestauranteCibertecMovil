@@ -68,7 +68,7 @@ class LoginActivity : AppCompatActivity() {
         database = BDPolleria.getInstancia(this)
         /* Crear usuario */
         var obj = Usuario()
-        obj.id_usuario = 1
+        obj.id_usuario = 2
         obj.nom_usuario = "Pablito Backyardigans"
         obj.email_usuario = "test@test.com"
         obj.password_usuario = "123"
