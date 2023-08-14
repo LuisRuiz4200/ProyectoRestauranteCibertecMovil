@@ -124,7 +124,7 @@
                         android:id="@+id/tvStars"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/count"
+                        android:text="@string/puntuacion"
                         android:gravity="center_vertical|center_horizontal"
                         android:drawableStart="@drawable/ic_star"
                         android:layout_weight="5"/>
