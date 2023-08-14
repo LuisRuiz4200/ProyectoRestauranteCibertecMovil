@@ -13,29 +13,29 @@ import retrofit2.http.Query
 
 interface ApiServices {
     // Producto
-    @GET("polleria/APIPolleria/getProductos")
+    @GET("api/Producto/getProductos")
     suspend fun getProductos(): List<Producto>
-    @GET("polleria/APIPolleria/getProductosById")
+    @GET("api/Producto/getProductosById")
     suspend fun getProductosByID(@Query("id") id: Int): Producto
 
     // Direccion
-    @GET("polleria/APIPolleria/getDirecciones")
-    suspend fun getDirecciones(@Query("id") id: Int): List<Direccion>
-    @POST("polleria/APIPolleria/saveDireccion")
+    @GET("api/Direccion/getDireccion")
+    suspend fun getDirecciones(@Query("id_usuario") id: Int): List<Direccion>
+    @POST("api/Direccion/saveDireccion")
     suspend fun saveDireccion(@Body direccion: Direccion) : String
-    @PUT("polleria/APIPolleria/updateDireccion")
+    @PUT("api/Direccion/updateDireccion")
     suspend fun updateDireccion(@Body direccion: Direccion) : String
 
     // Tarjeta
-    @GET("polleria/APIPolleria/getTarjetas")
-    suspend fun getTarjetas(@Query("id")id: Int): List<Tarjeta>
-    @POST("polleria/APIPolleria/saveTarjeta")
+    @GET("api/Tarjeta/getTarjeta")
+    suspend fun getTarjetas(@Query("id_usuario")id: Int): List<Tarjeta>
+    @POST("api/Tarjeta/saveTarjeta")
     suspend fun saveTarjeta(@Body tarjeta: Tarjeta) : String
-    @PUT("polleria/APIPolleria/updateTarjeta")
+    @PUT("api/Tarjeta/updateTarjeta")
     suspend fun updateTarjeta(@Body tarjeta: Tarjeta) : String
 
     // Pedido
-    @POST("polleria/APIPolleria/insertPedido")
+    @POST("api/Pedido/SavePedido")
     suspend fun savePedido(@Body pedido: Pedido) : String
 
 

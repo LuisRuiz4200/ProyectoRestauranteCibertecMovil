@@ -11,6 +11,7 @@ import com.example.restaurante.data.room.dao.ProductoDao
 import com.example.restaurante.data.room.dao.TarjetaDao
 import com.example.restaurante.data.room.dao.UsuarioDao
 import com.example.restaurante.data.room.entity.Cart
+import com.example.restaurante.data.room.entity.Distrito
 import com.example.restaurante.data.room.entity.Pedido
 import com.example.restaurante.data.room.entity.Producto
 import com.example.restaurante.data.room.entity.Tarjeta
@@ -23,8 +24,9 @@ import com.example.restaurante.data.room.entity.Usuario
         Cart::class,
         Pedido::class,
         Tarjeta::class,
+        Distrito::class,
     ],
-    version = 15,
+    version = 16,
     exportSchema = false
 )
 abstract class BDPolleria : RoomDatabase()  {

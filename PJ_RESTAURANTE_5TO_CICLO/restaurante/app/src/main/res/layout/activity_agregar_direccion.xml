@@ -44,7 +44,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/password_reset"/>
+            android:drawableStart="@drawable/vector_house"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <!--Inputs-->
@@ -109,6 +109,36 @@
                     android:background="@color/input_gris"
                     android:hint="@string/detalle_direccion" />
             </com.google.android.material.textfield.TextInputLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="9dp"
+            android:layout_marginBottom="15dp">
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/cboDistrito"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/input_gris">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etDistrito"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/input_gris"
+                        android:hint="@string/select_distrito"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tint="@color/gris_principal"
+                    android:src="@drawable/ic_arrow_dropdown"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.cardview.widget.CardView>
     </androidx.appcompat.widget.LinearLayoutCompat>
 

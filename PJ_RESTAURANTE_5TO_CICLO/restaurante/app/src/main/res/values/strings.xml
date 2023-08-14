@@ -87,4 +87,6 @@
     <string name="tarjeta_desc_test">#### - #### - #### - 4875</string>
     <string name="tarjeta_fecha_test">05/2029</string>
     <string name="puntuacion">5.0</string>
+    <string name="select_distrito">Seleccione el distrito</string>
+    <string name="dialog_direccion_pregunta">¿Esta seguro de escoger la siguiente dirección?</string>
 </resources>

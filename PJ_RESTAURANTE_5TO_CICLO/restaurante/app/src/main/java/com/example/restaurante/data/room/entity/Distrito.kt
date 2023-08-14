@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class DistritoBD (
+data class Distrito (
     @PrimaryKey(autoGenerate = true)
     var id_distrito:Int = 0,
     var des_distrito:String = ""
