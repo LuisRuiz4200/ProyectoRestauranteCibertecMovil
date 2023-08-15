@@ -4,17 +4,17 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import com.example.restaurante.data.preference.SharedPreferences
-import com.example.restaurante.data.room.BDPolleria
 import com.example.restaurante.data.room.entity.Usuario
 import com.example.restaurante.databinding.ActivityLoginBinding
-import com.example.restaurante.presentation.catalogo.ListProductosActivity
+import com.example.restaurante.domain.viewmodel.UsuarioViewModel
 import com.example.restaurante.presentation.main.MainTabActivity
 import com.example.restaurante.presentation.registro.RegistroActivity
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
-    private lateinit var database : BDPolleria
+    private lateinit var viewModel : UsuarioViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,31 +24,33 @@ class LoginActivity : AppCompatActivity() {
         }
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        usuarioTemporal()
         initValues()
+        initObservers()
     }
 
     private fun initValues(){
+        viewModel = ViewModelProvider(this)[UsuarioViewModel::class.java]
+
         binding.btnIngresar.setOnClickListener{
             if (!validarFormulario())
                 return@setOnClickListener
-
-            var user = binding.etUsuario.text.toString()
-            var pass = binding.etPassword.text.toString()
-            var usuario = database.usuarioDao().getUsuarioByUserAndPass(user, pass)
-
-            if(usuario != null){
-                SharedPreferences.setPrefUsuario(applicationContext,usuario)
-                startActivity(Intent(this,MainTabActivity::class.java))
-                finish()
-            }
-            else{
-                Toast.makeText(this,"Credenciales incorrectas",Toast.LENGTH_LONG).show()
-            }
+            viewModel.loginUsuario(loginForm())
         }
 
         binding.btnRegistrar.setOnClickListener {
             startActivity(Intent(this,RegistroActivity::class.java))
+        }
+    }
+
+    private fun initObservers() {
+        viewModel.login.observe(this){
+            if(it.id_usuario > 0){
+                SharedPreferences.setPrefUsuario(applicationContext,it)
+                startActivity(Intent(this,MainTabActivity::class.java))
+                finish()
+            }
+            else
+                Toast.makeText(this,"Credenciales incorrectas",Toast.LENGTH_LONG).show()
         }
     }
 
@@ -64,15 +66,9 @@ class LoginActivity : AppCompatActivity() {
         return true
     }
 
-    private fun usuarioTemporal(){
-        database = BDPolleria.getInstancia(this)
-        /* Crear usuario */
-        var obj = Usuario()
-        obj.id_usuario = 2
-        obj.nom_usuario = "Pablito Backyardigans"
-        obj.email_usuario = "test@test.com"
-        obj.password_usuario = "123"
-        obj.tel_usuario = "999999999"
-        database.usuarioDao().insertUsuario(obj)
+    private fun loginForm(): Usuario {
+        var user = binding.etUsuario.text.toString()
+        var pass = binding.etPassword.text.toString()
+        return Usuario(email_usuario = user, password_usuario = pass)
     }
 }

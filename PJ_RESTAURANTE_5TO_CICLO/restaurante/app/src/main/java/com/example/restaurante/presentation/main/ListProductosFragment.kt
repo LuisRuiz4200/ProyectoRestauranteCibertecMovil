@@ -16,6 +16,7 @@ import com.example.restaurante.presentation.cart.CartActivity
 import com.example.restaurante.presentation.catalogo.Details.DetalleProductoActivity
 import com.example.restaurante.presentation.catalogo.ListProductosAdapter
 import com.example.restaurante.presentation.confirmacion.ConfirmacionActivity
+import com.example.restaurante.presentation.login.LoginActivity
 import com.example.restaurante.presentation.perfil.PerfilUsuarioActivity
 import kotlinx.android.synthetic.main.activity_list_productos.view.btnMenu
 import kotlinx.android.synthetic.main.activity_list_productos.view.btnPerfil
@@ -55,8 +56,11 @@ class ListProductosFragment : Fragment(), ListProductosAdapter.ICard {
         }
 
         view.btn_opc_promociones.setOnClickListener {
-            // Accion temporal para mostrar Detalle Producto
-            startActivity(Intent(requireContext(), CartActivity::class.java))
+            // Accion temporal para Cerrar sesion
+            SharedPreferences.deletePrefUsuario(requireContext())
+            val intent = Intent(requireContext(), LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
         }
 
         view.btn_opc_parrillas.setOnClickListener {

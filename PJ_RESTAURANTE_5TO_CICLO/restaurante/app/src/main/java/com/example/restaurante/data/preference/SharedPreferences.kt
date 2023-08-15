@@ -29,4 +29,11 @@ object SharedPreferences {
         }
         return usuario
     }
+
+    fun deletePrefUsuario(context: Context){
+        val pref = context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE)
+        val editor = pref.edit()
+        editor.clear()
+        editor.apply()
+    }
 }

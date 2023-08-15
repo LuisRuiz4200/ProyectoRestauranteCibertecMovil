@@ -12,6 +12,19 @@ import retrofit2.http.PUT
 import retrofit2.http.Query
 
 interface ApiServices {
+    // Usuario
+    @POST("api/Usuario/loginUsuario")
+    suspend fun loginUsuario(@Body usuario: Usuario): Usuario
+
+    @POST("api/Usuario/saveUsuario")
+    suspend fun saveUsuario(@Body usuario: Usuario): String
+
+    @PUT("api/Usuario/updateUsuario")
+    suspend fun updateUsuario(@Body usuario: Usuario): String
+
+    @PUT("api/Usuario/changePass")
+    suspend fun changePass(@Body usuario: Usuario): String
+
     // Producto
     @GET("api/Producto/getProductos")
     suspend fun getProductos(): List<Producto>
