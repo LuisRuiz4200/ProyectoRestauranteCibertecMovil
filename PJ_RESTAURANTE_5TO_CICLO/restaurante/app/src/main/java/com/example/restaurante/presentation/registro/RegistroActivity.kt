@@ -4,24 +4,32 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.lifecycle.ViewModelProvider
 import com.example.restaurante.R
 import com.example.restaurante.data.room.BDPolleria
 import com.example.restaurante.data.room.entity.Usuario
 import com.example.restaurante.databinding.ActivityRegistroBinding
+import com.example.restaurante.domain.viewmodel.UsuarioViewModel
 import kotlinx.android.synthetic.main.activity_registro.view.etTelefono
 
 class RegistroActivity : AppCompatActivity() {
     private lateinit var binding : ActivityRegistroBinding
     private lateinit var database : BDPolleria
+    private lateinit var viewModel: UsuarioViewModel
+    private lateinit var usuario : Usuario
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegistroBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initValues()
+        initObservers()
     }
 
     private fun initValues(){
+        viewModel = ViewModelProvider(this)[UsuarioViewModel::class.java]
+
         binding.btnRegistrar.setOnClickListener {
+            // Validaciones de formularios
             if(invalidForm())
                 return@setOnClickListener
             if(invalidPass())
@@ -29,19 +37,33 @@ class RegistroActivity : AppCompatActivity() {
             if(invalidCheckBox())
                 return@setOnClickListener
 
+            // Captura de datos
             database = BDPolleria.getInstancia(this)
-            var usuario = Usuario()
+            usuario = Usuario()
             usuario.nom_usuario = binding.etNombres.text.toString()
             usuario.ape_usuario = binding.etApellidos.text.toString()
-            usuario.tel_usuario = binding.etTelefono.text.toString()
+            usuario.cel_usuario = binding.etTelefono.text.toString()
             usuario.email_usuario =  binding.etEmail.text.toString()
             usuario.password_usuario = binding.etContrasena.text.toString()
-            database.usuarioDao().insertUsuario(usuario)
-            mensajeGuardar()
+
+            // Corrobrar existencia, donde el observador registrará
+            viewModel.validUsuario(usuario)
         }
 
         binding.tvRegistroIniciarSesion.setOnClickListener {
             finish()
+        }
+    }
+
+    private fun initObservers(){
+        viewModel.validUsuario.observe(this){
+            if(it == "Valid")
+                viewModel.saveUsuario(usuario)
+            else
+                Toast.makeText(this, it, Toast.LENGTH_LONG).show()
+        }
+        viewModel.saveUsuario.observe(this){
+            mensajeGuardar()
         }
     }
 
@@ -54,8 +76,12 @@ class RegistroActivity : AppCompatActivity() {
             Toast.makeText(this, "Ingrese sus apellidos.", Toast.LENGTH_LONG).show()
             return true
         }
-        if(binding.etEmail.etTelefono.toString().isNullOrEmpty()){
+        if(binding.etTelefono.text.toString().isNullOrEmpty()){
             Toast.makeText(this, "Ingrese su telefono.", Toast.LENGTH_LONG).show()
+            return true
+        }
+        if(binding.etTelefono.text.toString().length != 9){
+            Toast.makeText(this, "Ingrese un telefono válido (9 caracteres).", Toast.LENGTH_LONG).show()
             return true
         }
         if(binding.etEmail.text.toString().isNullOrEmpty()){

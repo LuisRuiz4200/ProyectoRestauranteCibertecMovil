@@ -25,6 +25,9 @@ interface ApiServices {
     @PUT("api/Usuario/changePass")
     suspend fun changePass(@Body usuario: Usuario): String
 
+    @POST("api/Usuario/validUsuario")
+    suspend fun validUsuario(@Body usuario: Usuario): String
+
     // Producto
     @GET("api/Producto/getProductos")
     suspend fun getProductos(): List<Producto>

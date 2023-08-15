@@ -8,4 +8,5 @@ class UsuarioRepository(application: Application) : BaseRepository(application) 
     suspend fun saveUsuario(usuario: Usuario) = apiClient.saveUsuario(usuario)
     suspend fun updateUsuario(usuario: Usuario) = apiClient.updateUsuario(usuario)
     suspend fun changePass(usuario: Usuario) = apiClient.changePass(usuario)
+    suspend fun validUsuario(usuario: Usuario) = apiClient.validUsuario(usuario)
 }

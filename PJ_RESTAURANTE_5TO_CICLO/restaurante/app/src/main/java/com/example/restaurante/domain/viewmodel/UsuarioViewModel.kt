@@ -25,6 +25,9 @@ class UsuarioViewModel (application: Application) : AndroidViewModel(application
     private val _changePass = MutableLiveData<String>()
     val changePass : LiveData<String> = _changePass
 
+    private val _validUsuario = MutableLiveData<String>()
+    val validUsuario : LiveData<String> = _validUsuario
+
     fun loginUsuario(usuario: Usuario) = viewModelScope.launch {
         try {
             val result = repository.loginUsuario(usuario)
@@ -56,6 +59,15 @@ class UsuarioViewModel (application: Application) : AndroidViewModel(application
         try {
             val result = repository.changePass(usuario)
             _changePass.postValue(result)
+        }catch (e: Exception){
+            Log.d("Error: ", e.message.toString())
+        }
+    }
+
+    fun validUsuario(usuario: Usuario) = viewModelScope.launch {
+        try {
+            val result = repository.validUsuario(usuario)
+            _validUsuario.postValue(result)
         }catch (e: Exception){
             Log.d("Error: ", e.message.toString())
         }
