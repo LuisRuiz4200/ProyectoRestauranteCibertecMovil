@@ -12,7 +12,7 @@
         <!-- Container -->
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
             <!-- Titulo -->
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -59,6 +59,7 @@
                 android:layout_marginTop="11dp">
 
                 <TextView
+                    android:id="@+id/tvNombres"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/nombre_test"
@@ -66,6 +67,7 @@
                     android:textStyle="bold"
                     android:fontFamily="@font/font_poppins"/>
                 <TextView
+                    android:id="@+id/tvEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/email_test"
@@ -73,6 +75,7 @@
                     android:fontFamily="@font/font_poppins"
                     android:layout_marginTop="8dp" />
                 <TextView
+                    android:id="@+id/tvNumero"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/telefono_test"
@@ -120,8 +123,7 @@
                     android:padding="10dp"
                     app:backgroundTint="@color/white"
                     android:textColor="@color/gris_principal"
-                    android:elevation="50dp"
-                    android:outlineSpotShadowColor="@color/gris_principal"/>
+                    android:elevation="50dp"/>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnDirecciones"
@@ -137,8 +139,7 @@
                     android:padding="10dp"
                     app:backgroundTint="@color/white"
                     android:textColor="@color/gris_principal"
-                    android:elevation="50dp"
-                    android:outlineSpotShadowColor="@color/gris_principal"/>
+                    android:elevation="50dp"/>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnFavoritos"
@@ -154,8 +155,7 @@
                     android:padding="10dp"
                     app:backgroundTint="@color/white"
                     android:textColor="@color/gris_principal"
-                    android:elevation="50dp"
-                    android:outlineSpotShadowColor="@color/gris_principal"/>
+                    android:elevation="50dp"/>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnTarjetas"
@@ -171,8 +171,7 @@
                     android:padding="10dp"
                     app:backgroundTint="@color/white"
                     android:textColor="@color/gris_principal"
-                    android:elevation="50dp"
-                    android:outlineSpotShadowColor="@color/black"/>
+                    android:elevation="50dp"/>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.appcompat.widget.LinearLayoutCompat>

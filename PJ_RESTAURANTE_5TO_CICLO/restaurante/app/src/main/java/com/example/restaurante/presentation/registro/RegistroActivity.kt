@@ -6,15 +6,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import com.example.restaurante.R
-import com.example.restaurante.data.room.BDPolleria
 import com.example.restaurante.data.room.entity.Usuario
 import com.example.restaurante.databinding.ActivityRegistroBinding
 import com.example.restaurante.domain.viewmodel.UsuarioViewModel
-import kotlinx.android.synthetic.main.activity_registro.view.etTelefono
 
 class RegistroActivity : AppCompatActivity() {
     private lateinit var binding : ActivityRegistroBinding
-    private lateinit var database : BDPolleria
     private lateinit var viewModel: UsuarioViewModel
     private lateinit var usuario : Usuario
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,7 +35,6 @@ class RegistroActivity : AppCompatActivity() {
                 return@setOnClickListener
 
             // Captura de datos
-            database = BDPolleria.getInstancia(this)
             usuario = Usuario()
             usuario.nom_usuario = binding.etNombres.text.toString()
             usuario.ape_usuario = binding.etApellidos.text.toString()
@@ -100,8 +96,8 @@ class RegistroActivity : AppCompatActivity() {
     }
 
     private fun invalidPass() : Boolean{
-        var pass = binding.etContrasena.text.toString()
-        var conf = binding.etConfirmarContrasena.text.toString()
+        val pass = binding.etContrasena.text.toString()
+        val conf = binding.etConfirmarContrasena.text.toString()
         if(pass != conf){
             Toast.makeText(this, "Las contraseñas son diferentes", Toast.LENGTH_LONG).show()
             return true

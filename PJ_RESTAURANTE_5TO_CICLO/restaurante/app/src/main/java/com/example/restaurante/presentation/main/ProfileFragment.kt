@@ -6,8 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.restaurante.R
+import com.example.restaurante.data.preference.SharedPreferences
 import com.example.restaurante.data.room.BDPolleria
+import com.example.restaurante.domain.viewmodel.UsuarioViewModel
 import com.example.restaurante.presentation.perfil.EditarPerfil.EditarPerfilActivity
 import com.example.restaurante.presentation.perfil.MisDirecciones.MisDireccionesActivity
 import com.example.restaurante.presentation.perfil.MisPedidos.MisPedidosActivity
@@ -18,9 +21,12 @@ import kotlinx.android.synthetic.main.activity_perfil_usuario.view.btnEditar
 import kotlinx.android.synthetic.main.activity_perfil_usuario.view.btnFavoritos
 import kotlinx.android.synthetic.main.activity_perfil_usuario.view.btnPedidos
 import kotlinx.android.synthetic.main.activity_perfil_usuario.view.btnTarjetas
+import kotlinx.android.synthetic.main.activity_perfil_usuario.view.tvEmail
+import kotlinx.android.synthetic.main.activity_perfil_usuario.view.tvNombres
+import kotlinx.android.synthetic.main.activity_perfil_usuario.view.tvNumero
 
 class ProfileFragment : Fragment() {
-    private lateinit var database : BDPolleria
+    private lateinit var viewModel: UsuarioViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,6 +40,9 @@ class ProfileFragment : Fragment() {
     }
 
     private fun initValues(view: View) {
+        viewModel = ViewModelProvider(this)[UsuarioViewModel::class.java]
+        setProfile(view)
+
         view.btnEditar.setOnClickListener {
             startActivity(Intent(requireContext(), EditarPerfilActivity::class.java))
         }
@@ -52,7 +61,14 @@ class ProfileFragment : Fragment() {
         }
     }
 
-    private fun initObservers(view: View?) {
+    private fun initObservers(view: View) {
 
+    }
+
+    private fun setProfile(view: View) {
+        val usuario = SharedPreferences.getPrefUsuario(requireContext())!!
+        "${usuario.nom_usuario} ${usuario.ape_usuario}".also { view.tvNombres.text = it }
+        view.tvEmail.text = usuario.email_usuario
+        view.tvNumero.text = usuario.cel_usuario
     }
 }
