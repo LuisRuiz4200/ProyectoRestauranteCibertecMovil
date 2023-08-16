@@ -48,7 +48,16 @@ class ListProductosAdapter
 
     fun update(newItems : List<Producto>){
         this.items.clear()
+        for(item in newItems)
+            item.des_producto = setDescripcion(item.des_producto)
         this.items.addAll(newItems)
         notifyDataSetChanged()
+    }
+
+    private fun setDescripcion(desc : String) : String{
+        var newDesc = desc
+        if(desc.length > 60)
+            newDesc = newDesc.replaceRange(60 until desc.length,"...")
+        return newDesc
     }
 }

@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="4dp"
-        android:layout_marginVertical="4dp"
+        android:layout_marginVertical="10dp"
         android:padding="12dp"
         android:orientation="vertical">
         <!-- Image -->
@@ -43,7 +43,7 @@
                 android:fontFamily="@font/font_poppins"
                 android:gravity="center"
                 android:textStyle="bold"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:text="@string/producto_test"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
         <!-- Descripcion -->
@@ -59,25 +59,25 @@
                 android:text="@string/descripcion_test"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
         <!-- Estrellas -->
-<!--        <androidx.appcompat.widget.LinearLayoutCompat-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:gravity="center"-->
-<!--            android:orientation="horizontal">-->
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:drawableStart="@drawable/ic_star"/>-->
-<!--            <Space-->
-<!--                android:layout_width="10dp"-->
-<!--                android:layout_height="wrap_content"/>-->
-<!--            <TextView-->
-<!--                android:id="@+id/tvStars"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="18sp"-->
-<!--                android:fontFamily="@font/font_poppins"-->
-<!--                android:text="@string/puntuacion"/>-->
-<!--        </androidx.appcompat.widget.LinearLayoutCompat>-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:drawableStartCompat="@drawable/ic_star" />
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/tvStars"
+                android:layout_width="wrap_content"
+                android:layout_height="18sp"
+                android:fontFamily="@font/font_poppins"
+                android:text="@string/puntuacion"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
         <!-- Precio -->
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -98,7 +98,7 @@
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="@color/rojo_maribel"
-                    android:text="S/ "/>
+                    android:text="@string/moneda"/>
                 <TextView
                     android:id="@+id/tvProductoPrecio"
                     android:layout_width="wrap_content"

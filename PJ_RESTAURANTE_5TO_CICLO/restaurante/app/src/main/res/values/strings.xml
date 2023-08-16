@@ -59,7 +59,7 @@
     <string name="tiempo_delivery">Tiempo de delivery</string>
     <string name="time_45">45 mins</string>
     <string name="precio_total">Precio Total</string>
-    <string name="moneda">S/.</string>
+    <string name="moneda">S/</string>
     <string name="categoria_pollos">Pollos</string>
     <string name="categoria_parrillas">Parrillas</string>
     <string name="categoria_promociones">Promociones</string>

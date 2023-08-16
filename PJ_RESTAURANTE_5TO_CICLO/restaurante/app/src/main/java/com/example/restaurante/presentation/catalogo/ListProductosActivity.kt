@@ -5,20 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.restaurante.data.preference.SharedPreferences
-import com.example.restaurante.data.room.BDPolleria
 import com.example.restaurante.data.room.entity.Producto
 import com.example.restaurante.databinding.ActivityListProductosBinding
 import com.example.restaurante.domain.viewmodel.ProductoViewModel
-import com.example.restaurante.presentation.cart.CartActivity
 import com.example.restaurante.presentation.perfil.PerfilUsuarioActivity
 import com.example.restaurante.presentation.catalogo.Details.DetalleProductoActivity
-import com.example.restaurante.presentation.confirmacion.ConfirmacionActivity
 
 class ListProductosActivity : AppCompatActivity(), ListProductosAdapter.ICard {
     private lateinit var binding:ActivityListProductosBinding
-
-    private lateinit var database : BDPolleria
     private  lateinit var productoAdapter :ListProductosAdapter
 
     private lateinit var viewModel: ProductoViewModel
@@ -50,14 +44,14 @@ class ListProductosActivity : AppCompatActivity(), ListProductosAdapter.ICard {
             startActivity(Intent(this,DetalleProductoActivity::class.java))
         }
 
-        binding.btnOpcPromociones.setOnClickListener {
-            // Accion temporal para mostrar Detalle Producto
-            startActivity(Intent(this, CartActivity::class.java))
-        }
-
-        binding.btnOpcParrillas.setOnClickListener {
-            startActivity(Intent(this, ConfirmacionActivity::class.java))
-        }
+//        binding.btnOpcPromociones.setOnClickListener {
+//            // Accion temporal para mostrar Detalle Producto
+//            startActivity(Intent(this, CartActivity::class.java))
+//        }
+//
+//        binding.btnOpcParrillas.setOnClickListener {
+//            startActivity(Intent(this, ConfirmacionActivity::class.java))
+//        }
     }
 
     private fun initObservers(){
@@ -69,8 +63,8 @@ class ListProductosActivity : AppCompatActivity(), ListProductosAdapter.ICard {
     }
 
     private fun setNombreUsuario(){
-        var usuario = SharedPreferences.getPrefUsuario(this)
-        binding.tvUsuario.text = "Hola ${usuario?.nom_usuario}"
+//        var usuario = SharedPreferences.getPrefUsuario(this)
+//        binding.tvUsuario.text = "Hola ${usuario?.nom_usuario}"
     }
 
     private fun productosTemporales(){

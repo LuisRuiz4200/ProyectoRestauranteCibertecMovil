@@ -12,16 +12,11 @@ import com.example.restaurante.R
 import com.example.restaurante.data.preference.SharedPreferences
 import com.example.restaurante.data.room.entity.Producto
 import com.example.restaurante.domain.viewmodel.ProductoViewModel
-import com.example.restaurante.presentation.cart.CartActivity
 import com.example.restaurante.presentation.catalogo.Details.DetalleProductoActivity
 import com.example.restaurante.presentation.catalogo.ListProductosAdapter
-import com.example.restaurante.presentation.confirmacion.ConfirmacionActivity
-import com.example.restaurante.presentation.login.LoginActivity
 import com.example.restaurante.presentation.perfil.PerfilUsuarioActivity
 import kotlinx.android.synthetic.main.activity_list_productos.view.btnMenu
 import kotlinx.android.synthetic.main.activity_list_productos.view.btnPerfil
-import kotlinx.android.synthetic.main.activity_list_productos.view.btn_opc_parrillas
-import kotlinx.android.synthetic.main.activity_list_productos.view.btn_opc_promociones
 import kotlinx.android.synthetic.main.activity_list_productos.view.rvProducto
 import kotlinx.android.synthetic.main.activity_list_productos.view.tvUsuario
 
@@ -55,17 +50,17 @@ class ListProductosFragment : Fragment(), ListProductosAdapter.ICard {
             startActivity(Intent(requireContext(), DetalleProductoActivity::class.java))
         }
 
-        view.btn_opc_promociones.setOnClickListener {
-            // Accion temporal para Cerrar sesion
-            SharedPreferences.deletePrefUsuario(requireContext())
-            val intent = Intent(requireContext(), LoginActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent)
-        }
-
-        view.btn_opc_parrillas.setOnClickListener {
-            startActivity(Intent(requireContext(), ConfirmacionActivity::class.java))
-        }
+//        view.btn_opc_promociones.setOnClickListener {
+//            // Accion temporal para Cerrar sesion
+//            SharedPreferences.deletePrefUsuario(requireContext())
+//            val intent = Intent(requireContext(), LoginActivity::class.java)
+//            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+//            startActivity(intent)
+//        }
+//
+//        view.btn_opc_parrillas.setOnClickListener {
+//            startActivity(Intent(requireContext(), ConfirmacionActivity::class.java))
+//        }
     }
 
     private fun initObservers(){
@@ -77,8 +72,8 @@ class ListProductosFragment : Fragment(), ListProductosAdapter.ICard {
     }
 
     private fun setNombreUsuario(view : View){
-        var usuario = SharedPreferences.getPrefUsuario(requireContext())
-        view.tvUsuario.text = "Hola ${usuario?.nom_usuario}"
+        val nombre = SharedPreferences.getPrefUsuario(requireContext())!!.nom_usuario
+        view.tvUsuario.text = nombre
     }
 
     override fun onCardClick(item: Producto) {

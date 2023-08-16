@@ -12,7 +12,7 @@ object RetrofitInstance {
     private var retrofitMaps: Retrofit? = null
     private const val TIME_OUT = 120L
 
-    private const val BASE_URL = "https://b4d8-45-5-69-231.ngrok-free.app/"
+    private const val BASE_URL = "https://afc5-45-5-69-231.ngrok-free.app/"
     private const val BASE_URL_MAPS = "https://www.googlemaps.com/"
 
     val api: Retrofit get() {
