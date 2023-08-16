@@ -64,31 +64,31 @@ class RegistroActivity : AppCompatActivity() {
     }
 
     private fun invalidForm() : Boolean{
-        if(binding.etNombres.text.toString().isNullOrEmpty()){
+        if(binding.etNombres.text.toString().trim().isEmpty()){
             Toast.makeText(this, "Ingrese sus nombres.", Toast.LENGTH_LONG).show()
             return true
         }
-        if(binding.etApellidos.text.toString().isNullOrEmpty()){
+        if(binding.etApellidos.text.toString().trim().isEmpty()){
             Toast.makeText(this, "Ingrese sus apellidos.", Toast.LENGTH_LONG).show()
             return true
         }
-        if(binding.etTelefono.text.toString().isNullOrEmpty()){
+        if(binding.etTelefono.text.toString().trim().isEmpty()){
             Toast.makeText(this, "Ingrese su telefono.", Toast.LENGTH_LONG).show()
             return true
         }
-        if(binding.etTelefono.text.toString().length != 9){
+        if(binding.etTelefono.text.toString().trim().length != 9){
             Toast.makeText(this, "Ingrese un telefono válido (9 caracteres).", Toast.LENGTH_LONG).show()
             return true
         }
-        if(binding.etEmail.text.toString().isNullOrEmpty()){
+        if(binding.etEmail.text.toString().trim().isEmpty()){
             Toast.makeText(this, "Ingrese su email.", Toast.LENGTH_LONG).show()
             return true
         }
-        if(binding.etContrasena.text.toString().isNullOrEmpty()){
+        if(binding.etContrasena.text.toString().trim().isEmpty()){
             Toast.makeText(this, "Ingrese su contraseña.", Toast.LENGTH_LONG).show()
             return true
         }
-        if(binding.etConfirmarContrasena.text.toString().isNullOrEmpty()){
+        if(binding.etConfirmarContrasena.text.toString().trim().isEmpty()){
             Toast.makeText(this, "Confirme su contraseña.", Toast.LENGTH_LONG).show()
             return true
         }
@@ -117,7 +117,7 @@ class RegistroActivity : AppCompatActivity() {
         AlertDialog.Builder(this)
             .setTitle("Nuevo registro")
             .setMessage("Su registro fue exitoso")
-            .setNeutralButton("Ok"){dialog,_->
+            .setNeutralButton("Ok"){ _, _->
                 finish()
             }
             .setCancelable(false)

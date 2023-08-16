@@ -9,23 +9,23 @@ object SharedPreferences {
     val PREFERENCE_NAME="SharedPreferences"
     val CLASS_NAME="Usuario"
 
-    fun setPrefUsuario(context : Context,usuario: Usuario) : Int{
-        val prefere=context.getSharedPreferences(PREFERENCE_NAME,Context.MODE_PRIVATE)
-        val editor=prefere.edit()
-        val gson=  Gson()
-        val usuarioJson=gson.toJson(usuario)
+    fun setPrefUsuario(context : Context, usuario: Usuario) : Int{
+        val prefere= context.getSharedPreferences(PREFERENCE_NAME,Context.MODE_PRIVATE)
+        val editor= prefere.edit()
+        val gson = Gson()
+        val usuarioJson= gson.toJson(usuario)
         editor.putString(CLASS_NAME,usuarioJson)
         editor.apply()
         return 1
     }
 
-    fun getPrefUsuario(context : Context) :Usuario?{
+    fun getPrefUsuario(context : Context) : Usuario?{
         var usuario : Usuario? = null
-        val prefe=context.getSharedPreferences(PREFERENCE_NAME,Context.MODE_PRIVATE)
+        val prefe = context.getSharedPreferences(PREFERENCE_NAME,Context.MODE_PRIVATE)
         if(prefe.contains(CLASS_NAME)){
-            val usuarioJsonDese=prefe.getString(CLASS_NAME,"")
-            val gson= Gson()
-            usuario=gson.fromJson(usuarioJsonDese,Usuario::class.java)
+            val usuarioJsonDese = prefe.getString(CLASS_NAME,"")
+            val gson = Gson()
+            usuario = gson.fromJson(usuarioJsonDese,Usuario::class.java)
         }
         return usuario
     }

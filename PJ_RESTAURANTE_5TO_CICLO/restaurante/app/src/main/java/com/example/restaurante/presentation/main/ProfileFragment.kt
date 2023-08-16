@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.restaurante.R
 import com.example.restaurante.data.preference.SharedPreferences
-import com.example.restaurante.data.room.BDPolleria
 import com.example.restaurante.domain.viewmodel.UsuarioViewModel
 import com.example.restaurante.presentation.perfil.EditarPerfil.EditarPerfilActivity
 import com.example.restaurante.presentation.perfil.MisDirecciones.MisDireccionesActivity
@@ -37,6 +36,11 @@ class ProfileFragment : Fragment() {
         initValues(view)
         initObservers(view)
         return view
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setProfile(requireView())
     }
 
     private fun initValues(view: View) {
