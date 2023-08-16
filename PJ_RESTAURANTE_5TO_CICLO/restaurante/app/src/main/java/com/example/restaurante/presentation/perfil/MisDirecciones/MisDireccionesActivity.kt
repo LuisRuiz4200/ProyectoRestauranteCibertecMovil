@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.restaurante.R
 import com.example.restaurante.data.preference.SharedPreferences
 import com.example.restaurante.data.room.BDPolleria
 import com.example.restaurante.data.room.entity.Direccion
@@ -35,7 +36,7 @@ class MisDireccionesActivity : AppCompatActivity(), MisDireccionesAdapter.ICard 
         viewModel = ViewModelProvider(this)[DireccionViewModel::class.java]
         database = BDPolleria.getInstancia(this)
         usuario = SharedPreferences.getPrefUsuario(this)!!
-        var buyingMode = intent.getIntExtra("buyingMode", 0)
+        val buyingMode = intent.getIntExtra("buyingMode", 0)
         setTitleView(buyingMode)
         direccionAdapter = MisDireccionesAdapter(listDirecciones, this, buyingMode)
         binding.rvDirecciones.layoutManager = LinearLayoutManager(this)
@@ -56,14 +57,17 @@ class MisDireccionesActivity : AppCompatActivity(), MisDireccionesAdapter.ICard 
     }
 
     override fun onCardClick(item: Direccion) {
+//        var lay = LayoutInflater.from(this)
+//        val dialogView = lay.inflate(R.layout.dialog_direccion, null)
         AlertDialog.Builder(this)
+//            .setView(dialogView)
             .setTitle("Confirmar direccion")
             .setMessage("¿Seleccionar ${item.nombre_direntrega} como dirección de entrega?")
             .setPositiveButton("Sí"){ _, _ ->
 
                 var pedido = Pedido()
                 if(database.pedidoDao().getAll().isNotEmpty()){
-                    var lastPedido = database.pedidoDao().getAll().last()
+                    val lastPedido = database.pedidoDao().getAll().last()
                     if(lastPedido.id_usuario_cliente == 0)
                         pedido = lastPedido
                 }

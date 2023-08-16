@@ -49,6 +49,10 @@ class EditarPerfilActivity : AppCompatActivity() {
             // Validar existencia, luego el observador registrará
             viewModel.validUsuario(usuario)
         }
+
+        binding.btnBackArrow.setOnClickListener {
+            finish()
+        }
     }
 
     private fun initObservers(){
