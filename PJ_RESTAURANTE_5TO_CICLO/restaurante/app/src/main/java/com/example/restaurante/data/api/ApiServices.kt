@@ -34,6 +34,10 @@ interface ApiServices {
     suspend fun getProductos(): List<Producto>
     @GET("api/Producto/getProductosById")
     suspend fun getProductosByID(@Query("id") id: Int): Producto
+    @GET("api/Producto/getProductosbycategoria")
+    suspend fun getProductosByCategoria(@Query("id_categoria_producto") id: Int): List<Producto>
+    @GET("api/Producto/getProductosbynombre")
+    suspend fun getProductosByNombre(@Query("nombre") nombre: String): List<Producto>
 
     // Direccion
     @GET("api/Direccion/getDireccion")

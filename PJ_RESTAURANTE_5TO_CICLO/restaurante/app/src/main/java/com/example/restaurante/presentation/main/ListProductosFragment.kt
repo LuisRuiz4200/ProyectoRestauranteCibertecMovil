@@ -82,12 +82,16 @@ class ListProductosFragment : Fragment(), ListProductosAdapter.ICard, ListProduc
         viewModelProducto.getProductos.observe(viewLifecycleOwner){
             productoAdapter.update(it)
         }
+        viewModelProducto.getProductosByCategoria.observe(viewLifecycleOwner){
+            productoAdapter.update(it)
+        }
         viewModelCategoria.getCategorias()
         viewModelProducto.obtenerProductos()
     }
 
     private fun setNombreUsuario(view : View){
-        val nombre = SharedPreferences.getPrefUsuario(requireContext())!!.nom_usuario
+        var nombre = SharedPreferences.getPrefUsuario(requireContext())!!.nom_usuario
+        nombre = "Hola $nombre"
         view.tvUsuario.text = nombre
     }
 
@@ -98,6 +102,6 @@ class ListProductosFragment : Fragment(), ListProductosAdapter.ICard, ListProduc
     }
 
     override fun onCardClick(item: Categoria) {
-        TODO("Not yet implemented")
+        viewModelProducto.getProductosByCategoria(item.id_categoria_producto)
     }
 }

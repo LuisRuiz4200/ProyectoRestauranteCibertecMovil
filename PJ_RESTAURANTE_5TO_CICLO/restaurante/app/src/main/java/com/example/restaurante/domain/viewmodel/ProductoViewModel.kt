@@ -16,8 +16,14 @@ class ProductoViewModel (application: Application) : AndroidViewModel(applicatio
     private val _productos = MutableLiveData<List<Producto>>()
     val getProductos : LiveData<List<Producto>> = _productos
 
-    private val _producto = MutableLiveData<Producto>()
-    val getProducto : LiveData<Producto> = _producto
+    private val _getProductosById = MutableLiveData<Producto>()
+    val getProductosById : LiveData<Producto> = _getProductosById
+
+    private val _getProductosByCategoria = MutableLiveData<List<Producto>>()
+    val getProductosByCategoria : LiveData<List<Producto>> = _getProductosByCategoria
+
+    private val _getProductosByNombre = MutableLiveData<List<Producto>>()
+    val getProductosByNombre : LiveData<List<Producto>> = _getProductosByNombre
 
     fun obtenerProductos() = viewModelScope.launch {
         try {
@@ -29,15 +35,30 @@ class ProductoViewModel (application: Application) : AndroidViewModel(applicatio
         }
     }
 
-    fun obtenerProducto(idProducto: Int) = viewModelScope.launch {
+    fun getProductosById(idProducto: Int) = viewModelScope.launch {
         try {
             val result = repository.getProductosById(idProducto)
-            _producto.postValue(result)
+            _getProductosById.postValue(result)
         }catch (e: Exception){
             Log.d("Error: ", e.message.toString())
         }
     }
 
+    fun getProductosByCategoria(id: Int) = viewModelScope.launch {
+        try{
+            val result = repository.getProductosByCategoria(id)
+            _getProductosByCategoria.postValue(result)
+        }catch (e: Exception){
+            Log.d("Error: ", e.message.toString())
+        }
+    }
 
-
+    fun getProductosByNombre(nombre: String) = viewModelScope.launch {
+        try{
+            val result = repository.getProductosByNombre(nombre)
+            _getProductosByNombre.postValue(result)
+        }catch (e: Exception){
+            Log.d("Error: ", e.message.toString())
+        }
+    }
 }

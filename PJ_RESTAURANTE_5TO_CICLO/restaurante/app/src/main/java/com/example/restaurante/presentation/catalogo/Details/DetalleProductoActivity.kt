@@ -11,7 +11,6 @@ import com.example.restaurante.data.room.entity.Producto
 import com.example.restaurante.databinding.ActivityDetailsBinding
 import com.example.restaurante.domain.viewmodel.CartViewModel
 import com.example.restaurante.domain.viewmodel.ProductoViewModel
-import okhttp3.internal.notifyAll
 
 class DetalleProductoActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailsBinding
@@ -32,9 +31,9 @@ class DetalleProductoActivity : AppCompatActivity() {
 
     private fun initValues() {
         // Mostrar producto
-        var id = intent.getIntExtra("id_producto", 0)
+        val id = intent.getIntExtra("id_producto", 0)
         producto = Producto(id_producto = id)
-        viewModel = ViewModelProvider(this).get(ProductoViewModel::class.java)
+        viewModel = ViewModelProvider(this)[ProductoViewModel::class.java]
         database = BDPolleria.getInstancia(this)
         // Controlar cantidad
         countControl()
@@ -46,7 +45,7 @@ class DetalleProductoActivity : AppCompatActivity() {
     }
 
     private fun initObservers(){
-        viewModel.getProducto.observe(this){productoObtenido ->
+        viewModel.getProductosById.observe(this){productoObtenido ->
             productoObtenido?.let {
                 // Actualizar el objeto producto con los datos obtenidos
                 producto.id_producto = it.id_producto
@@ -58,7 +57,7 @@ class DetalleProductoActivity : AppCompatActivity() {
                 setDetails(producto)
             }
         }
-        viewModel.obtenerProducto(producto.id_producto)
+        viewModel.getProductosById(producto.id_producto)
     }
 
     private fun setDetails(producto: Producto) {
@@ -68,7 +67,7 @@ class DetalleProductoActivity : AppCompatActivity() {
 //        Glide.with(holder.itemView.context).load(item.imagen_producto).into(holder.ivProductoImg)
         Glide.with(this).load(producto.imagen_producto).into(binding.ivImg)
         var cart = database.cartDao().getCartByIdProducto(producto.id_producto)
-        if(cart != null)
+        if(cart != null) //TODO
             binding.tvCount.text = cart.cantidad_producto.toString()
     }
 
@@ -96,7 +95,7 @@ class DetalleProductoActivity : AppCompatActivity() {
     private fun addToCart(producto: Producto) {
         binding.btnAddToCart.setOnClickListener {
             var item = database.cartDao().getCartByIdProducto(producto.id_producto)
-            if(item == null){
+            if(item == null){ //TODO
                 item = Cart()
             }
             item.id_producto = producto.id_producto

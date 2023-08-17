@@ -20,11 +20,11 @@ class ListProductosCategoriaAdapter
         val tvCategoriaNombre : TextView = itemView.findViewById(R.id.tvCategoriaNombre)
 
         init {
-
+            itemView.setOnClickListener(this)
         }
 
         override fun onClick(v: View?) {
-            TODO("Not yet implemented")
+            iCard.onCardClick(items[adapterPosition])
         }
     }
 
