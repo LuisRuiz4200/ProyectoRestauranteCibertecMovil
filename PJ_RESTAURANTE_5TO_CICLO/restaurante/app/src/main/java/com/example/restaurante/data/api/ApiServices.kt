@@ -1,5 +1,6 @@
 package com.example.restaurante.data.api
 
+import com.example.restaurante.data.room.entity.Categoria
 import com.example.restaurante.data.room.entity.Direccion
 import com.example.restaurante.data.room.entity.Pedido
 import com.example.restaurante.data.room.entity.Producto
@@ -54,5 +55,8 @@ interface ApiServices {
     @POST("api/Pedido/SavePedido")
     suspend fun savePedido(@Body pedido: Pedido) : String
 
+    // Categoria
+    @GET("api/Categoria/getCategoria")
+    suspend fun getCategorias() : List<Categoria>
 
 }

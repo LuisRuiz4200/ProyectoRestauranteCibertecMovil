@@ -17,11 +17,8 @@
         android:gravity="center"
         android:background="@color/white"
         app:layout_constraintTop_toTopOf="parent">
-<!--        <androidx.constraintlayout.utils.widget.ImageFilterView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:src="@drawable/vector_heart"/>-->
         <TextView
+            android:id="@+id/tvCategoriaNombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/font_poppins"
@@ -29,21 +26,6 @@
             android:textColor="@color/main_rojo"
             android:letterSpacing="0.1"
             android:text="@string/categoria_promociones"/>
-<!--        <com.google.android.material.button.MaterialButton-->
-<!--            android:id="@+id/btn_opc_pollos"-->
-<!--            android:layout_width="120dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_margin="2dp"-->
-<!--            android:layout_marginBottom="10dp"-->
-<!--            android:backgroundTint="@color/main_rojo"-->
-<!--            android:drawableStart="@drawable/vector_menu"-->
-<!--            android:letterSpacing="0.1"-->
-<!--            android:padding="12dp"-->
-<!--            android:text="@string/categoria_pollos"-->
-<!--            android:textAllCaps="false"-->
-<!--            android:textSize="11sp"-->
-<!--            app:cornerRadius="10dp" />-->
-<!--        -->
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 
