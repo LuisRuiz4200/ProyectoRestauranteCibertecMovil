@@ -1,10 +1,13 @@
 package com.example.restaurante.presentation.main
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,8 +22,10 @@ import com.example.restaurante.presentation.catalogo.ListProductosAdapter
 import com.example.restaurante.presentation.perfil.PerfilUsuarioActivity
 import kotlinx.android.synthetic.main.activity_list_productos.view.btnMenu
 import kotlinx.android.synthetic.main.activity_list_productos.view.btnPerfil
+import kotlinx.android.synthetic.main.activity_list_productos.view.etBuscarProducto
 import kotlinx.android.synthetic.main.activity_list_productos.view.rvCategoria
 import kotlinx.android.synthetic.main.activity_list_productos.view.rvProducto
+import kotlinx.android.synthetic.main.activity_list_productos.view.searchIcon
 import kotlinx.android.synthetic.main.activity_list_productos.view.tvUsuario
 
 class ListProductosFragment : Fragment(), ListProductosAdapter.ICard, ListProductosCategoriaAdapter.ICard {
@@ -54,6 +59,24 @@ class ListProductosFragment : Fragment(), ListProductosAdapter.ICard, ListProduc
         view.rvProducto.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         view.rvProducto.adapter=productoAdapter
 
+        // Filtro por nombre
+        view.searchIcon.setOnClickListener{
+            viewModelProducto.getProductosByNombre(view.etBuscarProducto.text?.trim().toString())
+        }
+        view.etBuscarProducto.setOnEditorActionListener { v, actionId, event ->
+            if(actionId == EditorInfo.IME_ACTION_SEARCH){
+                viewModelProducto.getProductosByNombre(view.etBuscarProducto.text?.trim().toString())
+                val inputMethodManager = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                inputMethodManager.hideSoftInputFromWindow(view.etBuscarProducto.windowToken, 0)
+                view.etBuscarProducto.text = null
+                true
+            }
+            else
+                false
+        }
+
+
+
         view.btnPerfil.setOnClickListener {
             startActivity(Intent(activity, PerfilUsuarioActivity::class.java))
         }
@@ -85,6 +108,10 @@ class ListProductosFragment : Fragment(), ListProductosAdapter.ICard, ListProduc
         viewModelProducto.getProductosByCategoria.observe(viewLifecycleOwner){
             productoAdapter.update(it)
         }
+        viewModelProducto.getProductosByNombre.observe(viewLifecycleOwner){
+            productoAdapter.update(it)
+        }
+
         viewModelCategoria.getCategorias()
         viewModelProducto.obtenerProductos()
     }
