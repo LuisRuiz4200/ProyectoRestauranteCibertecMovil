@@ -26,7 +26,7 @@ import com.example.restaurante.data.room.entity.Usuario
         Tarjeta::class,
         Distrito::class,
     ],
-    version = 17,
+    version = 18,
     exportSchema = false
 )
 abstract class BDPolleria : RoomDatabase()  {

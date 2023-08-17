@@ -2,39 +2,46 @@ package com.example.restaurante.presentation.perfil.MisPedidos
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.restaurante.data.room.BDPolleria
-import com.example.restaurante.data.room.entity.Producto
+import com.example.restaurante.data.preference.SharedPreferences
+import com.example.restaurante.data.room.entity.Pedido
+import com.example.restaurante.data.room.entity.Usuario
 import com.example.restaurante.databinding.ActivityMisPedidosBinding
+import com.example.restaurante.domain.viewmodel.PedidoViewModel
 
-class MisPedidosActivity : AppCompatActivity() {
+class MisPedidosActivity : AppCompatActivity(), MisPedidosAdapter.ICard {
     private lateinit var binding : ActivityMisPedidosBinding
-    private var listadoProducto : MutableList<Producto> = ArrayList()
-    private lateinit var database : BDPolleria
-    private  lateinit var productoAdapter :MisPedidosAdapter
-
+    private lateinit var viewModelPedido: PedidoViewModel
+    private lateinit var pedidoAdapter: MisPedidosAdapter
+    private var lstPedido : MutableList<Pedido> = ArrayList()
+    private var usuario = Usuario()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMisPedidosBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initValues()
+        initObservers()
     }
 
     private fun initValues() {
-//        listadoProducto.add(Producto(1,2,"1/4 de Pollo","Con Gaseosa",10.50,50,null))
-//        listadoProducto.add(Producto(2,2,"1/8 de Pollo","Con Ensalada",6.50,30,null))
-//        listadoProducto.add(Producto(3,2,"1/2 de Pollo","Con Helado",24.34,42,null))
-//        listadoProducto.add(Producto(4,2,"1 de Pollo","Con Gaseosa Y Ensalada",65.50,100,null))
-//        listadoProducto.add(Producto(5,2,"1 de Pollo","Con Gaseosa Y Ensalada",65.50,100,null))
-//        listadoProducto.add(Producto(6,2,"1 de Pollo","Con Gaseosa Y Ensalada",65.50,100,null))
-//        database = BDPolleria.getInstancia(this)
-//        database.productoDao().insert(listadoProducto)
-//        productoAdapter = MisPedidosAdapter(database.productoDao().getAll())
-//////        binding.rvProducto.layoutManager=LinearLayoutManager(applicationContext)
-////        val layoutManager
-////                = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-//        binding.rvPedido.layoutManager = LinearLayoutManager(this)
-//        binding.rvPedido.adapter=productoAdapter
+        viewModelPedido = ViewModelProvider(this)[PedidoViewModel::class.java]
+        usuario = SharedPreferences.getPrefUsuario(this)!!
+
+        pedidoAdapter = MisPedidosAdapter(lstPedido, this)
+        binding.rvPedido.layoutManager = LinearLayoutManager(this)
+        binding.rvPedido.adapter = pedidoAdapter
+    }
+
+    private fun initObservers() {
+        viewModelPedido.getPedidoByUser.observe(this){
+            pedidoAdapter.update(it)
+        }
+        viewModelPedido.getPedidoByUser(usuario.id_usuario)
+    }
+
+    override fun onCardClick(item: Pedido) {
+        TODO("Not yet implemented")
     }
 }

@@ -6,18 +6,32 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.restaurante.R
-import com.example.restaurante.data.room.entity.Producto
+import com.example.restaurante.data.room.entity.Pedido
+import java.text.SimpleDateFormat
 
-class MisPedidosAdapter (var items: MutableList<Producto>) : RecyclerView.Adapter<MisPedidosAdapter.ViewHolder>() {
+class MisPedidosAdapter
+    (var items: MutableList<Pedido>, var iCard: ICard)
+    : RecyclerView.Adapter<MisPedidosAdapter.ViewHolder>() {
 
-    inner class ViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView){
-        val tvNombre: TextView = itemView.findViewById(R.id.tvPedido)
-        val tvDescripcion: TextView = itemView.findViewById(R.id.tvDescripcion)
-        val tvFecha: TextView = itemView.findViewById(R.id.tvFecha)
+    interface ICard{
+        fun onCardClick(item: Pedido)
+    }
+
+    inner class ViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener{
+        val tvPedidoNumero: TextView = itemView.findViewById(R.id.tvPedidoNumero)
+        val tvPedidoEstado: TextView = itemView.findViewById(R.id.tvPedidoEstado)
+        val tvPedidoDescripcion: TextView = itemView.findViewById(R.id.tvPedidoDescripcion)
+        val tvPedidoFecha: TextView = itemView.findViewById(R.id.tvPedidoFecha)
+
+        init {
+
+        }
+        override fun onClick(v: View?) {
+            iCard.onCardClick(items[adapterPosition])
+        }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view : View =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_pedido,parent,false)
+        val view : View = LayoutInflater.from(parent.context).inflate(R.layout.item_pedido,parent,false)
         return ViewHolder(view)
     }
     override fun getItemCount(): Int {
@@ -25,10 +39,27 @@ class MisPedidosAdapter (var items: MutableList<Producto>) : RecyclerView.Adapte
     }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
-        holder.tvNombre.text=item.nom_producto
-        holder.tvDescripcion.text=item.des_producto
-        holder.tvFecha.text=item.preciouni_producto.toString()
+        holder.tvPedidoNumero.text = item.id_pedido.toString()
+        holder.tvPedidoEstado.text = item.estado_pedido
 
-       // Logica de Boton
+        val desc = "S/${item.monto_compra} - ${item.nombre_direntrega}"
+        holder.tvPedidoDescripcion.text = desc
+
+        // Formato del string de fecha y hora original
+        val originalFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS")
+        val dateFormat = SimpleDateFormat("dd/MM/yyyy")
+        val timeFormat = SimpleDateFormat("HH:mm")
+        // Parsear el string a un objeto Date
+        val date = originalFormat.parse(item.fechaAct_pedido)!!
+        val formattedDate = dateFormat.format(date)
+        val formattedTime = timeFormat.format(date)
+        val fecha = "$formattedDate - $formattedTime"
+        holder.tvPedidoFecha.text = fecha
+    }
+
+    fun update(newItems : List<Pedido>){
+        this.items.clear()
+        this.items.addAll(newItems)
+        notifyDataSetChanged()
     }
 }

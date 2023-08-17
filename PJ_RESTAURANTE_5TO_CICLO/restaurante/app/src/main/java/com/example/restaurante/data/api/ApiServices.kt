@@ -58,6 +58,8 @@ interface ApiServices {
     // Pedido
     @POST("api/Pedido/SavePedido")
     suspend fun savePedido(@Body pedido: Pedido) : String
+    @GET("api/Pedido/getPedidoByUser")
+    suspend fun getPedidoByUser(@Query("id") id: Int) : List<Pedido>
 
     // Categoria
     @GET("api/Categoria/getCategoria")
