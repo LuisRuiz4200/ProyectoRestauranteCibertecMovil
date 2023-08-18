@@ -1,6 +1,5 @@
 package com.example.restaurante.presentation.perfil.MisTarjetas
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,8 +7,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.restaurante.R
 import com.example.restaurante.data.room.entity.Tarjeta
-import com.example.restaurante.presentation.perfil.MisDirecciones.EditarDireccion.EditarDireccionActivity
-import kotlinx.android.synthetic.main.item_direccion.view.btnDireccionAction
 
 class MisTarjetasAdapter(var items: MutableList<Tarjeta>, var buyingMode: Int, var iCard: ICard)
     : RecyclerView.Adapter<MisTarjetasAdapter.ViewHolder>() {
@@ -62,6 +59,7 @@ class MisTarjetasAdapter(var items: MutableList<Tarjeta>, var buyingMode: Int, v
         var showNum = number
         showNum = showNum.replaceRange(0,12,"************")
         showNum = showNum.chunked(4).joinToString(" - ")
+
         return showNum
     }
 }

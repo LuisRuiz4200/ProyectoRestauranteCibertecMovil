@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:drawableStart="@drawable/ic_arrow_left"/>
+            app:drawableStartCompat="@drawable/ic_arrow_left" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/vector_card"/>
+            app:drawableStartCompat="@drawable/vector_card" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <!--Inputs-->

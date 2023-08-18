@@ -33,6 +33,11 @@ class MisTarjetasActivity : AppCompatActivity(), MisTarjetasAdapter.ICard {
         initObservers()
     }
 
+    override fun onResume() {
+        super.onResume()
+        tarjetaViewModel.getTarjetas(usuario.id_usuario)
+    }
+
     private fun initValues() {
         tarjetaViewModel = ViewModelProvider(this)[TarjetaViewModel::class.java]
         database = BDPolleria.getInstancia(this)
