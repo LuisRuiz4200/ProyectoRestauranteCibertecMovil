@@ -70,7 +70,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/input_gris"
-                    android:hint="@string/nro_tarjeta"/>
+                    android:hint="@string/nro_tarjeta"
+                    android:inputType="number"/>
             </com.google.android.material.textfield.TextInputLayout>
         </androidx.cardview.widget.CardView>
 
@@ -86,15 +87,17 @@
                 app:cardCornerRadius="9dp"
                 android:layout_weight="1">
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilCvv"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    app:passwordToggleEnabled="true">
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etCvv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/input_gris"
                         android:hint="@string/cvv"
-                        android:enabled="false"/>
+                        android:inputType="textPassword|number"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
@@ -111,8 +114,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/input_gris"
-                        android:hint="@string/mm_aa"
-                        android:enabled="false"/>
+                        android:hint="@string/mm_aa"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </androidx.cardview.widget.CardView>
         </androidx.appcompat.widget.LinearLayoutCompat>

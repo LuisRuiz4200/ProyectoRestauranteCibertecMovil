@@ -14,7 +14,7 @@ import com.example.restaurante.data.room.entity.Usuario
 import com.example.restaurante.databinding.ActivityMisTarjetasBinding
 import com.example.restaurante.domain.viewmodel.TarjetaViewModel
 import com.example.restaurante.presentation.confirmacion.ConfirmacionActivity
-import com.example.restaurante.presentation.metodos.MetodosPagoActivity
+import com.example.restaurante.presentation.perfil.MisTarjetas.AgregarTarjeta.AgregarTarjetaActivity
 
 class MisTarjetasActivity : AppCompatActivity(), MisTarjetasAdapter.ICard {
     private lateinit var binding : ActivityMisTarjetasBinding
@@ -42,6 +42,10 @@ class MisTarjetasActivity : AppCompatActivity(), MisTarjetasAdapter.ICard {
         tarjetaAdapter = MisTarjetasAdapter(listadoTarjetas, buyingMode, this)
         binding.rvTarjetas.layoutManager = LinearLayoutManager(this)
         binding.rvTarjetas.adapter = tarjetaAdapter
+
+        binding.btnAdd.setOnClickListener {
+            startActivity(Intent(this, AgregarTarjetaActivity::class.java))
+        }
     }
 
     private fun initObservers() {
@@ -58,7 +62,7 @@ class MisTarjetasActivity : AppCompatActivity(), MisTarjetasAdapter.ICard {
             .setPositiveButton("Sí"){ _, _ ->
                 var pedido = Pedido()
                 if(database.pedidoDao().getAll().isNotEmpty()){
-                    var lastPedido = database.pedidoDao().getAll().last()
+                    val lastPedido = database.pedidoDao().getAll().last()
                     if(lastPedido.id_usuario_cliente == 0)
                         pedido = lastPedido
                 }
