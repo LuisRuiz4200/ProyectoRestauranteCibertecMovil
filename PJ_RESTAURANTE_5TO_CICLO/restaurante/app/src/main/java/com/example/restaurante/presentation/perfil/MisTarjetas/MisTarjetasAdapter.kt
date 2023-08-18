@@ -4,11 +4,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.example.restaurante.R
 import com.example.restaurante.data.room.entity.Tarjeta
+import com.example.restaurante.domain.viewmodel.TarjetaViewModel
+import kotlinx.android.synthetic.main.item_tarjeta.view.btnTarjetaEliminar
 
-class MisTarjetasAdapter(var items: MutableList<Tarjeta>, var buyingMode: Int, var iCard: ICard)
+class MisTarjetasAdapter
+    (var items: MutableList<Tarjeta>, var buyingMode: Int, var iCard: ICard,
+     private val viewModel: TarjetaViewModel)
     : RecyclerView.Adapter<MisTarjetasAdapter.ViewHolder>() {
 
     interface ICard{
@@ -29,6 +34,7 @@ class MisTarjetasAdapter(var items: MutableList<Tarjeta>, var buyingMode: Int, v
 //                        putExtra("id", item.id_direntrega)
 //                    })
 //            }
+
         }
         override fun onClick(v: View?) {
             iCard.onCardClick(items[adapterPosition])
@@ -47,6 +53,24 @@ class MisTarjetasAdapter(var items: MutableList<Tarjeta>, var buyingMode: Int, v
         holder.tvTarjetaNombre.text=item.nombre_tarjeta
         holder.tvTarjetaFecha.text=item.fecha_tarjeta
         holder.tvTarjetaNumero.text = formatCard(item.numero_tarjeta)
+
+        holder.itemView.btnTarjetaEliminar.setOnClickListener {
+            println("Holi Click")
+            val tarjeta = items[holder.adapterPosition]
+            AlertDialog.Builder(holder.itemView.context)
+                .setTitle("Eliminar Tarjeta")
+                .setMessage("¿Esta seguro de eliminar ${tarjeta.nombre_tarjeta} como su tarjeta?")
+                .setPositiveButton("Sí"){ _, _ ->
+                    println("Holi Sí")
+
+                    viewModel.deleteTarjeta(tarjeta)
+                }
+                .setNegativeButton("No"){ _, _ ->
+                    return@setNegativeButton
+                }
+                .setCancelable(true)
+                .show()
+        }
     }
 
     fun update(newItems : List<Tarjeta>){

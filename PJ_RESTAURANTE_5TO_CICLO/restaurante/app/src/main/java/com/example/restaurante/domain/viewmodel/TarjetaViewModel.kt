@@ -22,6 +22,9 @@ class TarjetaViewModel (application: Application) : AndroidViewModel(application
     private val _updateTarjeta = MutableLiveData<String>()
     val updateTarjeta : LiveData<String> = _updateTarjeta
 
+    private val _deleteTarjeta = MutableLiveData<String>()
+    val deleteTarjeta : LiveData<String> = _deleteTarjeta
+
     fun getTarjetas(id: Int) = viewModelScope.launch {
         try {
             val result = repository.getTarjetas(id)
@@ -48,5 +51,16 @@ class TarjetaViewModel (application: Application) : AndroidViewModel(application
             Log.d("Error: ", e.message.toString())
         }
     }
+
+    fun deleteTarjeta(tarjeta: Tarjeta) = viewModelScope.launch {
+        try {
+            val result = repository.deleteTarjeta(tarjeta)
+            _deleteTarjeta.postValue(result)
+        }catch (e: Exception){
+            Log.d("Error: ", e.message.toString())
+        }
+    }
+
+
 
 }

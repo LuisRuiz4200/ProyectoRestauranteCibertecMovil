@@ -24,7 +24,8 @@
         <!--Titulo-->
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp">
 
             <TextView
                 android:id="@+id/tvTarjetaNombre"
@@ -36,19 +37,19 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnDireccionAction"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/white"
-                android:text="@string/editar"
-                android:textAllCaps="false"
-                android:textColor="@color/link"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                app:cornerRadius="10dp"
-                app:strokeColor="@color/link"
-                app:strokeWidth="1.8dp" />
+<!--            <com.google.android.material.button.MaterialButton-->
+<!--                android:id="@+id/btnDireccionAction"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:backgroundTint="@color/white"-->
+<!--                android:text="@string/editar"-->
+<!--                android:textAllCaps="false"-->
+<!--                android:textColor="@color/link"-->
+<!--                android:textSize="12sp"-->
+<!--                android:textStyle="bold"-->
+<!--                app:cornerRadius="10dp"-->
+<!--                app:strokeColor="@color/link"-->
+<!--                app:strokeWidth="1.8dp" />-->
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <!--Detalle 1-->
@@ -66,13 +67,19 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginTop="6dp">
-
             <TextView
                 android:id="@+id/tvTarjetaFecha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/tarjeta_fecha_test" />
+                android:text="@string/tarjeta_fecha_test"
+                android:layout_weight="1"/>
+            <androidx.constraintlayout.utils.widget.ImageFilterView
+                android:id="@+id/btnTarjetaEliminar"
+                android:layout_width="36dp"
+                android:layout_height="24dp"
+                android:src="@drawable/vector_trash"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.appcompat.widget.LinearLayoutCompat>
 

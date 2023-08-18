@@ -11,14 +11,14 @@ import com.bumptech.glide.Glide
 import com.example.restaurante.R
 import com.example.restaurante.data.room.BDPolleria
 import com.example.restaurante.data.room.entity.Cart
-import com.example.restaurante.data.room.entity.Direccion
-import com.example.restaurante.data.room.entity.Producto
 import com.example.restaurante.domain.viewmodel.CartViewModel
 import com.example.restaurante.presentation.catalogo.Details.DetalleProductoActivity
 import kotlinx.android.synthetic.main.item_cart.view.btnEditar
 import kotlinx.android.synthetic.main.item_cart.view.btnEliminar
 
-class CartAdapter (var items : MutableList<Cart>, private val viewModel: CartViewModel) : RecyclerView.Adapter<CartAdapter.ViewHolder>() {
+class CartAdapter
+    (var items : MutableList<Cart>, private val viewModel: CartViewModel)
+    : RecyclerView.Adapter<CartAdapter.ViewHolder>() {
     private lateinit var database : BDPolleria
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvProducto: TextView = itemView.findViewById(R.id.rvCartNombre)
@@ -52,17 +52,17 @@ class CartAdapter (var items : MutableList<Cart>, private val viewModel: CartVie
         Glide.with(holder.itemView.context).load(item.imagen_producto).into(holder.rvCartImg)
 
         holder.itemView.btnEditar.setOnClickListener {
-            val item = items[holder.adapterPosition]
+            val cart = items[holder.adapterPosition]
             holder.itemView.context.startActivity(
                 Intent(holder.itemView.context, DetalleProductoActivity::class.java).apply {
-                    putExtra("id_producto", item.id_producto)
+                    putExtra("id_producto", cart.id_producto)
                 }
             )
         }
 
         holder.itemView.btnEliminar.setOnClickListener {
-            val item = items[holder.adapterPosition]
-            database.cartDao().deleteProducto(item.id_producto)
+            val cart = items[holder.adapterPosition]
+            database.cartDao().deleteProducto(cart.id_producto)
             viewModel.getCart()
         }
     }

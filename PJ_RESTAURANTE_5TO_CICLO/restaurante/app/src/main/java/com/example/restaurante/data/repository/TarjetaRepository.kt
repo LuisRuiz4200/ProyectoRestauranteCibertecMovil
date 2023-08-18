@@ -8,5 +8,5 @@ class TarjetaRepository (application: Application) : BaseRepository(application)
     suspend fun getTarjetas(id: Int) = apiClient.getTarjetas(id)
     suspend fun saveTarjeta(tarjeta: Tarjeta) = apiClient.saveTarjeta(tarjeta)
     suspend fun updateTarjeta(tarjeta: Tarjeta) = apiClient.updateTarjeta(tarjeta)
-
+    suspend fun deleteTarjeta(tarjeta: Tarjeta) = apiClient.deleteTarjeta(tarjeta)
 }

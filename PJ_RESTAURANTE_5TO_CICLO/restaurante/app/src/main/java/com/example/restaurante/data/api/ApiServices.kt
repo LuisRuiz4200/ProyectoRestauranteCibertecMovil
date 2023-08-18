@@ -54,6 +54,8 @@ interface ApiServices {
     suspend fun saveTarjeta(@Body tarjeta: Tarjeta) : String
     @PUT("api/Tarjeta/updateTarjeta")
     suspend fun updateTarjeta(@Body tarjeta: Tarjeta) : String
+    @PUT("api/Tarjeta/deleteTarjeta")
+    suspend fun deleteTarjeta(@Body tarjeta: Tarjeta) : String
 
     // Pedido
     @POST("api/Pedido/SavePedido")

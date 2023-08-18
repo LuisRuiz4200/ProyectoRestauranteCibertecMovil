@@ -44,7 +44,7 @@ class MisTarjetasActivity : AppCompatActivity(), MisTarjetasAdapter.ICard {
         usuario = SharedPreferences.getPrefUsuario(this)!!
         buyingMode = intent.getIntExtra("buyingMode", 0)
 
-        tarjetaAdapter = MisTarjetasAdapter(listadoTarjetas, buyingMode, this)
+        tarjetaAdapter = MisTarjetasAdapter(listadoTarjetas, buyingMode, this, tarjetaViewModel)
         binding.rvTarjetas.layoutManager = LinearLayoutManager(this)
         binding.rvTarjetas.adapter = tarjetaAdapter
 
@@ -56,6 +56,11 @@ class MisTarjetasActivity : AppCompatActivity(), MisTarjetasAdapter.ICard {
     private fun initObservers() {
         tarjetaViewModel.getTarjetas.observe(this){
             tarjetaAdapter.update(it)
+        }
+        tarjetaViewModel.deleteTarjeta.observe(this){
+            println("Holi Exterminated")
+
+            tarjetaViewModel.getTarjetas(usuario.id_usuario)
         }
         tarjetaViewModel.getTarjetas(usuario.id_usuario)
     }
