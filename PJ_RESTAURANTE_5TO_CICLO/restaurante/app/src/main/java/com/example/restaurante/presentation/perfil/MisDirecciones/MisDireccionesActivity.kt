@@ -6,7 +6,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.restaurante.R
 import com.example.restaurante.data.preference.SharedPreferences
 import com.example.restaurante.data.room.BDPolleria
 import com.example.restaurante.data.room.entity.Direccion
@@ -61,12 +60,14 @@ class MisDireccionesActivity : AppCompatActivity(), MisDireccionesAdapter.ICard 
     }
 
     private fun setTitleView(buyinModel: Int){
-        if(buyinModel == 1)
-            binding.tvTitulo.text = "Seleccione una dirección"
+        if(buyinModel == 1){
+            val title = "Seleccione una dirección"
+            binding.tvTitulo.text = title
+        }
     }
 
     override fun onCardClick(item: Direccion) {
-//        var lay = LayoutInflater.from(this)
+//        var lay = LayoutInflater.from(this) TODO añadir diseño a los Dialog
 //        val dialogView = lay.inflate(R.layout.dialog_direccion, null)
         AlertDialog.Builder(this)
 //            .setView(dialogView)

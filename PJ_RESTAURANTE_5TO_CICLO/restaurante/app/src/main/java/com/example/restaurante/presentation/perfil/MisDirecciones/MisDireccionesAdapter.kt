@@ -5,13 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.restaurante.R
 import com.example.restaurante.data.room.entity.Direccion
-import com.example.restaurante.presentation.perfil.EditarPerfil.EditarPerfilActivity
 import com.example.restaurante.presentation.perfil.MisDirecciones.EditarDireccion.EditarDireccionActivity
-import com.google.android.material.button.MaterialButton
 import kotlinx.android.synthetic.main.item_direccion.view.btnDireccionAction
 
 class MisDireccionesAdapter
@@ -35,6 +32,9 @@ class MisDireccionesAdapter
                 itemView.context.startActivity(
                     Intent(itemView.context, EditarDireccionActivity::class.java).apply {
                         putExtra("id", item.id_direntrega)
+                        putExtra("nombre", item.nombre_direntrega)
+                        putExtra("descripcion", item.des_direntrega)
+                        putExtra("detalle", item.detalle_direntrega)
                     })
             }
         }
