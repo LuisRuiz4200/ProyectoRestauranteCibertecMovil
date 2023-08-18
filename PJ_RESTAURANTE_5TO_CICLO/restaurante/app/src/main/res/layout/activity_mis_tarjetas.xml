@@ -19,8 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/ic_arrow_left"
-            android:layout_marginStart="30dp"
-            />
+            android:layout_marginStart="30dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -52,12 +51,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="55dp"
+        android:layout_marginTop="16dp"
         android:src="@drawable/add_vector"
         app:tint="@color/white"
         app:backgroundTint="@color/link"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/lycTitulo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:contentDescription="@string/cont_desc_floating_add" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
