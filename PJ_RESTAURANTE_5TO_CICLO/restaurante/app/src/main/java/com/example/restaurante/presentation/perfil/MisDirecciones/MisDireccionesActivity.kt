@@ -15,6 +15,7 @@ import com.example.restaurante.databinding.ActivityMisDireccionesBinding
 import com.example.restaurante.data.room.entity.Usuario
 import com.example.restaurante.domain.viewmodel.DireccionViewModel
 import com.example.restaurante.presentation.metodos.MetodosPagoActivity
+import com.example.restaurante.presentation.perfil.MisDirecciones.AgregarDireccion.AgregarDireccionActivity
 
 class MisDireccionesActivity : AppCompatActivity(), MisDireccionesAdapter.ICard {
     private lateinit var binding : ActivityMisDireccionesBinding
@@ -32,6 +33,11 @@ class MisDireccionesActivity : AppCompatActivity(), MisDireccionesAdapter.ICard 
         initObservers()
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.getDirecciones(usuario.id_usuario)
+    }
+
     private fun initValues() {
         viewModel = ViewModelProvider(this)[DireccionViewModel::class.java]
         database = BDPolleria.getInstancia(this)
@@ -42,6 +48,9 @@ class MisDireccionesActivity : AppCompatActivity(), MisDireccionesAdapter.ICard 
         binding.rvDirecciones.layoutManager = LinearLayoutManager(this)
         binding.rvDirecciones.adapter = direccionAdapter
 
+        binding.btnAddDireccion.setOnClickListener {
+            startActivity(Intent(this, AgregarDireccionActivity::class.java))
+        }
     }
 
     private fun initObservers(){

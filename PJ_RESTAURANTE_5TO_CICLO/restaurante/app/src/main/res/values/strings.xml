@@ -46,8 +46,8 @@
     <string name="precio_test">99.99</string>
     <string name="agregar_nueva_direccion">Agregar nueva dirección</string>
     <string name="nombre_alias">Nombre / Alias</string>
-    <string name="descripcion_direccion">Descripcion de dirección</string>
-    <string name="detalle_direccion">Detalle de la dirección</string>
+    <string name="descripcion_direccion">Dirección</string>
+    <string name="detalle_direccion">Detalle o Referencia de la dirección</string>
     <string name="cambiar">Cambiar</string>
     <string name="direccion_descripcion_test">Jr. Montecarlo 250 int. 203 - San Miguel</string>
     <string name="direccion_detalle_test">Ingresar por la Av. Antunez de Mayolo - Casa de fachada crema</string>
