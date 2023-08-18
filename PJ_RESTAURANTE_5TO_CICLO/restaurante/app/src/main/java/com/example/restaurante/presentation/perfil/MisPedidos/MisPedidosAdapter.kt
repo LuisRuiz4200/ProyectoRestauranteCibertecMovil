@@ -45,7 +45,7 @@ class MisPedidosAdapter
             holder.tvPedidoNumero.text = pedidoNumero
             holder.tvPedidoEstado.text = item.estado_pedido
             println(item.estado_pedido)
-            when(item.estado_pedido.trim()){ //TODO no funciona correctamente
+            when(item.estado_pedido.trim()){
                 "Entregado" -> {
                     val colorList = ContextCompat.getColorStateList(holder.itemView.context, R.color.estado_entregado)
                     holder.tvPedidoEstado.backgroundTintList = colorList
@@ -59,8 +59,8 @@ class MisPedidosAdapter
                     holder.tvPedidoEstado.backgroundTintList = colorList
                 }
             }
-
-            val desc = "S/${item.monto_compra} - ${item.nombre_direntrega}"
+            val precio = String.format("%.2f",item.monto_compra)
+            val desc = "S/$precio - ${item.nombre_direntrega}"
             holder.tvPedidoDescripcion.text = desc
 
             // Formato del string de fecha y hora original

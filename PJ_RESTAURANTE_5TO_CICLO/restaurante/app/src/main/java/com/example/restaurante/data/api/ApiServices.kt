@@ -2,6 +2,7 @@ package com.example.restaurante.data.api
 
 import com.example.restaurante.data.room.entity.Categoria
 import com.example.restaurante.data.room.entity.Direccion
+import com.example.restaurante.data.room.entity.Favorito
 import com.example.restaurante.data.room.entity.Pedido
 import com.example.restaurante.data.room.entity.Producto
 import com.example.restaurante.data.room.entity.Tarjeta
@@ -67,4 +68,11 @@ interface ApiServices {
     @GET("api/Categoria/getCategoria")
     suspend fun getCategorias() : List<Categoria>
 
+    // Favorito
+    @GET("api/Favorito/getFavorito")
+    suspend fun getFavorito(@Query("id_usuario")id: Int): List<Producto>
+    @POST("api/Favorito/deleteFavorito")
+    suspend fun saveFavorito(@Body favorito: Favorito) : String
+    @PUT("api/Favorito/deleteFavorito")
+    suspend fun deleteFavorito(@Body favorito: Favorito) : String
 }
