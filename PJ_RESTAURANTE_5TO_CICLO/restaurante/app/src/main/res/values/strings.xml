@@ -90,4 +90,5 @@
     <string name="select_distrito">Seleccione el distrito</string>
     <string name="dialog_direccion_pregunta">¿Esta seguro de escoger la siguiente dirección?</string>
     <string name="input_nombre">Nombres</string>
+    <string name="cerrar_sesion">Cerrar Sesión</string>
 </resources>

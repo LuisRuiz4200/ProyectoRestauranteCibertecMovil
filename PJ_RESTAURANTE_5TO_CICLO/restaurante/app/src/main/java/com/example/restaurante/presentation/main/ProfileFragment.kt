@@ -10,11 +10,13 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.restaurante.R
 import com.example.restaurante.data.preference.SharedPreferences
 import com.example.restaurante.domain.viewmodel.UsuarioViewModel
+import com.example.restaurante.presentation.login.LoginActivity
 import com.example.restaurante.presentation.perfil.EditarPerfil.EditarPerfilActivity
 import com.example.restaurante.presentation.perfil.MisDirecciones.MisDireccionesActivity
 import com.example.restaurante.presentation.perfil.MisPedidos.MisPedidosActivity
 import com.example.restaurante.presentation.perfil.MisTarjetas.MisTarjetasActivity
 import com.example.restaurante.presentation.registro.RegistroActivity
+import kotlinx.android.synthetic.main.activity_perfil_usuario.view.btnCerrarSesion
 import kotlinx.android.synthetic.main.activity_perfil_usuario.view.btnDirecciones
 import kotlinx.android.synthetic.main.activity_perfil_usuario.view.btnEditar
 import kotlinx.android.synthetic.main.activity_perfil_usuario.view.btnFavoritos
@@ -62,6 +64,12 @@ class ProfileFragment : Fragment() {
         }
         view.btnTarjetas.setOnClickListener {
             startActivity(Intent(requireContext(), MisTarjetasActivity::class.java))
+        }
+        view.btnCerrarSesion.setOnClickListener {
+            SharedPreferences.deletePrefUsuario(requireContext())
+            val intent = Intent(requireContext(), LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
         }
     }
 
