@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/main_rojo"
+    android:layout_marginHorizontal="4dp"
+    app:strokeWidth="2dp"
+    app:strokeColor="@color/main_rojo"
+    app:cardCornerRadius="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--Container-->
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="20dp"
+        android:gravity="center"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:id="@+id/tvCategoriaNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font_poppins"
+            android:textSize="12sp"
+            android:textColor="@color/main_rojo"
+            android:letterSpacing="0.1"
+            android:text="@string/categoria_promociones"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</com.google.android.material.card.MaterialCardView>
