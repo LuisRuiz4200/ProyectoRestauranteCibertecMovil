@@ -13,13 +13,6 @@ class ListProductosActivity : AppCompatActivity(), ListProductosAdapter.ICard {
         super.onCreate(savedInstanceState)
         binding=ActivityListProductosBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        initValues()
-        initObservers()
-    }
-    private fun initValues(){
-    }
-
-    private fun initObservers(){
     }
     override fun onCardClick(item: Producto) {
         startActivity(Intent(this, DetalleProductoActivity::class.java).apply {

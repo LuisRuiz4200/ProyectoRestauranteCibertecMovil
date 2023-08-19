@@ -47,6 +47,7 @@ class ConfirmacionActivity : AppCompatActivity() {
         database.cartDao().deleteAll()
         database.pedidoDao().deleteAll()
 
+        // Boton de regresar
         binding.btnRegresar.setOnClickListener {
             startActivity(Intent(this, MainTabActivity::class.java))
             finish()

@@ -21,7 +21,3 @@ data class Usuario(
     var imagen_usuario : String = "",
     var estado_usuario: String = ""
 )
-
-
-//var fechaReg_usuario: Date? = null,
-//var fechaAct_usuario: Date? = null,
