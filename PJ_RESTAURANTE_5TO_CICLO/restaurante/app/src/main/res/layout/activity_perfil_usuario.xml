@@ -41,11 +41,11 @@
                     android:layout_width="128dp"
                     android:layout_height="128dp"
                     android:layout_gravity="center"
-                    app:strokeColor="@color/black"
+                    app:strokeColor="@color/main_amarillo"
                     android:layout_marginTop="16dp"
                     app:strokeWidth="4dp"
                     android:padding="4dp"
-                    app:srcCompat="@drawable/pollo"
+                    app:srcCompat="@drawable/photo_perfil"
                     android:scaleType="centerCrop"
                     app:shapeAppearanceOverlay="@style/circularImageView" />
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -130,22 +130,6 @@
                     android:layout_width="324dp"
                     android:layout_height="wrap_content"
                     android:text="@string/mis_direcciones"
-                    app:cornerRadius="10dp"
-                    android:fontFamily="@font/font_poppins"
-                    android:textAllCaps="false"
-                    android:textAlignment="textStart"
-                    android:paddingStart="25dp"
-                    android:paddingEnd="0dp"
-                    android:padding="10dp"
-                    app:backgroundTint="@color/white"
-                    android:textColor="@color/gris_principal"
-                    android:elevation="50dp"/>
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnFavoritos"
-                    android:layout_width="324dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mis_favoritos"
                     app:cornerRadius="10dp"
                     android:fontFamily="@font/font_poppins"
                     android:textAllCaps="false"

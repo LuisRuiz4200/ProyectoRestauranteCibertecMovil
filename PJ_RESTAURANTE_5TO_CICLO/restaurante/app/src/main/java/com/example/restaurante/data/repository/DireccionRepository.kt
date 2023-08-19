@@ -8,4 +8,5 @@ class DireccionRepository (application: Application) : BaseRepository(applicatio
     suspend fun getDirecciones(id: Int) = apiClient.getDirecciones(id)
     suspend fun saveDireccion(direccion: Direccion) = apiClient.saveDireccion(direccion)
     suspend fun updateDireccion(direccion: Direccion) = apiClient.updateDireccion(direccion)
+    suspend fun deleteDireccion(id: Int) = apiClient.deleteDireccion(id)
 }

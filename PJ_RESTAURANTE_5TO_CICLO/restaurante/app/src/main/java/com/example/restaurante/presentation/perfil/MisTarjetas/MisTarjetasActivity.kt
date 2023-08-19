@@ -51,6 +51,10 @@ class MisTarjetasActivity : AppCompatActivity(), MisTarjetasAdapter.ICard {
         binding.btnAdd.setOnClickListener {
             startActivity(Intent(this, AgregarTarjetaActivity::class.java))
         }
+
+        binding.btnBackArrow.setOnClickListener {
+            finish()
+        }
     }
 
     private fun initObservers() {

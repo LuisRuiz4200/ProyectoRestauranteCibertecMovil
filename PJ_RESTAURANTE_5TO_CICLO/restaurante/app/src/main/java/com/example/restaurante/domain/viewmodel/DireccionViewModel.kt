@@ -22,6 +22,9 @@ class DireccionViewModel (application: Application) : AndroidViewModel(applicati
     private val _updateDireccion = MutableLiveData<String>()
     var updateDireccion: LiveData<String> = _updateDireccion
 
+    private val _deleteDireccion = MutableLiveData<String>()
+    var deleteDireccion : LiveData<String> = _deleteDireccion
+
     fun getDirecciones(id: Int) = viewModelScope.launch {
         try {
             val result = repository.getDirecciones(id)
@@ -46,6 +49,16 @@ class DireccionViewModel (application: Application) : AndroidViewModel(applicati
         try {
             val result = repository.updateDireccion(direccion)
             _updateDireccion.postValue(result)
+
+        }catch (e: Exception){
+            Log.d("Error: ", e.message.toString())
+        }
+    }
+
+    fun deleteDireccion(id: Int) = viewModelScope.launch {
+        try {
+            val result = repository.deleteDireccion(id)
+            _deleteDireccion.postValue(result)
 
         }catch (e: Exception){
             Log.d("Error: ", e.message.toString())

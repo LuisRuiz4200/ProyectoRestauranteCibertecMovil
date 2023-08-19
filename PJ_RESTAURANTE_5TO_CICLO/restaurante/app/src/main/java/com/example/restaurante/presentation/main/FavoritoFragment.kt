@@ -1,9 +1,11 @@
 package com.example.restaurante.presentation.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,6 +14,7 @@ import com.example.restaurante.data.preference.SharedPreferences
 import com.example.restaurante.data.room.entity.Favorito
 import com.example.restaurante.data.room.entity.Usuario
 import com.example.restaurante.domain.viewmodel.FavoritoViewModel
+import com.example.restaurante.presentation.catalogo.Details.DetalleProductoActivity
 import kotlinx.android.synthetic.main.fragment_favorito.view.rvFavorito
 
 class FavoritoFragment : Fragment(), FavoritoAdapter.ICard{
@@ -49,14 +52,18 @@ class FavoritoFragment : Fragment(), FavoritoAdapter.ICard{
             favoritoAdapter.update(it)
         }
         viewModelFavorito.saveFavorito.observe(viewLifecycleOwner){
+            Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
             viewModelFavorito.getFavorito(usuario.id_usuario)
         }
         viewModelFavorito.deleteFavorito.observe(viewLifecycleOwner){
+            Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
             viewModelFavorito.getFavorito(usuario.id_usuario)
         }
     }
 
     override fun onCardClick(item: Favorito) {
-//        TODO("Not yet implemented")
+        startActivity(Intent(activity, DetalleProductoActivity::class.java).apply {
+            putExtra("id_producto", item.id_producto)
+        })
     }
 }

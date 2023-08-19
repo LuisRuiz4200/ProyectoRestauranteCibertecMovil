@@ -26,15 +26,6 @@ class MisTarjetasAdapter
         init {
             if(buyingMode == 1)
                 itemView.setOnClickListener(this)
-
-//            itemView.btnDireccionAction.setOnClickListener { TODO
-//                val item = items[adapterPosition]
-//                itemView.context.startActivity(
-//                    Intent(itemView.context, EditarDireccionActivity::class.java).apply {
-//                        putExtra("id", item.id_direntrega)
-//                    })
-//            }
-
         }
         override fun onClick(v: View?) {
             iCard.onCardClick(items[adapterPosition])

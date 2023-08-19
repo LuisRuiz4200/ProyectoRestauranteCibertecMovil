@@ -27,7 +27,7 @@ class FavoritoAdapter
         val imgTrash: ImageFilterView = itemView.findViewById(R.id.rvFavoritoEliminar)
 
         init {
-//            itemView.setOnClickListener(this)
+            itemView.setOnClickListener(this)
         }
         override fun onClick(v: View?) {
             iCard.onCardClick(items[adapterPosition])

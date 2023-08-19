@@ -15,11 +15,9 @@ import com.example.restaurante.presentation.perfil.EditarPerfil.EditarPerfilActi
 import com.example.restaurante.presentation.perfil.MisDirecciones.MisDireccionesActivity
 import com.example.restaurante.presentation.perfil.MisPedidos.MisPedidosActivity
 import com.example.restaurante.presentation.perfil.MisTarjetas.MisTarjetasActivity
-import com.example.restaurante.presentation.registro.RegistroActivity
 import kotlinx.android.synthetic.main.activity_perfil_usuario.view.btnCerrarSesion
 import kotlinx.android.synthetic.main.activity_perfil_usuario.view.btnDirecciones
 import kotlinx.android.synthetic.main.activity_perfil_usuario.view.btnEditar
-import kotlinx.android.synthetic.main.activity_perfil_usuario.view.btnFavoritos
 import kotlinx.android.synthetic.main.activity_perfil_usuario.view.btnPedidos
 import kotlinx.android.synthetic.main.activity_perfil_usuario.view.btnTarjetas
 import kotlinx.android.synthetic.main.activity_perfil_usuario.view.tvEmail
@@ -57,10 +55,6 @@ class ProfileFragment : Fragment() {
         }
         view.btnDirecciones.setOnClickListener {
             startActivity(Intent(requireContext(), MisDireccionesActivity::class.java))
-        }
-        view.btnFavoritos.setOnClickListener {
-            // Temporal
-            startActivity(Intent(requireContext(), RegistroActivity::class.java))
         }
         view.btnTarjetas.setOnClickListener {
             startActivity(Intent(requireContext(), MisTarjetasActivity::class.java))

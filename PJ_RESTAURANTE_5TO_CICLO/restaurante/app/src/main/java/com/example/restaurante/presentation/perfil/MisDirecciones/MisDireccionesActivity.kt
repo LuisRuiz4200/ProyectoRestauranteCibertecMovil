@@ -3,6 +3,7 @@ package com.example.restaurante.presentation.perfil.MisDirecciones
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -43,18 +44,26 @@ class MisDireccionesActivity : AppCompatActivity(), MisDireccionesAdapter.ICard 
         usuario = SharedPreferences.getPrefUsuario(this)!!
         val buyingMode = intent.getIntExtra("buyingMode", 0)
         setTitleView(buyingMode)
-        direccionAdapter = MisDireccionesAdapter(listDirecciones, this, buyingMode)
+        direccionAdapter = MisDireccionesAdapter(listDirecciones, this, buyingMode, viewModel)
         binding.rvDirecciones.layoutManager = LinearLayoutManager(this)
         binding.rvDirecciones.adapter = direccionAdapter
 
         binding.btnAddDireccion.setOnClickListener {
             startActivity(Intent(this, AgregarDireccionActivity::class.java))
         }
+
+        binding.btnBackArrow.setOnClickListener {
+            finish()
+        }
     }
 
     private fun initObservers(){
         viewModel.getDirecciones.observe(this){
             direccionAdapter.update(it)
+        }
+        viewModel.deleteDireccion.observe(this){
+            Toast.makeText(this, it, Toast.LENGTH_LONG).show()
+            viewModel.getDirecciones(usuario.id_usuario)
         }
         viewModel.getDirecciones(usuario.id_usuario)
     }

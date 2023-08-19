@@ -15,10 +15,11 @@
         android:orientation="horizontal"
         android:layout_marginTop="29dp"
         app:layout_constraintTop_toTopOf="parent">
-        <TextView
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/btnBackArrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_arrow_left"
+            android:src="@drawable/ic_arrow_left"
             android:layout_marginStart="30dp"/>
         <TextView
             android:layout_width="match_parent"

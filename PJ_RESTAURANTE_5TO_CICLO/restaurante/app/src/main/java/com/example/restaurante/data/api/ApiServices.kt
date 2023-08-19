@@ -47,6 +47,9 @@ interface ApiServices {
     suspend fun saveDireccion(@Body direccion: Direccion) : String
     @PUT("api/Direccion/updateDireccion")
     suspend fun updateDireccion(@Body direccion: Direccion) : String
+    @PUT("api/Direccion/deleteDireccion")
+    suspend fun deleteDireccion(@Query("id_direccion") id: Int) : String
+
 
     // Tarjeta
     @GET("api/Tarjeta/getTarjeta")

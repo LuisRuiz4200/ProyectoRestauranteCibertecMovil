@@ -32,6 +32,10 @@ class MisPedidosActivity : AppCompatActivity(), MisPedidosAdapter.ICard {
         pedidoAdapter = MisPedidosAdapter(lstPedido, this)
         binding.rvPedido.layoutManager = LinearLayoutManager(this)
         binding.rvPedido.adapter = pedidoAdapter
+
+        binding.btnBackArrow.setOnClickListener {
+            finish()
+        }
     }
 
     private fun initObservers() {

@@ -5,14 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.example.restaurante.R
 import com.example.restaurante.data.room.entity.Direccion
+import com.example.restaurante.domain.viewmodel.DireccionViewModel
 import com.example.restaurante.presentation.perfil.MisDirecciones.EditarDireccion.EditarDireccionActivity
 import kotlinx.android.synthetic.main.item_direccion.view.btnDireccionAction
+import kotlinx.android.synthetic.main.item_direccion.view.rvDireccionTrash
 
 class MisDireccionesAdapter
-    (var items: MutableList<Direccion>, var iCard: ICard, var buyingMode: Int)
+    (var items: MutableList<Direccion>, var iCard: ICard, var buyingMode: Int, var viewModel : DireccionViewModel)
     : RecyclerView.Adapter<MisDireccionesAdapter.ViewHolder>() {
 
     interface ICard{
@@ -56,6 +59,21 @@ class MisDireccionesAdapter
         holder.tvDireccionNombre.text = item.nombre_direntrega
         holder.tvDireccionDescripcion.text = item.des_direntrega
         holder.tvDireccionDetalle.text = item.detalle_direntrega
+
+        holder.itemView.rvDireccionTrash.setOnClickListener {
+            val direccion = items[holder.adapterPosition]
+            AlertDialog.Builder(holder.itemView.context)
+                .setTitle("Eliminar Direccion")
+                .setMessage("¿Esta seguro de eliminar ${direccion.nombre_direntrega} como su dirección?")
+                .setPositiveButton("Sí"){ _, _ ->
+                    viewModel.deleteDireccion(item.id_direntrega)
+                }
+                .setNegativeButton("No"){ _, _ ->
+                    return@setNegativeButton
+                }
+                .setCancelable(true)
+                .show()
+        }
     }
 
     fun update(newItems : List<Direccion>){

@@ -40,10 +40,10 @@
         android:layout_marginTop="40dp"
         android:gravity="center"
         app:layout_constraintTop_toBottomOf="@id/lycTitulo">
-        <TextView
+        <androidx.constraintlayout.utils.widget.ImageFilterView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/password_reset"/>
+            android:src="@drawable/vector_house"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <!--Inputs-->
