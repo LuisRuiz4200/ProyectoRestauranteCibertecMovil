@@ -22,9 +22,6 @@ import com.example.restaurante.domain.viewmodel.FavoritoViewModel
 import com.example.restaurante.domain.viewmodel.ProductoViewModel
 import com.example.restaurante.presentation.catalogo.Details.DetalleProductoActivity
 import com.example.restaurante.presentation.catalogo.ListProductosAdapter
-import com.example.restaurante.presentation.perfil.PerfilUsuarioActivity
-import kotlinx.android.synthetic.main.activity_list_productos.view.btnMenu
-import kotlinx.android.synthetic.main.activity_list_productos.view.btnPerfil
 import kotlinx.android.synthetic.main.activity_list_productos.view.etBuscarProducto
 import kotlinx.android.synthetic.main.activity_list_productos.view.rvCategoria
 import kotlinx.android.synthetic.main.activity_list_productos.view.rvProducto
@@ -81,28 +78,6 @@ class ListProductosFragment : Fragment(), ListProductosAdapter.ICard, ListProduc
             else
                 false
         }
-
-
-
-        view.btnPerfil.setOnClickListener {
-            startActivity(Intent(activity, PerfilUsuarioActivity::class.java))
-        }
-        view.btnMenu.setOnClickListener{
-            // Accion temporal para mostrar Detalle Producto
-            startActivity(Intent(requireContext(), DetalleProductoActivity::class.java))
-        }
-
-//        view.btn_opc_promociones.setOnClickListener {
-//            // Accion temporal para Cerrar sesion
-//            SharedPreferences.deletePrefUsuario(requireContext())
-//            val intent = Intent(requireContext(), LoginActivity::class.java)
-//            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-//            startActivity(intent)
-//        }
-//
-//        view.btn_opc_parrillas.setOnClickListener {
-//            startActivity(Intent(requireContext(), ConfirmacionActivity::class.java))
-//        }
     }
 
     private fun initObservers(){
