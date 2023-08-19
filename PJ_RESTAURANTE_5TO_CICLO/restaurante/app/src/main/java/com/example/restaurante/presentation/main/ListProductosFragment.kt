@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,7 +16,9 @@ import com.example.restaurante.R
 import com.example.restaurante.data.preference.SharedPreferences
 import com.example.restaurante.data.room.entity.Categoria
 import com.example.restaurante.data.room.entity.Producto
+import com.example.restaurante.data.room.entity.Usuario
 import com.example.restaurante.domain.viewmodel.CategoriaViewModel
+import com.example.restaurante.domain.viewmodel.FavoritoViewModel
 import com.example.restaurante.domain.viewmodel.ProductoViewModel
 import com.example.restaurante.presentation.catalogo.Details.DetalleProductoActivity
 import com.example.restaurante.presentation.catalogo.ListProductosAdapter
@@ -33,8 +36,10 @@ class ListProductosFragment : Fragment(), ListProductosAdapter.ICard, ListProduc
     private lateinit var categoriaAdapter: ListProductosCategoriaAdapter
     private lateinit var viewModelProducto: ProductoViewModel
     private lateinit var viewModelCategoria: CategoriaViewModel
+    private lateinit var viewModelFavorito: FavoritoViewModel
     private var lstProductos : MutableList<Producto> = ArrayList()
     private var lstCategoria : MutableList<Categoria> = ArrayList()
+    private var usuario = Usuario()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -49,13 +54,15 @@ class ListProductosFragment : Fragment(), ListProductosAdapter.ICard, ListProduc
     private fun initValues(view: View) {
         viewModelCategoria = ViewModelProvider(this)[CategoriaViewModel::class.java]
         viewModelProducto = ViewModelProvider(this)[ProductoViewModel::class.java]
+        viewModelFavorito = ViewModelProvider(this)[FavoritoViewModel::class.java]
+        usuario = SharedPreferences.getPrefUsuario(requireContext())!!
         setNombreUsuario(view)
 
         categoriaAdapter = ListProductosCategoriaAdapter(lstCategoria, this)
         view.rvCategoria.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         view.rvCategoria.adapter = categoriaAdapter
 
-        productoAdapter = ListProductosAdapter(lstProductos, this)
+        productoAdapter = ListProductosAdapter(lstProductos, this, viewModelFavorito)
         view.rvProducto.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         view.rvProducto.adapter=productoAdapter
 
@@ -110,6 +117,9 @@ class ListProductosFragment : Fragment(), ListProductosAdapter.ICard, ListProduc
         }
         viewModelProducto.getProductosByNombre.observe(viewLifecycleOwner){
             productoAdapter.update(it)
+        }
+        viewModelFavorito.saveFavorito.observe(viewLifecycleOwner){
+            Toast.makeText(requireContext(),it, Toast.LENGTH_LONG).show()
         }
 
         viewModelCategoria.getCategorias()

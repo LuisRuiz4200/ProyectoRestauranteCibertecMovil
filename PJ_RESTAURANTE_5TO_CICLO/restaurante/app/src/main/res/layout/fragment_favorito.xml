@@ -37,12 +37,18 @@
         android:id="@+id/lycRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/lycMenu">
+        app:layout_constraintTop_toBottomOf="@id/lycMenu"
+        app:layout_constraintBottom_toTopOf="@id/spaceFavorito">
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvFavorito"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </androidx.appcompat.widget.LinearLayoutCompat>
+    <Space
+        android:id="@+id/spaceFavorito"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

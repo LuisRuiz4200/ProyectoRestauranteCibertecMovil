@@ -8,10 +8,15 @@ import androidx.constraintlayout.utils.widget.ImageFilterView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.restaurante.R
+import com.example.restaurante.data.preference.SharedPreferences
+import com.example.restaurante.data.room.entity.Favorito
 import com.example.restaurante.data.room.entity.Producto
+import com.example.restaurante.domain.viewmodel.FavoritoViewModel
+import kotlinx.android.synthetic.main.item_producto.view.rvProductoHeart
 
 class ListProductosAdapter
-    (var items : MutableList<Producto>, var iCard: ICard)
+    (var items : MutableList<Producto>, var iCard: ICard,
+     var viewModelFavorito : FavoritoViewModel)
     : RecyclerView.Adapter<ListProductosAdapter.ViewHolder>() {
 
     interface ICard{
@@ -23,9 +28,12 @@ class ListProductosAdapter
         val tvProductoDescripcion: TextView = itemView.findViewById(R.id.tvProductoDescripcion)
         val tvProductoPrecio: TextView = itemView.findViewById(R.id.tvProductoPrecio)
         val ivProductoImg : ImageFilterView = itemView.findViewById(R.id.ivProductoImg)
+        val rvProductoHeart : ImageFilterView = itemView.findViewById(R.id.rvProductoHeart)
 
         init{
             itemView.setOnClickListener(this)
+
+
         }
         override fun onClick(v: View?) {
             iCard.onCardClick(items[adapterPosition])
@@ -44,6 +52,13 @@ class ListProductosAdapter
         holder.tvProductoDescripcion.text = item.des_producto
         holder.tvProductoPrecio.text = String.format("%.2f",item.preciouni_producto)
         Glide.with(holder.itemView.context).load(item.imagen_producto).into(holder.ivProductoImg)
+
+        holder.rvProductoHeart.setOnClickListener {
+            val favorito = Favorito()
+            favorito.id_usuario = SharedPreferences.getPrefUsuario(holder.itemView.context)!!.id_usuario
+            favorito.id_producto = item.id_producto
+            viewModelFavorito.saveFavorito(favorito)
+        }
     }
 
     fun update(newItems : List<Producto>){

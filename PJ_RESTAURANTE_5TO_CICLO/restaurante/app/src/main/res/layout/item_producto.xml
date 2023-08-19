@@ -110,6 +110,7 @@
                     android:text="@string/precio_test"/>
             </androidx.appcompat.widget.LinearLayoutCompat>
             <androidx.constraintlayout.utils.widget.ImageFilterView
+                android:id="@+id/rvProductoHeart"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:src="@drawable/vector_heart"/>

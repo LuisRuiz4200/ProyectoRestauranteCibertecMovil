@@ -55,14 +55,11 @@ class MisTarjetasAdapter
         holder.tvTarjetaNumero.text = formatCard(item.numero_tarjeta)
 
         holder.itemView.btnTarjetaEliminar.setOnClickListener {
-            println("Holi Click")
             val tarjeta = items[holder.adapterPosition]
             AlertDialog.Builder(holder.itemView.context)
                 .setTitle("Eliminar Tarjeta")
                 .setMessage("¿Esta seguro de eliminar ${tarjeta.nombre_tarjeta} como su tarjeta?")
                 .setPositiveButton("Sí"){ _, _ ->
-                    println("Holi Sí")
-
                     viewModel.deleteTarjeta(tarjeta)
                 }
                 .setNegativeButton("No"){ _, _ ->

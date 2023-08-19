@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.restaurante.data.room.entity.Producto
 import com.example.restaurante.databinding.ActivityListProductosBinding
+import com.example.restaurante.domain.viewmodel.FavoritoViewModel
 import com.example.restaurante.domain.viewmodel.ProductoViewModel
 import com.example.restaurante.presentation.perfil.PerfilUsuarioActivity
 import com.example.restaurante.presentation.catalogo.Details.DetalleProductoActivity
@@ -16,6 +17,7 @@ class ListProductosActivity : AppCompatActivity(), ListProductosAdapter.ICard {
     private  lateinit var productoAdapter :ListProductosAdapter
 
     private lateinit var viewModel: ProductoViewModel
+    private lateinit var viewModelFavorito: FavoritoViewModel
     private var lstProductos : MutableList<Producto> = ArrayList()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,8 +30,9 @@ class ListProductosActivity : AppCompatActivity(), ListProductosAdapter.ICard {
     private fun initValues(){
         //Inicializar viewModel
         viewModel = ViewModelProvider(this).get(ProductoViewModel::class.java)
+        viewModelFavorito = ViewModelProvider(this).get(FavoritoViewModel::class.java)
         setNombreUsuario()
-        productoAdapter = ListProductosAdapter(lstProductos, this)
+        productoAdapter = ListProductosAdapter(lstProductos, this, viewModelFavorito)
 //          LinearLayoutManager(applicationContext)
 //          LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.rvProducto.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)

@@ -14,7 +14,7 @@ import com.example.restaurante.data.room.entity.Usuario
 import com.example.restaurante.domain.viewmodel.FavoritoViewModel
 import kotlinx.android.synthetic.main.fragment_favorito.view.rvFavorito
 
-class FavoritoFragment : Fragment(){
+class FavoritoFragment : Fragment(), FavoritoAdapter.ICard{
     private lateinit var viewModelFavorito: FavoritoViewModel
     private lateinit var favoritoAdapter: FavoritoAdapter
     private var lstProducto : MutableList<Favorito> = ArrayList()
@@ -30,10 +30,15 @@ class FavoritoFragment : Fragment(){
         return view
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModelFavorito.getFavorito(usuario.id_usuario)
+    }
+
     private fun initValues(view: View) {
         viewModelFavorito = ViewModelProvider(this)[FavoritoViewModel::class.java]
         usuario = SharedPreferences.getPrefUsuario(requireContext())!!
-        favoritoAdapter = FavoritoAdapter(lstProducto)
+        favoritoAdapter = FavoritoAdapter(lstProducto, this, viewModelFavorito)
         view.rvFavorito.layoutManager = LinearLayoutManager(requireContext())
         view.rvFavorito.adapter = favoritoAdapter
         viewModelFavorito.getFavorito(usuario.id_usuario)
@@ -43,5 +48,15 @@ class FavoritoFragment : Fragment(){
         viewModelFavorito.getFavorito.observe(viewLifecycleOwner){
             favoritoAdapter.update(it)
         }
+        viewModelFavorito.saveFavorito.observe(viewLifecycleOwner){
+            viewModelFavorito.getFavorito(usuario.id_usuario)
+        }
+        viewModelFavorito.deleteFavorito.observe(viewLifecycleOwner){
+            viewModelFavorito.getFavorito(usuario.id_usuario)
+        }
+    }
+
+    override fun onCardClick(item: Favorito) {
+//        TODO("Not yet implemented")
     }
 }
