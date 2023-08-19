@@ -70,7 +70,7 @@ interface ApiServices {
 
     // Favorito
     @GET("api/Favorito/getFavorito")
-    suspend fun getFavorito(@Query("id_usuario")id: Int): List<Producto>
+    suspend fun getFavorito(@Query("id_usuario")id: Int): List<Favorito>
     @POST("api/Favorito/deleteFavorito")
     suspend fun saveFavorito(@Body favorito: Favorito) : String
     @PUT("api/Favorito/deleteFavorito")

@@ -61,7 +61,7 @@ class MisDireccionesActivity : AppCompatActivity(), MisDireccionesAdapter.ICard 
 
     private fun setTitleView(buyinModel: Int){
         if(buyinModel == 1){
-            val title = "Seleccione una dirección"
+            val title = "Direcciones"
             binding.tvTitulo.text = title
         }
     }

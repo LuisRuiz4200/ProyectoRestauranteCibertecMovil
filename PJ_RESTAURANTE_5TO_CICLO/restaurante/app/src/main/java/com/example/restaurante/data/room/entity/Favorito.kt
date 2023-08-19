@@ -9,4 +9,5 @@ class Favorito (
     var id_favorito : Int  = 0,
     var id_usuario : Int = 0,
     var id_producto : Int = 0,
+    var producto : Producto = Producto()
 )

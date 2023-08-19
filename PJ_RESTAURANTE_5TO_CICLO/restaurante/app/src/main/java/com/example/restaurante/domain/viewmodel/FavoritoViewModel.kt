@@ -8,14 +8,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.restaurante.data.repository.FavoritoRepository
 import com.example.restaurante.data.room.entity.Favorito
-import com.example.restaurante.data.room.entity.Producto
 import kotlinx.coroutines.launch
 
 class FavoritoViewModel(application: Application) : AndroidViewModel(application) {
     private var repository = FavoritoRepository(application)
 
-    private val _getFavorito = MutableLiveData<List<Producto>>()
-    var getFavorito : LiveData<List<Producto>> = _getFavorito
+    private val _getFavorito = MutableLiveData<List<Favorito>>()
+    var getFavorito : LiveData<List<Favorito>> = _getFavorito
 
     private val _saveFavorito = MutableLiveData<String>()
     var saveFavorito : LiveData<String> = _saveFavorito

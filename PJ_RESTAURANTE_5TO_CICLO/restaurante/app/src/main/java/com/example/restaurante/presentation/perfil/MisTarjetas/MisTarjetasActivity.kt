@@ -58,8 +58,6 @@ class MisTarjetasActivity : AppCompatActivity(), MisTarjetasAdapter.ICard {
             tarjetaAdapter.update(it)
         }
         tarjetaViewModel.deleteTarjeta.observe(this){
-            println("Holi Exterminated")
-
             tarjetaViewModel.getTarjetas(usuario.id_usuario)
         }
         tarjetaViewModel.getTarjetas(usuario.id_usuario)

@@ -12,7 +12,7 @@ class MainPagerAdapter (fa : FragmentActivity) : FragmentStateAdapter(fa){
     override fun createFragment(position: Int): Fragment {
         return when(position){
             0 -> {ListProductosFragment()}
-            1 -> {ListProductosFragment()}
+            1 -> {FavoritoFragment()}
             2 -> {CartFragment()}
             3 -> {ProfileFragment()}
             else -> {ListProductosFragment()}
