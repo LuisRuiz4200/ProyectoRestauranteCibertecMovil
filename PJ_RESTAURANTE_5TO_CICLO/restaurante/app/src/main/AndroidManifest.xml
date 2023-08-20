@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <!-- Premisos para API -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -13,17 +16,77 @@
         android:theme="@style/Theme.Restaurante"
         tools:targetApi="31">
         <activity
-            android:name=".vista.LoginActivity"
+            android:name=".presentation.perfil.MisDirecciones.EditarDireccion.EditarDireccionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.metodos.MetodosPagoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.perfil.MisFavoritos.MisFavoritosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.main.MainTabActivity"
+            android:exported="false"/>
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+        <activity
+            android:name=".presentation.confirmacion.ConfirmacionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.perfil.MisTarjetas.AgregarTarjeta.AgregarTarjetaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.perfil.MisTarjetas.MisTarjetasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.cart.CartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.catalogo.Details.DetalleProductoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.perfil.MisPedidos.MisPedidosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.perfil.MisDirecciones.AgregarDireccion.AgregarDireccionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.perfil.MisDirecciones.MisDireccionesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.perfil.CambiarContrasena.CambiarContrasenaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.perfil.EditarPerfil.EditarPerfilActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.perfil.PerfilUsuarioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.registro.RegistroActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.catalogo.ListProductosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.login.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="com.example.restaurante.presentation.catalogo.MyAppGlideModule"
+            android:value="MyAppGlideModule"/>
     </application>
 
 </manifest>
