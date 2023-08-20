@@ -37,6 +37,7 @@
 
     <!--    Container-->
     <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/lycContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -97,7 +98,6 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/search"
                     app:hintTextColor="@color/gris_principal">
-
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etBuscarProducto"
                         android:layout_width="match_parent"
@@ -106,8 +106,8 @@
                         android:lines="1" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-            </androidx.cardview.widget.CardView>
 
+            </androidx.cardview.widget.CardView>
             <ImageView
                 android:id="@+id/searchIcon"
                 android:layout_margin="12sp"
@@ -115,6 +115,7 @@
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 />
+
 
 
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -126,8 +127,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@id/search_bar"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="290dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             >
@@ -181,30 +180,69 @@
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-
         <!-- Card View -->
-
         <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/card_producto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@id/botones_opciones"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="360dp"
-            android:layout_margin="20dp"
+            android:layout_marginVertical="20dp"
             >
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvProducto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 tools:listitem="@layout/item_producto"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 />
         </androidx.appcompat.widget.LinearLayoutCompat>
+
     </androidx.appcompat.widget.LinearLayoutCompat>
+    <!--Menu inferior-->
+<!--    <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--        android:id="@+id/lycMenuFragments"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent">-->
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="72dp"-->
+<!--            android:layout_marginTop="7dp"-->
+<!--            app:cardElevation="5dp"-->
+<!--            app:cardCornerRadius="20dp">-->
+<!--            <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:orientation="horizontal">-->
+<!--                <androidx.constraintlayout.utils.widget.ImageFilterView-->
+<!--                    android:id="@+id/btnHome"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:src="@drawable/ic_home"-->
+<!--                    android:layout_weight="1"/>-->
+<!--                <androidx.constraintlayout.utils.widget.ImageFilterView-->
+<!--                    android:id="@+id/btnFavorites"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:src="@drawable/ic_favorites"-->
+<!--                    android:layout_weight="1"/>-->
+<!--                <androidx.constraintlayout.utils.widget.ImageFilterView-->
+<!--                    android:id="@+id/btnCart"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:src="@drawable/ic_cart"-->
+<!--                    android:layout_weight="1"/>-->
+<!--                <androidx.constraintlayout.utils.widget.ImageFilterView-->
+<!--                    android:id="@+id/btnPerson"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:src="@drawable/ic_person"-->
+<!--                    android:layout_weight="1"/>-->
+<!--            </androidx.appcompat.widget.LinearLayoutCompat>-->
+<!--        </androidx.cardview.widget.CardView>-->
+<!--    </androidx.appcompat.widget.LinearLayoutCompat>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

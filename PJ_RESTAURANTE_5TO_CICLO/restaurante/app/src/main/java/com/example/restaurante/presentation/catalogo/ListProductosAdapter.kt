@@ -8,11 +8,23 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.restaurante.R
 import com.example.restaurante.data.room.entity.Producto
 
-class ListProductosAdapter(var items : MutableList<Producto>) : RecyclerView.Adapter<ListProductosAdapter.ViewHolder>(){
-    inner class ViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView){
+class ListProductosAdapter(var items : MutableList<Producto>, var iCard: ICard) : RecyclerView.Adapter<ListProductosAdapter.ViewHolder>(){
+
+    interface ICard{
+        fun onCardClick(item : Producto)
+    }
+
+    inner class ViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener{
         val tvProducto: TextView = itemView.findViewById(R.id.tvProducto)
         val tvDescripcion: TextView = itemView.findViewById(R.id.tvDescripcion)
         val tvPrecio: TextView = itemView.findViewById(R.id.tvPrecio)
+
+        init{
+            itemView.setOnClickListener(this)
+        }
+        override fun onClick(v: View?) {
+            iCard.onCardClick(items[adapterPosition])
+        }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view : View =LayoutInflater.from(parent.context).inflate(R.layout.item_producto,parent,false)
@@ -23,8 +35,14 @@ class ListProductosAdapter(var items : MutableList<Producto>) : RecyclerView.Ada
     }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
-        holder.tvProducto.text=item.nom_producto
-        holder.tvDescripcion.text=item.des_producto
-        holder.tvPrecio.text=item.preciouni_producto.toString()
+        holder.tvProducto.text = item.nom_producto
+        holder.tvDescripcion.text = item.des_producto
+        holder.tvPrecio.text = String.format("%.2f",item.preciouni_producto)
+    }
+
+    fun update(newItems : List<Producto>){
+        this.items.clear()
+        this.items.addAll(newItems)
+        notifyDataSetChanged()
     }
 }

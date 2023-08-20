@@ -43,7 +43,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </androidx.appcompat.widget.LinearLayoutCompat>
-
     <!--Card-->
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/lycCard"
@@ -138,6 +137,7 @@
                         android:layout_weight="1"
                         android:gravity="center">
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnContinuar"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:hint="@string/continuar_compra"
@@ -146,6 +146,7 @@
                             app:cornerRadius="10dp"/>
                     </androidx.appcompat.widget.LinearLayoutCompat>
                 </androidx.appcompat.widget.LinearLayoutCompat>
+
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.cardview.widget.CardView>
     </androidx.appcompat.widget.LinearLayoutCompat>

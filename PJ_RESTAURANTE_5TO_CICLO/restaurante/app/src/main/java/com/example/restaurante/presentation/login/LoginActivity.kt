@@ -23,6 +23,7 @@ class LoginActivity : AppCompatActivity() {
         }
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        usuarioTemporal()
         initValues()
     }
 
@@ -30,26 +31,18 @@ class LoginActivity : AppCompatActivity() {
         binding.btnIngresar.setOnClickListener{
             if (!validarFormulario())
                 return@setOnClickListener
-            database = BDPolleria.getInstancia(this)
-            /* Crear usuario */
-            var obj = Usuario()
-            obj.id_usuario = 1
-            obj.nom_usuario = "Pablito Backyardigans"
-            obj.email_usuario = "user"
-            obj.password_usuario = "123"
-            obj.tel_usuario = "123"
-            database.usuarioDao().insertUsuario(obj)
 
-            var email = binding.etUsuario.text.toString()
+            var user = binding.etUsuario.text.toString()
             var pass = binding.etPassword.text.toString()
-            var usuario = database.usuarioDao().getUsuarioByUserAndPass(email, pass)
+            var usuario = database.usuarioDao().getUsuarioByUserAndPass(user, pass)
+
             if(usuario != null){
                 SharedPreferences.setPrefUsuario(applicationContext,usuario)
                 startActivity(Intent(this,ListProductosActivity::class.java))
                 finish()
             }
             else{
-                Toast.makeText(this,"Sucedio un error",Toast.LENGTH_LONG).show()
+                Toast.makeText(this,"Credenciales incorrectas",Toast.LENGTH_LONG).show()
             }
         }
 
@@ -68,5 +61,17 @@ class LoginActivity : AppCompatActivity() {
             return false
         }
         return true
+    }
+
+    private fun usuarioTemporal(){
+        database = BDPolleria.getInstancia(this)
+        /* Crear usuario */
+        var obj = Usuario()
+        obj.id_usuario = 1
+        obj.nom_usuario = "Pablito Backyardigans"
+        obj.email_usuario = "test@test.com"
+        obj.password_usuario = "123"
+        obj.tel_usuario = "999999999"
+        database.usuarioDao().insertUsuario(obj)
     }
 }

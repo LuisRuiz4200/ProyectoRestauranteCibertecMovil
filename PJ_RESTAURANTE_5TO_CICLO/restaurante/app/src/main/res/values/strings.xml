@@ -14,7 +14,7 @@
     <string name="bienvenido">Bienvenido</string>
     <string name="ingresa_cuenta">Ingresa con tu cuenta</string>
     <string name="olvide_contrasena"><u>¿Olvidaste tu contraseña?</u></string>
-    <string name="ingresa_usuario">Ingresa tu usuario</string>
+    <string name="ingresa_usuario">Ingresa tu email o teléfono</string>
     <string name="ingresa_contrasena">Ingresa tu contraseña</string>
     <string name="registrate">Regístrate</string>
     <string name="iniciar_sesion">Iniciar Sesión</string>
@@ -75,4 +75,8 @@
     <string name="agregar">Agregar</string>
     <string name="agradecimiento">¡ Muchas gracias por su compra !</string>
     <string name="regresar">Regresar</string>
+    <string name="nombres">Nombres</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="agregar_carrito">Agregar al carrito</string>
+    <string name="tabs">Tabs</string>
 </resources>

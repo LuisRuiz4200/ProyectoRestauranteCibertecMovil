@@ -28,5 +28,7 @@ class MisPedidosAdapter (var items: MutableList<Producto>) : RecyclerView.Adapte
         holder.tvNombre.text=item.nom_producto
         holder.tvDescripcion.text=item.des_producto
         holder.tvFecha.text=item.preciouni_producto.toString()
+
+       // Logica de Boton
     }
 }

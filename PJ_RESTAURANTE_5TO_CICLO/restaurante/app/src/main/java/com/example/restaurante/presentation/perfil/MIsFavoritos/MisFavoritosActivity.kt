@@ -1,12 +1,12 @@
-package com.example.restaurante.presentation
+package com.example.restaurante.presentation.perfil.MIsFavoritos
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.restaurante.R
 
-class StartActivity : AppCompatActivity() {
+class MisFavoritosActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_start)
+        setContentView(R.layout.activity_mis_favoritos)
     }
 }
