@@ -19,14 +19,14 @@
         <androidx.constraintlayout.utils.widget.ImageFilterView
             android:layout_width="130dp"
             android:layout_height="130dp"
-            app:srcCompat="@drawable/logo"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/eslogan"
-            android:fontFamily="@font/marckscript"
-            android:textColor="@color/main_rojo"
-            android:textSize="20sp"/>
+            app:srcCompat="@drawable/logo_main3"/>
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/eslogan"-->
+<!--            android:fontFamily="@font/marckscript"-->
+<!--            android:textColor="@color/main_rojo"-->
+<!--            android:textSize="20sp"/>-->
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <!--Titulo-->

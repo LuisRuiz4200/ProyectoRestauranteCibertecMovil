@@ -66,6 +66,9 @@ class ListProductosFragment : Fragment(), ListProductosAdapter.ICard, ListProduc
         // Filtro por nombre
         view.searchIcon.setOnClickListener{
             viewModelProducto.getProductosByNombre(view.etBuscarProducto.text?.trim().toString())
+            val inputMethodManager = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(view.etBuscarProducto.windowToken, 0)
+            view.etBuscarProducto.text = null
         }
         view.etBuscarProducto.setOnEditorActionListener { v, actionId, event ->
             if(actionId == EditorInfo.IME_ACTION_SEARCH){
