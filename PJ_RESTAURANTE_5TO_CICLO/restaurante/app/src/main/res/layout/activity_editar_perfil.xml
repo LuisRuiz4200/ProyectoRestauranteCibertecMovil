@@ -51,10 +51,10 @@
                     android:layout_width="128dp"
                     android:layout_height="128dp"
                     android:layout_gravity="center"
-                    app:strokeColor="@color/black"
+                    app:strokeColor="@color/main_amarillo"
                     app:strokeWidth="4dp"
                     android:padding="4dp"
-                    app:srcCompat="@drawable/pollo"
+                    app:srcCompat="@drawable/photo_perfil"
                     android:scaleType="centerCrop"
                     app:shapeAppearanceOverlay="@style/circularImageView" />
             </androidx.appcompat.widget.LinearLayoutCompat>

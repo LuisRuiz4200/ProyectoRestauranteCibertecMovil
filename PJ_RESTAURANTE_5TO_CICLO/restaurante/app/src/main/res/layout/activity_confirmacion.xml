@@ -16,7 +16,7 @@
         <androidx.constraintlayout.utils.widget.ImageFilterView
             android:layout_width="108dp"
             android:layout_height="87dp"
-            android:src="@drawable/logo"/>
+            android:src="@drawable/logo_main3"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
     <!--Pollo :v -->
     <androidx.appcompat.widget.LinearLayoutCompat
